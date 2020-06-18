@@ -1,0 +1,2977 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://wiki.iarduino.ru/page/a6_gprs_at/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Описание АТ-команд GSM/GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/main(1).css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/hoverTop.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/hoverMenu.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/linkBar.css">
+    <script async="" src="https://mc.yandex.ru/metrika/tag.js"></script><script type="text/javascript" async="" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/widget.js"></script><script charset="UTF-8" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/d7b3bf1cfb948557e6c9e8189d1a8732_1.js" async=""></script><script type="text/javascript" async="" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/widget(1).js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/file-list.css">
+
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/redactor_text.css">
+    <link rel="stylesheet" type="text/css" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/prettify.css">
+    <link href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/css" rel="stylesheet">
+
+    
+
+    <link rel="stylesheet" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/owl.carousel.min.css">
+    <link rel="stylesheet" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/owl.theme.default.min.css">
+
+
+
+    <script src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/jqueryjson-2.4.min.js"></script>
+
+    <script src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/vue.js"></script>
+    <script src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/vue-select.js"></script><style type="text/css">.v-select{position:relative;font-family:inherit}.v-select,.v-select *{box-sizing:border-box}.v-select[dir=rtl] .vs__actions{padding:0 3px 0 6px}.v-select[dir=rtl] .dropdown-toggle .clear{margin-left:6px;margin-right:0}.v-select[dir=rtl] .selected-tag .close{margin-left:0;margin-right:2px}.v-select[dir=rtl] .dropdown-menu{text-align:right}.v-select .open-indicator{display:flex;align-items:center;cursor:pointer;pointer-events:all;opacity:1;width:12px}.v-select .open-indicator,.v-select .open-indicator:before{transition:all .15s cubic-bezier(1,-.115,.975,.855);transition-timing-function:cubic-bezier(1,-.115,.975,.855)}.v-select .open-indicator:before{border-color:rgba(60,60,60,.5);border-style:solid;border-width:3px 3px 0 0;content:"";display:inline-block;height:10px;width:10px;vertical-align:text-top;transform:rotate(133deg);box-sizing:inherit}.v-select.open .open-indicator:before{transform:rotate(315deg)}.v-select.loading .open-indicator{opacity:0}.v-select .dropdown-toggle{-webkit-appearance:none;-moz-appearance:none;appearance:none;display:flex;padding:0 0 4px;background:none;border:1px solid rgba(60,60,60,.26);border-radius:4px;white-space:normal}.v-select .vs__selected-options{display:flex;flex-basis:100%;flex-grow:1;flex-wrap:wrap;padding:0 2px;position:relative}.v-select .vs__actions{display:flex;align-items:stretch;padding:0 6px 0 3px}.v-select .dropdown-toggle .clear{font-size:23px;font-weight:700;line-height:1;color:rgba(60,60,60,.5);padding:0;border:0;background-color:transparent;cursor:pointer;margin-right:6px}.v-select.searchable .dropdown-toggle{cursor:text}.v-select.unsearchable .dropdown-toggle{cursor:pointer}.v-select.open .dropdown-toggle{border-bottom-color:transparent;border-bottom-left-radius:0;border-bottom-right-radius:0}.v-select .dropdown-menu{display:block;position:absolute;top:100%;left:0;z-index:1000;min-width:160px;padding:5px 0;margin:0;width:100%;overflow-y:auto;border:1px solid rgba(0,0,0,.26);box-shadow:0 3px 6px 0 rgba(0,0,0,.15);border-top:none;border-radius:0 0 4px 4px;text-align:left;list-style:none;background:#fff}.v-select .no-options{text-align:center}.v-select .selected-tag{display:flex;align-items:center;background-color:#f0f0f0;border:1px solid #ccc;border-radius:4px;color:#333;line-height:1.42857143;margin:4px 2px 0;padding:0 .25em;transition:opacity .25s}.v-select.single .selected-tag{background-color:transparent;border-color:transparent}.v-select.single.open .selected-tag{position:absolute;opacity:.4}.v-select.single.searching .selected-tag{display:none}.v-select .selected-tag .close{margin-left:2px;font-size:1.25em;appearance:none;padding:0;cursor:pointer;background:0 0;border:0;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;filter:alpha(opacity=20);opacity:.2}.v-select.single.searching:not(.open):not(.loading) input[type=search]{opacity:.2}.v-select input[type=search]::-webkit-search-cancel-button,.v-select input[type=search]::-webkit-search-decoration,.v-select input[type=search]::-webkit-search-results-button,.v-select input[type=search]::-webkit-search-results-decoration{display:none}.v-select input[type=search]::-ms-clear{display:none}.v-select input[type=search],.v-select input[type=search]:focus{appearance:none;-webkit-appearance:none;-moz-appearance:none;line-height:1.42857143;font-size:1em;display:inline-block;border:1px solid transparent;border-left:none;outline:none;margin:4px 0 0;padding:0 7px;max-width:100%;background:none;box-shadow:none;flex-grow:1;width:0}.v-select.unsearchable input[type=search]{opacity:0}.v-select.unsearchable input[type=search]:hover{cursor:pointer}.v-select li{line-height:1.42857143}.v-select li>a{display:block;padding:3px 20px;clear:both;color:#333;white-space:nowrap}.v-select li:hover{cursor:pointer}.v-select .dropdown-menu .active>a{color:#333;background:rgba(50,50,50,.1)}.v-select .dropdown-menu>.highlight>a{background:#5897fb;color:#fff}.v-select .highlight:not(:last-child){margin-bottom:0}.v-select .spinner{align-self:center;opacity:0;font-size:5px;text-indent:-9999em;overflow:hidden;border-top:.9em solid hsla(0,0%,39%,.1);border-right:.9em solid hsla(0,0%,39%,.1);border-bottom:.9em solid hsla(0,0%,39%,.1);border-left:.9em solid rgba(60,60,60,.45);transform:translateZ(0);animation:vSelectSpinner 1.1s infinite linear;transition:opacity .1s}.v-select .spinner,.v-select .spinner:after{border-radius:50%;width:5em;height:5em}.v-select.disabled .dropdown-toggle,.v-select.disabled .dropdown-toggle .clear,.v-select.disabled .dropdown-toggle input,.v-select.disabled .open-indicator,.v-select.disabled .selected-tag .close{cursor:not-allowed;background-color:#f8f8f8}.v-select.loading .spinner{opacity:1}@-webkit-keyframes vSelectSpinner{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes vSelectSpinner{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.fade-enter-active,.fade-leave-active{transition:opacity .15s cubic-bezier(1,.5,.8,1)}.fade-enter,.fade-leave-to{opacity:0}</style>
+
+    <script src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/lodash.min.js"></script>
+    <script src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/owl.carousel.min.js"></script>
+    <script src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/main.js"></script>
+
+          
+<link rel="stylesheet" type="text/css" media="screen" href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/index.css"></head>
+<body>
+
+<div class="width100 backgroundGrey">
+    <div class="width1366 hoverTop">
+        <div class="menuButtonMob">
+            <img src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/show-menu-button.svg" id="menuButtonMob">
+        </div>
+
+        <div class="logo"><img src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/logo.svg" onclick="window.location.href =&#39;https://iarduino.ru/&#39; "></div>
+
+        <div class="cartButtonMob">
+            <img class="img" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/shopping.svg" onclick="window.location.href =&#39;/user/cart&#39; ">
+        </div>
+        <div class="cart" onclick="window.location.href =&#39;https://iarduino.ru/user/cart&#39; ">
+            <div class="name">КОРЗИНА</div>
+            <div class="count">магазина</div>
+        </div>
+ 
+        <ul class="menu">
+            <li><a href="https://www.youtube.com/channel/UCRfNkq8F8rxmDa3sPoEQv1w" target="_blank" class="hover1" id="topButtonYoutube">ВИДЕО</a></li>
+            <li><a href="https://lesson.iarduino.ru/" target="_blank">УРОКИ</a></li>
+            <li><a href="https://iarduino.ru/" target="_blank">МАГАЗИН</a></li>
+            <li><a href="https://iarduino.ru/file/">ФАЙЛЫ</a></li>
+        </ul>
+
+        <div class="info">
+            8 (499) 500-14-56 | ПН. - ПТ. 12:00-18:00<br>
+            ЛЕСНОРЯДСКИЙ ПЕРЕУЛОК, 18С2, БЦ "ДМ-ПРЕСС"
+        </div>
+
+    </div>
+</div>
+
+<div style="clear:both"></div><div style="clear:both"></div>
+<div class="width100">
+    <div class="width1366">
+        <div class="LinkBar">
+                    </div>
+    </div>
+</div><div style="clear:both"></div>
+
+
+
+<div class="width100">
+    <div class="width1366">
+       <h1>Описание АТ-команд GSM/GPRS Shield, модуль A6</h1>
+    </div>
+</div>
+<div class="width100">
+    <div class="width1366">
+        <div class="LinkBar">
+        <a href="https://wiki.iarduino.ru/" class="link">ГЛАВНАЯ</a>
+        <span class="text">/</span>
+        <a href="https://wiki.iarduino.ru/" class="link">КАтегории</a>
+    <span class="text">/</span> Описание АТ-команд GSM/GPRS Shield, модуль A6 </div>
+    </div>
+</div>
+
+
+<div class="width100">
+    <div class="width1366 pageWiki">
+        <div>
+
+                        <div id="prev_wiki">
+                <div class="left">
+                 <img class="img_prev_grup" id="img_prev1" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/327.svg" alert="GSM/GPRS Shield" title="GSM/GPRS Shield" style="display: none;"> <img class="img_prev_grup" id="img_prev2" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/327_1.svg" alert="GSM/GPRS Shield" title="GSM/GPRS Shield" style="">                </div>
+                <div class="right">	
+                <div class="title">Исходники изображение:</div>
+                    <div class="wiki_linl_block"><i class="fa fa-file-image-o" style="color: #1e789b;"></i> <a href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/327.svg" target="_blank">SVG</a>, <a href="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/327_1.svg" target="_blank">SVG B</a>, <a href="https://wiki.iarduino.ru/img/resources/327/327_1000.png" alert="GSM/GPRS Shield" title="GSM/GPRS Shield" target="_blank">PNG (1000px)</a>, <a href="https://wiki.iarduino.ru/img/resources/327/327_5000.png" alert="GSM/GPRS Shield" title="GSM/GPRS Shield" target="_blank">PNG (5000px)</a>,  <span> — id:327</span></div> 
+                
+                <div class="wiki-shop-link-button">
+                     <span class="button" onclick="$(&#39;#wiki-shop-link&#39;).toggle();$(&#39;#fa-level-downXzA2&#39;).toggle();$(&#39;#fa-level-downXzA1&#39;).toggle();">Перейти в магазин <i class="fa fa-times" style="display: none;" id="fa-level-downXzA2" aria-hidden="true"></i><i class="fa fa-level-down" id="fa-level-downXzA1" aria-hidden="true"></i></span>                </div>
+                <div id="wiki-shop-link" style="display: none;">
+                    
+      <div class="item">
+        <a href="https://iarduino.ru/shop/Expansion-payments/gsm-gprs-shield.html">
+          <div class="img"><img id="img_prev" src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/327.svg"></div>
+          <div class="name">GSM/GPRS Shield</div>
+        </a>
+      </div>
+                      </div>
+            </div>
+            </div>
+             
+
+            <div id="content" class="redactor-styles">
+                                <p><a href="https://iarduino.ru/shop/Expansion-payments/gsm-gprs-shield.html">GSM/GPRS SHIELD A6</a> подключается по шине UART и способен выполнять AT-команды. AT-команда это строка начинающаяся с букв «AT» (от английского <strong>at</strong>tention - «внимание»). Shield выполняет поступившую команду и отправляет обратно ответ (результат выполнения команды), который также является строкой. В <a href="https://iarduino.ru/shop/Expansion-payments/gsm-gprs-shield.html">GSM/GPRS SHIELD A6</a> каждая команда (как и ответ) должна заканчиваться символами перевода строки «\r\n».
+</p>
+<h2 id="h3_0">Подключение:</h2>
+<ul>
+	<li>Shield устанавливается на <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a> и использует следующие её выводы: «RX» (D0 или D7), «TX» (D1 или D8), «PWR» (D9), GND, 3V3, «Vcc» (5V или Vin).</li>
+	<li>Shield позволяет использовать как аппаратную так и программную реализацию шины UART <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>. Если переключатель на плате shield находится в положении «RX-0/TX-1», то используется аппаратная шина, выводы D0 (RX <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>, TX shield) и D1 (TX <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>, RX shield). Если переключатель на плате shield находится в положении «RX-7/TX8, то используется программная шина, выводы D7 и (RX <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>, TX shield) и D8 (TX <a href="https://iarduino.ru/shop/arduino/" target="_blank" rel="color: rgb(17, 85, 204); font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);">Arduino</a>, RX shield).</li>
+</ul>
+<h2 id="h3_1">Настройка:</h2>
+<p>Модуль <a href="https://iarduino.ru/shop/Expansion-payments/gsm-gprs-shield.html">GSM/GPRS A6</a> сможет принимать команды только если правильно настроены следующие параметры последовательного порта:
+</p>
+<ul>
+	<li><strong>Номер COM-</strong><strong>порта: </strong>Его можно узнать экспериментально, отключите <a href="https://iarduino.ru/shop/programmers/pl2303-usb-to-rs232-ttl.html" target="_blank">адаптер</a> или <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>, посмотрите какие COM-порты доступны. Подключите <a href="https://iarduino.ru/shop/programmers/pl2303-usb-to-rs232-ttl.html" target="_blank">адаптер</a> или <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a> и вновь посмотрите какие порты доступны. Появившийся COM-порт и есть тот самый.</li>
+	<li><strong>Скорость передачи данных:</strong> По умолчанию скорость передачи данных shield равна 115200 бит/сек, она должна совпадать со скоростью COM-порта. Если отправить в shield любые AT-команды на скорости COM-парта: 2400, 4800, 9600, 14400, 19200, 28800, 33600, 38400, 57600, 115200, 230400, 460800, 921600, 1843200, то получив 5 - 10 команд на одной скорости, shield автоматически переключится на эту скорость COM-порта. Скорость передачи данных shield можно явно указать командой <strong>ATZ+IPR=</strong>СКОРОСТЬ, например: <strong>ATZ+IPR=9600</strong></li>
+	<li><strong>Параметры передачи данных: </strong>По умолчанию: количество бит в пакете - 8, размер стопового бита = 1, без проверки чётности.</li>
+	<li><strong>Передаваемый текст: </strong>В программе (на компьютере) нужно установить пункт «добавлять символ CR» это символ конца строки «\r», а можно установить пункт «добавлять символы CR &amp; LF(NL)» это символы перевода строки «\r\n» которые Вы не сможете ставить самостоятельно в конце AT-команд.<br>Для настройки этих параметров в программе <a href="http://www.compuphase.com/software_termite.htm" target="_blank">Termite</a>, нажмите на кнопку «Настройки» (Settings). В том же окне можно установить Русский язык.<br>При использовании <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>, номер порта указывается во вкладке «Инструменты». Параметры передачи данных используются по умолчанию. Для добавления символов NL &amp; CR воспользуйтесь меню в правом нижнем углу монитора последовательного порта.</li>
+</ul>
+<h2 id="h3_2">Проверка:</h2>
+<p>Для проверки связи с <a href="https://iarduino.ru/shop/Expansion-payments/gsm-gprs-shield.html">GSM/GPRS A6</a> отправьте тестовую команду <strong>AT </strong>(введите текст <strong>AT </strong>и нажмите Enter). Если связь установлена корректно, то shield ответит <strong>OK</strong><span class="redactor-invisible-space" style="background-color: initial;">. После этого можно отправлять остальные AT-команды.</span>
+</p>
+<h2 id="h3_3">Синтаксис AT-команд:</h2>
+<p>Если в программе терминал указано добавлять символы CR &amp; LF или NL &amp; CR то символы «\r\n» в командах ставить не нужно!<br>Команды можно писать следующим образом:
+</p>
+<ul>
+	<li><strong>AT+КОМАНДА=?</strong><span style="color: #777777;">\r\n</span> - Синтаксис запроса списка параметров и диапазонов их значений поддерживаемых командой (shield вернёт строку с корректными параметрами для отправки данной команды).</li>
+	<li><strong>AT+КОМАНДА?</strong><span style="color: #777777;">\r\n</span> - Синтаксис запроса данных (shield вернёт текущие значения параметров команды).</li>
+	<li><strong>AT+КОМАНДА=ПАРАМЕТР(Ы)</strong><span style="color: #777777;">\r\n</span> - Синтаксис установки данных (shield установит указанные значения параметров команды).</li>
+	<li><strong>AT+КОМАНДА</strong><span style="color: #777777;">\r\n</span> - Синтаксис запроса/установки данных определяемых внутренними процессами модуля.</li>
+	<li>Если синтаксис команды неверен, то возвращается <strong>ERROR</strong>.</li>
+	<li>Если синтаксис команды верен, но допущены ошибки в параметрах, то возвращается <strong>+CME ERROR</strong> или <strong>+CMS ERROR</strong>.</li>
+	<li>Если команда выполнена успешно, то в большинстве случаев возвращается <strong>ОК</strong>.</li>
+</ul>
+<h3>Пример 1: (синтаксис команды с одним параметром)</h3>
+<ul>
+	<li>Получить список параметров и диапазон их значений для команды <strong>AT+CSCS</strong> (выбор набора символов терминального оборудования):
+	<ul>
+		<li>Запрос: <strong>AT+CSCS=?</strong><span style="color: #777777;">\r\n</span></li>
+		<li>Ответ: +CSCS: <strong>(</strong>"<strong>GSM</strong>","<strong>HEX</strong>","<strong>PCCP936</strong>","<strong>UCS2</strong>"<strong>)</strong><span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		<li><span style="color: #777777;"></span>Из ответа видно, что команда AT+CSCS содержит один параметр (так как в ответе одни скобки), который может принимать одно из четырёх значений: "GSM", "HEX", "PCCP936" или "UCS2".</li>
+	</ul></li>
+	<li>Получить используемый в данный момент набор символов терминального оборудования:
+	<ul>
+		<li>Запрос: <strong>AT+CSCS?</strong><span style="color: #777777;">\r\n</span></li>
+		<li>Ответ: +CSCS: <strong>"PCCP936"</strong><span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		<li><span style="color: #777777;"></span>Из ответа видно, что в данный момент используется набор символов "PCCP936".</li>
+	</ul></li>
+	<li>Установить набор символов "GSM" для терминального оборудования:
+	<ul>
+		<li>Запрос: <strong>AT+CSCS="GSM"</strong><span style="color: #777777;">\r\n</span></li>
+		<li>Ответ: OK<span style="color: #777777;">\r\n</span></li>
+		<li><span style="color: #777777;"></span>Из ответа OK, следует, что набор символов "GSM" успешно установлен и используется.</li>
+	</ul></li>
+</ul>
+<h3>Пример 2: (синтаксис команды с двумя параметрами)</h3>
+<ul>
+	<li>Получить список параметров и диапазон их значений для команды <strong>AT+ICF</strong> (запрос / установка параметров передачи данных по шине UART):
+	<ul>
+		<li>Запрос: <strong>AT+ICF=?</strong><span style="color: #777777;">\r\n</span></li>
+		<li>Ответ: +ICF: <strong>(1-6)</strong>,<strong>(0-3)</strong><span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		<li><span style="color: #777777;"></span>Из ответа видно, что команда AT+ICF содержит два параметра (так как в ответе две скобки), первый может принимать значение от 1 до 6, а второй от 0 до 3.</li>
+	</ul></li>
+	<li>Получить используемые в данный момент параметры передачи данных по шине UART:
+	<ul>
+		<li>Запрос: <strong>AT+ICF?</strong><span style="color: #777777;">\r\n</span></li>
+		<li>Ответ: +ICF: <strong>3</strong>, <strong>0</strong><span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		<li><span style="color: #777777;"></span>Из ответа видно, что первый параметр равен 3, а второй 0. Согласно таблице основных AT-команд, это значит, что передача ведётся по 8 бит данных, используется 1 стоп бит и проверка нечётности.</li>
+	</ul></li>
+	<li>Установить новые параметры передачи данных по шине UART:
+	<ul>
+		<li>Запрос: <strong>AT+ICF=2,3</strong><span style="color: #777777;">\r\n</span></li>
+		<li>Ответ: OK<span style="color: #777777;">\r\n</span></li>
+		<li><span style="color: #777777;"></span>Из ответа OK, следует, что новые параметры передачи данных успешно установлены (8 бит данных, 1 стоп бит, без проверки).</li>
+	</ul></li>
+</ul>
+<h2 id="h3_4">Используемые сокращения:</h2>
+<ul>
+	<li><strong>GSM</strong> (Global System for Mobile communications) - глобальная система мобильной связи<span class="redactor-invisible-space">. Это стандарт цифровой мобильной сотовой связи, с разделением каналов по времени (TDMA) и частоте (FDMA).<span class="redactor-invisible-space"></span></span></li>
+	<li><span class="redactor-invisible-space"><strong>TDMA </strong>(Time Division Multiple Access) - множественный доступ с разделением по времени. Это способ, когда в одном частотном диапазоне находятся несколько абонентов, разные абоненты используют разные временные интервалы (слоты) для передачи данных.<span class="redactor-invisible-space"><br></span></span></li>
+	<li><span class="redactor-invisible-space"><span class="redactor-invisible-space"><strong>FDMA </strong>(Frequency Division Multiple Access) - множественный доступ с разделением каналов по частоте. Это способ, когда в одном частотном диапазоне находится только один абонент, разные абоненты используют разные частоты в пределах соты.<span class="redactor-invisible-space"><br></span></span></span></li>
+	<li><strong>DTE </strong>(Data Terminal Equipment) - терминальное оборудование данных. Это оконечное устройство приёма/передачи данных (в данном случае компьютер или <a href="https://iarduino.ru/shop/arduino/" target="_blank">Arduino</a>).</li>
+	<li><strong>DCE </strong>(Data Communication Equipment) - оборудование коммуникации данных. Это устройство осуществляющее связь, но не являющееся источником или конечным получателем данных (в данном случае это <a href="https://iarduino.ru/shop/Expansion-payments/gsm-gprs-shield.html">GSM/GPRS SHIELD A6</a>).</li>
+	<li><strong>IMSI</strong> (International Mobile Subscriber Identity) - международный идентификатор мобильного абонента. Это индивидуальный номер абонента который в системе GSM хранится на SIM-карте. IMSI состоит из кода страны, кода оператора и номера MSIN. По этому номеру оператор сотовой связи определяет абонентов сопоставляя его с MSISDN (номером мобильного абонента) номером телефона.</li>
+	<li><strong>MSIN</strong> (Mobile Subscriber Identification Number) идентификатор пользователя, является частью IMSI.</li>
+	<li><strong>IMEI</strong> (International Mobile Equipment Identity) международный идентификатор мобильного оборудования. Это индивидуальный номер телефона.</li>
+	<li><strong>SIM</strong> (Subscriber Identification Module) модуль идентификации абонента.</li>
+	<li><strong>PIN</strong> (Personal Identification Number) персональный идентификационный номер. Это пароль CHV для доступа к некоторым функциям SIM.</li>
+	<li><strong>CHV </strong>(card holder verification) проверка держателя карты.</li>
+	<li><strong>PUK</strong> (Personal Unlocking Key) персональный разблокирующий ключ. Требуется после нескольких неудачных попыток ввода PIN.</li>
+	<li><strong>ISDN</strong> (Integrated Services Digital Network) - цифровая сеть с интеграцией служб для связи в стандартах GSM, UMTS и т.д. (такая сеть совмещает телефонную связь и обмен данными).</li>
+	<li><strong>MSISDN</strong> (Mobile Subscriber Integrated Services Digital Number) - номер мобильного абонента сети ISDN. Это тот номер к который мы называем номером телефона: +7(XXX)XXX-XX-XX.</li>
+	<li><strong>PLMN </strong>(Public Land Mobile Network) сеть связи общего пользования наземных мобильных объектов.</li>
+	<li><strong>DTMF</strong> (Dual-Tone Multi-Frequency) - двухтональный многочастотный аналоговый сигнал, используемый для набора телефонного номера.</li>
+	<li><strong>MCC </strong>(Mobile Country Code) - мобильный код страны (250 - Россия), в сочетании с MNC (Mobile Network Code) является уникальным цифровым идентификатором сотового оператора, например 25001 - MTS, 25002 - MegaFon, 25099 - Beeline.</li>
+	<li><strong>MNC</strong> (Mobile Network Code) - код мобильной сети в комбинации с MCC является уникальным идентификатором сотового оператора.</li>
+	<li><strong>SMS </strong>(Short Message Service) - служба коротких сообщений. Это технология, приёма / передачи коротких текстовых сообщений с помощью сотового телефона.</li>
+	<li><strong>STK </strong>(SIM Tool Kit) - набор инструментов для SIM-карты. Это стандарт позволяющий приложениям SIM-карты получать доступ к функциям телефона. Часто STK используется для реализации сервиса SIM-меню<span class="redactor-invisible-space">.</span></li>
+	<li><span class="redactor-invisible-space"><strong>PDU</strong> (Packet Data Unit) - блок пакетной передачи данных<span class="redactor-invisible-space">. Это формат записи SMS сообщений.</span><br></span></li>
+</ul>
+<h2 id="h3_5">Примеры:</h2>
+<p>С примерами использования AT-команд можно ознакомиться на странице <a href="https://wiki.iarduino.ru/page/gsm-gprs-shield-AT-examples/">Wiki - примеры использования AT-команд</a>.
+</p>
+<p>Описание AT-команд переведено с первоисточника <a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">AT A6 V1.01</a>.</p>
+<h2 id="h3_6">Основные AT-команды:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>AT
+	</td>
+	<td><strong>AT</strong><span style="color: #777777;">\r\n</span><br><em>(тестовый запрос)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Команда Тест:</strong><br>
+		<ul>
+			<li>Используется для проверки связи с shield.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CPOF
+	</td>
+	<td><strong>AT+CPOF</strong><span style="color: #777777;">\r\n</span><br><em>(выключить модуль)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Команда выключения модуля:</strong><br>
+		<ul>
+			<li>Shield ведёт себя так, как при подаче логической «1» на вывод «PWR».</li>
+			<li>Если на выводе «PWR» установлен логический «0», то после выключения shield снова включится.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATS0
+	</td>
+	<td><strong>ATS0?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего количества гудков до автоответа)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ЧИСЛО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Запрос / установка автоматического ответа на вызовы:</strong><br>
+		<ul>
+			<li>ЧИСЛО - указывает количество гудков перед автоответом (от 0 до 255), если указан 0, то автоответ отключён.</li>
+			<li>Пример ответа: 5<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - установлен автоответ после 5 гудков.</li>
+			<li>Пример установки: ATS0=2<span style="color: #777777;">\r\n</span> - включить автоответ после 2 гудков.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATS0=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка количества гудков)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATS3
+	</td>
+	<td><strong>ATS3?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос текущего кода)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ЧИСЛО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Запрос / установка кода символа конца командной строки:</strong><br>
+		<ul>
+			<li>ЧИСЛО - определяет код символа конца строки в десятичной системе счисления.</li>
+			<li>Пример ответа: 13<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - код символа конца строки равен 13.</li>
+			<li>Пример установки: ATS3=13<span style="color: #777777;">\r\n</span> - установить значение 13 как код символа конца строки.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATS3=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка кода символа)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATS4
+	</td>
+	<td><strong>ATS4?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос текущего кода)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ЧИСЛО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Запрос / установка кода символа начала командной строки:</strong><br>
+		<ul>
+			<li>ЧИСЛО - определяет код символа начала строки в десятичной системе счисления.</li>
+			<li>Пример ответа: 10<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - код символа конца строки равен 10.</li>
+			<li>Пример установки: ATS4=10<span style="color: #777777;">\r\n</span> - установить значение 10 как код символа начала строки.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATS4=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка кода символа)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATS5
+	</td>
+	<td><strong>ATS5?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего кода)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ЧИСЛО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Запрос / установка кода символа backspace для командной строки:</strong><br>
+		<ul>
+			<li>ЧИСЛО - определяет код символа backspace в десятичной системе счисления. Это символ который удаляет предшествующий ему символ.</li>
+			<li>Пример ответа: 8<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - код символа backspace равен 8.</li>
+			<li>Пример установки: ATS5=8<span style="color: #777777;">\r\n</span> - установить значение 8 как код символа backspace.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATS5=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка кода символа)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>+++
+	</td>
+	<td><strong>+++</strong><span style="color: #777777;">\r\n</span><br><em>(переключение в командный режим)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Переключение из режима online в режим offline:</strong><br>
+		<ul>
+			<li>Во время соединения (в режиме данных или PPP) можно перейти в режим offline (командный режим) который позволяет использовать AT команды. Противоположность команды «ATO».</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>ATO
+	</td>
+	<td><strong>ATO</strong><span style="color: #777777;">\r\n</span><br><em>(переключение в режим данных)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Переключение из режима offline в режим online:</strong><br>
+		<ul>
+			<li>Если соединение установлено и устройство находится в командном режиме (offline), то данная команда позволяет вернуться в режим online (режим данных или PPP). Противоположность команды «+++».</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>AT&amp;F
+	</td>
+	<td><strong>AT&amp;F</strong><span style="color: #777777;">\r\n</span><br><em>(загрузка заводского профиля)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Восстановить заводские настройки:</strong><br>
+		<ul>
+			<li>Загружает профиль по умолчанию (заводской профиль). В дополнении, можно сохранять пользовательский (индивидуальный) профиль «AT&amp;W» и загружать его «ATZ».</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATV
+	</td>
+	<td><strong>ATV0</strong><span style="color: #777777;">\r\n</span><br><em>(установка коротких ответов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Установка формата DCE ответа:</strong><br>
+		<ul>
+			<li>ATV0 - Короткие заголовки и цифровые коды ответа, например, вместо OK<span style="color: #777777;">\r\n</span> будет число 0<span style="color: #777777;">\r\n</span>.</li>
+			<li>ATV1 - Полные заголовки и текстовые ответы, как в примерах данной статьи.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATV1</strong><span style="color: #777777;">\r\n</span><br><em>(установка полных ответов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATE
+	</td>
+	<td><strong>ATE0</strong><span style="color: #777777;">\r\n</span><br><em>(отключить эхо)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Включить / отключить эхо в ответах на AT-команды:</strong><br>
+		<ul>
+			<li>ATE0 - Отключить эхо. После выполнения AT-команд будет выводиться только ответ (результат их выполнения).</li>
+			<li>ATE1 - Включить эхо. После выполнения AT-команд, перед ответом, будет вставлена строка с текстом полученной AT-команды.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATE1</strong><span style="color: #777777;">\r\n</span><br><em>(включить эхо)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>AT&amp;W
+	</td>
+	<td><strong>AT&amp;W</strong><span style="color: #777777;">\r\n</span><br><em>(сохранить настройки в пользовательский профиль)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Сохранить текущие настройки в области EEPROM:</strong><br>
+		<ul>
+			<li>Сохраняет текущие настройки как пользовательский (индивидуальный) профиль, который потом можно загрузить командой «ATZ».</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATQ
+	</td>
+	<td><strong>ATQ0</strong><span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Блокировка результирующего кода:</strong><br>
+		<ul>
+			<li>ATQ0 - DCE передает результирующие коды.</li>
+			<li>ATQ1 - результирующие коды блокируются и не передаются.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATQ1</strong><span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="5">ATX
+	</td>
+	<td><strong>ATX0</strong><span style="color: #777777;">\r\n</span>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="5"><strong>Установка формата кода результата соединения и мониторинг вызовов:</strong><br>
+		<ul>
+			<li>ATX0 - Возвращать только код результата соединения, обнаружение тонального набора и определение занятости отключены.</li>
+			<li>ATX1 - Возвращать код и текст результата соединения, обнаружение тонального набора и определение занятости отключены.</li>
+			<li>ATX2 - Возвращать код и текст результата соединения, обнаружение тонального набора включено, определение занятости отключено.</li>
+			<li>ATX3 - Возвращать код и текст результата соединения, обнаружение тонального набора отключено, определение занятости включено.</li>
+			<li>ATX4 - Возвращать код и текст результата соединения, обнаружение тонального набора и определение занятости включено.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATX1</strong><span style="color: #777777;">\r\n</span>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATX2</strong><span style="color: #777777;">\r\n</span>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATX3</strong><span style="color: #777777;">\r\n</span>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATX4</strong><span style="color: #777777;">\r\n</span>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>ATZ
+	</td>
+	<td><strong>ATZ</strong><span style="color: #777777;">\r\n</span><br><em>(загрузить пользовательский профиль)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Восстановить пользовательские настройки:</strong><br>
+		<ul>
+			<li>Устанавливает текущие настройки из пользовательского (индивидуального) профиля, сохранённого ранее в области EEPROM командой «AT&amp;W». Если выполняется соединение, то оно будет разорвано.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CFUN
+	</td>
+	<td><strong>AT+CFUN=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка требуемого функционала)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Установить набор функциональных возможностей:</strong><br>
+		<ul>
+			<li>ЧИСЛО - значение от 0 до 6 указывающее какие именно функциональные возможности требуется установить:<br>0 - Установить минимальную функциональность (процедура отсоединения IMSI).<br>1 - Установить полный набор функциональных возможностей с полной перезагрузкой.<br>2 - Отключить радиочастотные цепи передачи данных.<br>3 - Отключить радиочастотные цепи приёма данных.<br>4 - Отключите радиочастотные цепи приёма и передачи данных.<br>5 - Включить платформу CSW.<br>6 - Отключить платформу CSW.</li>
+			<li>В настоящее время модули A6 поддерживают только значения 0 и 1.</li>
+			<li>Пример установки: AT+CFUN=1<span style="color: #777777;">\r\n</span> - установить полный набор функций с перезагрузкой.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CMEE
+	</td>
+	<td><strong>AT+CMEE=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMEE: (<strong>0-2</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Установить формат вывода сообщений об ошибках мобильного оборудования:</strong><br>
+		<ul>
+			<li>ЧИСЛО - значение от 0 до 2 определяющее формат вывода ошибок:<br>0 - При возникновении ошибок возвращать только текст «ERROR», без указания кода ошибки.<br>1 - При возникновении ошибок возвращать код ошибки.<br>2 - При возникновении ошибок возвращать текст описывающий возникшую ошибку.</li>
+			<li>Пример ответа: +CMEE: 1<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - при возникновении ошибок возвращается их код.</li>
+			<li>Пример установки: AT+CMEE=1<span style="color: #777777;">\r\n</span> - при возникновении ошибок возвращать их код.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMEE?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего формата вывода ошибок)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMEE: <strong>ЧИСЛО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMEE=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка формата вывода ошибок)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CSCS
+	</td>
+	<td><strong>AT+CSCS=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых наборов символов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSCS: (<strong>"GSM"</strong>, <strong>"HEX"</strong>, <strong>"PCCP936"</strong>, <strong>"UCS2"</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Установить набор символов терминального оборудования:</strong><br>
+		<ul>
+			<li>ИМЯ - название набора символов:<br>"GSM" - 7-битный алфавит GSM (3GPP TS 23.038).<br>"HEX" -  шестнадцатеричный режим, без кодировки.<br>"PCCP936" - таблица символов PC страница 437.<br>"UCS2" - 16-битная таблица символов ISO / IEC10646.</li>
+			<li>Пример ответа: +CSCS: "PCCP936"<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - текст выводится в формате PCCP936.</li>
+			<li>Пример установки: AT+CSCS="UCS2"<span style="color: #777777;">\r\n</span> - выводить текст в формате UCS2.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSCS?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего набора символов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSCS: <strong>ИМЯ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSCS=</strong>ИМЯ<span style="color: #777777;">\r\n</span><br><em>(установка набора символов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CMUX
+	</td>
+	<td><strong>AT+CMUX=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых режимов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMUX: (<strong>0</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Установить режим мультиплексирования:</strong><br>
+		<ul>
+			<li>ЧИСЛО - значение 0 (или 1):<br>0 - Базовый режим.<br>1 - Включить канал управления протоколом мультиплексирования.</li>
+			<li>В настоящее время модули A6 поддерживают только базовый режим.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMUX?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего режима)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMUX: <strong>ЧИСЛО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMUX=</strong>ЧИСЛО<span style="color: #777777;">\r\n</span><br><em>(установка режима)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">ICF
+	</td>
+	<td><strong>AT+ICF=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+ICF: (<strong>1-6</strong>),(<strong>0-3</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка параметров передачи данных по шине UART:</strong><br>
+		<ul>
+			<li>РАЗМЕР - представлен цифрой от 1 до 6:<br>0 - автоматическое определение.<br>1 - 8 бит, 2 стоп бита, проверка нечётности.<br>2 - 8 бит, 1 стоп бит, проверка чётности.<br>3 - 8 бит, 1 стоп бит, проверка нечётности.<br>4 - 7 бит, 2 стоп бита, проверка нечётности.<br>5 - 7 бит, 1 стоп бит, проверка чётности.<br>6 - 7 бит, 1 стоп бит, проверка нечётности.</li>
+			<li>ЧЁТНОСТЬ - представлена цифрой от 0 до 3 и имеет приоритет только если в первом параметре (РАЗМЕР) установлена проверка чётности:<br>0 - проверка нечётности.<br>1 - проверка чётности.<br>3 - без проверки.</li>
+			<li>Пример ответа: +ICF: 3, 0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - установлена передача по 8 бит, 1 стоп бит, с проверкой нечётности.</li>
+			<li>Пример установки: AT+ICF=2,3<span style="color: #777777;">\r\n</span> - установить передачу по 8 бит, 1 стоп бит, без проверки.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+ICF?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущих параметров)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+ICF: <strong>РАЗМЕР</strong>, <strong>ЧЁТНОСТЬ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+ICF=</strong>РАЗМЕР,ЧЁТНОСТЬ<span style="color: #777777;">\r\n</span><br><em>(установка параметров UART)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">IPR
+	</td>
+	<td><strong>AT+IPR=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых скоростей UART)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>(<strong>2400, 4800, 9600, 14400, 19200, 28800, 33600, 38400, 57600, 115200, 230400, 460800, 921600</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка скорости передачи данных по шине UART:</strong><br>
+		<ul>
+			<li>СКОРОСТЬ - представлена количеством бит/сек, возможные значения указаны в ответе на команду AT+IPR=?<span style="color: #777777;">\r\n</span>. Значение по умолчанию 115200 бит/сек.</li>
+			<li>Пример ответа: +IPR: 115200<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - установлена передача на скорости 115300 бот.</li>
+			<li>Пример установки: AT+IPR=9600<span style="color: #777777;">\r\n</span> - установить передачу на скорости 9600 бот.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+IPR?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущей скорости)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+IPR: <strong>СКОРОСТЬ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+IPR=</strong>СКОРОСТЬ<span style="color: #777777;">\r\n</span><br><em>(установка скорости UART)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>GSN
+	</td>
+	<td><strong>AT+GSN</strong><span style="color: #777777;">\r\n</span><br><em>(запрос серийного номера)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>НОМЕР</strong><span style="color: #777777;">\r\n<br></span><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос серийного номера адаптера:</strong><br>
+		<ul>
+			<li>НОМЕР - представлен числом которое является серийным номером.</li>
+			<li>Пример ответа: 867567021221711<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>GMM<br>CGMM<br>
+	</td>
+	<td><strong>AT+GMM</strong><span style="color: #777777;">\r\n</span><br><em>(запрос названия модели)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>МОДЕЛЬ</strong><span style="color: #777777;">\r\n<br></span><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос модели адаптера (модуля):</strong><br>
+		<ul>
+			<li>МОДЕЛЬ - представлена текстовой строкой.</li>
+			<li>Пример ответа: A6<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>GMR<br>CGMR<br>
+	</td>
+	<td><strong>AT+GMR</strong><span style="color: #777777;">\r\n</span><br><em>(запрос версии прошивки)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ВЕРСИЯ</strong><span style="color: #777777;">\r\n<br></span><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос версии ПО адаптера (модуля):</strong><br>
+		<ul>
+			<li>ВЕРСИЯ - представлена текстовой строкой.</li>
+			<li>Пример ответа: V03.03.20160830011H03<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+			<li>Пример ответа: V03.06.20171127R<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>GMI<br>CGMI<br>
+	</td>
+	<td><strong>AT+GMI</strong><span style="color: #777777;">\r\n</span><br><em>(запрос имени производителя)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ПРОИЗВОДИТЕЛЬ</strong><span style="color: #777777;">\r\n<br></span><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос производителя адаптера (модуля):</strong><br>
+		<ul>
+			<li>ПРОИЗВОДИТЕЛЬ - представлен текстовой строкой.</li>
+			<li>Пример ответа: Ai Thinker Co.LTD<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>ATI<br>
+	</td>
+	<td><strong>ATI</strong><span style="color: #777777;">\r\n</span><br><em>(запрос названия, имени и версии)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>ПРОИЗВОДИТЕЛЬ</strong><span style="color: #777777;">\r\n</span><br><strong>МОДЕЛЬ</strong><span style="color: #777777;">\r\n</span><br><strong>ВЕРСИЯ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос информации производителя об адаптере (модуле):</strong><br>
+		<ul>
+			<li>Данная команда совмещает в себе команды: AT+GMM, AT+GMR, AT+GMI.</li>
+			<li>Пример ответа: Ai Thinker Co.LTD<span style="color: #777777;">\r\n</span>A6<span style="color: #777777;">\r\n</span>V03.03.20160830011H03<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CIMI<br>
+	</td>
+	<td><strong>AT+CIMI</strong><span style="color: #777777;">\r\n</span><br><em>(запрос IMSI)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br><strong>НОМЕР</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос IMSI (International Mobile Subscriber Identity):</strong><br>
+		<ul>
+			<li>НОМЕР - международный идентификатор мобильного абонента (IMSI).</li>
+			<li>В системе GSM идентификатор содержится на SIM-карте и обычно состоит из 15 цифр. Первые 3 - код страны (250 - РФ), следующие 2 или 3 - код оператора (02 - ПАО «МегаФон»), остальные цифры - MSIN.</li>
+			<li>Пример ответа: 250020123456789<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">EGMR
+	</td>
+	<td><strong>AT+EGMR=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+EGMR: (<strong>1,2</strong>), (<strong>7</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка IMEI (International Mobile Equipment Identity) устройства:</strong><br>
+		<ul>
+			<li>Первый параметр (режим) - представлен цифрой:<br>1 - установка (запись).<br>2 - запрос (чтение).</li>
+			<li>Второй параметр (формат) - всегда равен 7.</li>
+			<li>НОМЕР - число являющееся IMEI.</li>
+			<li>Пример запроса: AT+EGMR=2,7<span style="color: #777777;">\r\n</span> - запросить текущий IMEI.</li>
+			<li>Пример ответа: +EGMR:012345678901234<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - текущий IMEI равен 012345678901234.</li>
+			<li>Пример установки: AT+EGMR=1,7,987654321043210<span style="color: #777777;">\r\n</span> - заменить IMEI на указанный.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+EGMR=1,7,</strong>"НОМЕР"<span style="color: #777777;">\r\n</span><br><em>(установка IMEI)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+EGMR=2,7</strong><span style="color: #777777;">\r\n</span><br><em>(запрос IMEI)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+EGMR:<strong>НОМЕР</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CALA
+	</td>
+	<td><strong>AT+CALA=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CALA: (<strong>1-15</strong>), (<strong>0</strong>), (<strong>32</strong>), (<strong>15</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка будильников:</strong><br>
+		<ul>
+			<li>ДАТА - представлена строкой в формате "ГГ/ММ/ДД,ЧЧ:ММ:СС+ЧП" в строке можно опустить "ГГ/ММ/ДД" и "+ЧП" (часовой пояс). Если опустить "ГГ/ММ/ДД", то нужно обязательно указать пятый параметр "ДН". Если "ГГ/ММ/ДД" указано, то будильник будет удалён после срабатывания.</li>
+			<li>№ - будильника представлен числом от 1 до 15</li>
+			<li>ТИП - сигнала будильника (звук, светодиод, ...) представлен числом (по умолчанию = 0).</li>
+			<li>ТЕКСТ - представлен строкой сообщения будильника.</li>
+			<li>ДН - дни недели представлены цифрами, пишутся через запятую. Указывается только если в параметре ДАТА указано только время. Каждая цифра соответствует дню недели: 1-понедельник, ... , 7-воскресение, 0-все дни недели.</li>
+			<li>ТИХИЙ - значение представлено числом 0 или 1. Если установлено 1, то будильник будет тихим (результатом срабатывания будет незапрашиваемый код результата +CALV).</li>
+			<li>Пример ответа: +CALA: "17/06/01,20:00:00",1,0,"Conference"<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+			<li>Примеры установки:<br>AT+CALA="17/06/01,20:00:00",1,0,"Conference"<span style="color: #777777;">\r\n</span> - установить будильник на один раз.<br>AT+CALA="06:00:00",2,0,"Wake up","1,2,3,4,5"<span style="color: #777777;">\r\n</span> - установить будильник по будням в 6 часов.<br>AT+CALA="17/06/01,12:00:00",3<span style="color: #777777;">\r\n</span> - установить будильник на один раз.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CALA?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос списка установленных будильников)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CALA: <strong>"ДАТА"</strong> [,<strong>№</strong> [,<strong>ТИП</strong> [,<strong>"ТЕКСТ"</strong> [,<strong>"ДН"</strong> [,<strong>ТИХИЙ</strong>]]]]]<span style="color: #777777;">\r\n</span><br>+CALA: <strong>"ДАТА"</strong> [,<strong>№</strong> [,<strong>ТИП</strong> [,<strong>"ТЕКСТ"</strong> [,<strong>"ДН"</strong> [,<strong>ТИХИЙ</strong>]]]]]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CALA=</strong>"ДАТА"[,№[,ТИП[,"ТЕКСТ"[,"ДН"[,ТИХИЙ]]]]]<span style="color: #777777;">\r\n</span><br><em>(установка будильника)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CALD
+	</td>
+	<td><strong>AT+CALD=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос списка номеров установленных будильников)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CALD: <strong>НОМЕРА</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Удаление одного будильника:</strong><br>
+		<ul>
+			<li>НОМЕРА - через запятую тех будильников которые можно удалить.</li>
+			<li>НОМЕР - того будильника который требуется удалить.</li>
+			<li>Пример ответа: +CALD: 1,2,3,5<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - установлено 4 будильника (1,2,3,5).</li>
+			<li>Пример удаления: AT+CALD=2<span style="color: #777777;">\r\n</span> - удалить будильник номер 2.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CALD=</strong>НОМЕР<span style="color: #777777;">\r\n</span><br><em>(удаление будильника)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">VGR
+	</td>
+	<td><strong>AT+VGR=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых уровней)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VGR: (<strong>5-8</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка уровня усиления динамика:</strong><br>
+		<ul>
+			<li>УСИЛЕНИЕ - представлено числом от 5 до 8<br>(значение 8 соответствует MUTE - выкл).</li>
+			<li>Пример ответа: +VGR: 6<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - текущее усиление равно 6.</li>
+			<li>Пример установки: AT+VGR=7<span style="color: #777777;">\r\n</span> - установить усиление в значение 7.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VGR?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего уровня)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VGR: <strong>УСИЛЕНИЕ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VGR=</strong>УСИЛЕНИЕ<span style="color: #777777;">\r\n</span><br><em>(установка уровня)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">VGT
+	</td>
+	<td><strong>AT+VGT=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых уровней)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VGT: <strong>16</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка уровня усиления микрофона:</strong><br>
+		<ul>
+			<li>УСИЛЕНИЕ - представлено числом от 1 до 16<br>(значение 16 соответствует MUTE - выкл).</li>
+			<li>Пример ответа: +VGT: 1<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - текущее усиление равно 1.</li>
+			<li>Пример установки: AT+VGT=16<span style="color: #777777;">\r\n</span> - установить усиление в значение 16.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VGT?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего уровня)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VGT: <strong>УСИЛЕНИЕ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VGT=</strong>УСИЛЕНИЕ<span style="color: #777777;">\r\n</span><br><em>(установка уровня)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CLVL
+	</td>
+	<td><strong>AT+CLVL=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CLVL: (<strong>5-8</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка громкости динамика громкой связи:</strong><br>
+		<ul>
+			<li>ГРОМКОСТЬ - представлена числом от 5 до 8<br>(чем ниже число, тем ниже громкость).</li>
+			<li>Пример ответа: +CLVL: 5<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - текущая громкость равна 5.</li>
+			<li>Пример установки: AT+CLVL=7<span style="color: #777777;">\r\n</span> - установить громкость в значение 7.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CLVL?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущей громкости)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CLVL: <strong>ГРОМКОСТЬ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CLVL=</strong>ГРОМКОСТЬ<span style="color: #777777;">\r\n</span><br><em>(установка громкости)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CMUT
+	</td>
+	<td><strong>AT+CMUT=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMUT: (<strong>0,1</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка отключения микрофона при голосовом вызове:</strong><br>
+		<ul>
+			<li>ФЛАГ - представлен числом 0 или 1:<br>0 - Mute off (не отключать).<br>1 - Mute on (отключить микрофон).</li>
+			<li>Пример ответа: +CMUT: 0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - микрофон включён.</li>
+			<li>Пример установки: AT+CMUT=1<span style="color: #777777;">\r\n</span> - отключить микрофон.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMUT?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего значения)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMUT: <strong>ФЛАГ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMUT=</strong>ФЛАГ<span style="color: #777777;">\r\n</span><br><em>(установка значения)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CCLK
+	</td>
+	<td><strong>AT+CCLK=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос синтаксиса)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CCLK: <strong>"YY/MM/DD HH:MM:SS+ZZ"</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка часов реального времени (RTC):</strong><br>
+		<ul>
+			<li>ДАТАВРЕМЯ - строка с датой и временем в кавычках: "ГГ/ММ/ДД,ЧЧ:ММ:СС+ЧП", где "ЧП" (часовой пояс) можно не указывать.</li>
+			<li>Обратите внимание на то, что при запросе / установке между датой и временем знак запятой, а не пробела.</li>
+			<li>Пример ответа: +CCLK: "18/01/23,12:34:56+04"<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n </span>- текущее время.</li>
+			<li>Пример установки: AT+CCLK="18/01/23,12:34:56+04"<span style="color: #777777;">\r\n </span>- установить новое время: 12:34:56, 23 января 2018 г.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CCLK?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущей даты и времени)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CCLK: <strong>"ДАТАВРЕМЯ"</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CCLK=</strong>"ДАТАВРЕМЯ"<span style="color: #777777;">\r\n</span><br><em>(установка даты и времени)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CBC
+	</td>
+	<td><strong>AT+CBC=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CBC: (<strong>0-5</strong>),(<strong>0</strong>, <strong>10, 20, 30, 40, 50, 60, 70, 80, 90, 100</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Запрос состояния ЗУ и ёмкости аккумулятора (АКБ):</strong><br>
+		<ul>
+			<li>СОСТОЯНИЕ - представлено числом от 0 до 5:<br>0 - Адаптер ЗУ не подключён.<br>1 - Адаптер ЗУ подключён.<br>2 - Адаптер ЗУ подключён, АКБ заряжается.<br>3 - Адаптер ЗУ подключён, АКБ заряжена.<br>4 - Зарядка прервана.<br>5 - Зарядка прервана из-за превышения t°С.</li>
+			<li>ЁМКОСТЬ - представлена в % остаточной ёмкости АКБ, не доступна во время заряда.</li>
+			<li>Пример ответа: +CBC: 0, 100<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - адаптер зарядного устройства (ЗУ) не подключён, аккумуляторная батарея (АКБ) заряжена на 100%.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CBC?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего состояния)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CBC: <strong>СОСТОЯНИЕ</strong>, <strong>ЁМКОСТЬ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CBCM
+	</td>
+	<td><strong>AT+CBCM=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CBCM: (<strong>0-1</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Управление уведомлениями о изменении ёмкости аккумуляторной батареи (АКБ):</strong><br>
+		<ul>
+			<li>ФЛАГ - представлен цифрой 0 или 1:<br>1 - разрешить уведомления о изменении емкости АКБ.<br>0 - запретить уведомления о изменении емкости АКБ.</li>
+			<li>В настоящее время модули A6 не поддерживают уведомления о изменении емкости АКБ.</li>
+			<li>Пример ответа: +CBCM:0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - уведомления о изменении ёмкости отключены.</li>
+			<li>Пример установки: AT+CBCM=1"<span style="color: #777777;">\r\n</span> - включить уведомления о изменении ёмкости.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CBCM?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущей установки)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CBCM: <strong>ФЛАГ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CBCM=</strong>ФЛАГ<span style="color: #777777;">\r\n</span><br><em>(установка/запрет уведомлений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CMER
+	</td>
+	<td><strong>AT+CMER=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMER: (<strong>3</strong>),(<strong>0</strong>),(<strong>0</strong>),(<strong>0,2</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка режима отправки незапрашиваемых отчётов о событиях:</strong><br>
+		<ul>
+			<li>РЕЖИМ - представлен цифрой от 0 до 3, где значение 3 означает - разрешить отправку отчётов.</li>
+			<li>КЛАВИАТУРА - представлена цифрой от 0 до 2, где значение 0 означает - без сообщений.</li>
+			<li>ДИСПЛЕЙ - представлен цифрой от 0 до 2, где значение 0 означает - без сообщений.</li>
+			<li>ИНДИКАТОР - представлен цифрой 0 или 1, где значение 0 означает - без сообщений.</li>
+			<li>БУФЕР - представлен цифрой от 0 до 3, где значение 0 означает - буфер стирается при установке режима 1-3.</li>
+			<li>Пример ответа: +CMER: 3,0,0,0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMER?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего режима)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMER: <strong>РЕЖИМ</strong>, <strong>КЛАВИАТУРА</strong>, <strong>ДИСПЛЕЙ</strong>, <strong>ИНДИКАТОР</strong>, <strong>БУФЕР</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMER=</strong>[РЕЖИМ [,КЛАВИАТУРА [,ДИСПЛЕЙ [,ИНДИКАТОР [,БУФЕР]]]]]<span style="color: #777777;">\r\n</span><br><em>(установка режима отправки сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>CEER
+	</td>
+	<td><strong>AT+CEER</strong><span style="color: #777777;">\r\n</span><br><em>(запрос отчёта)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMER: <strong>ТЕКСТ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос расширенного отчёта об ошибке последнего соединения:</strong><br>
+		<ul>
+			<li>ТЕКСТ - строка с информацией (или код) причины ошибки вызванной одной из последних операций:<br>- Сбой голосового вызова (входящего/исходящего).<br>- Разъединение голосового вызова.<br>- Неудачное соединение GPRS или активация PDP.<br>- Отключение GPRS или деактивация PDP.</li>
+			<li>Пример ответа: +CEER: CALL RELEASED, NETWORK SENT UDUB TO ME<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CPAS
+	</td>
+	<td><strong>AT+CPAS</strong><span style="color: #777777;">\r\n</span><br><em>(запрос статуса устройства)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPAS: <strong>СТАТУС</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос статуса активности мобильного устройства:</strong><br>
+		<ul>
+			<li>СТАТУС - представлен цифрой от 0 до 5:<br>0 - устройство готово (может принимать команды).<br>1 - устройство недоступно (команды не принимаются).<br>2 - статус неизвестен (не определён).<br>3 - дозвон (входящий / исходящий).<br>4 - устройство в режиме соединения.<br>5 - устройство в спящем режиме (сокращенный набор функций).</li>
+			<li>Пример ответа: +CPAS:0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - устройство готово к приему команд.</li>
+		</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_7">AT-команды SIM / PBK:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td rowspan="3">CPIN
+	</td>
+	<td><strong>AT+CPIN?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего состояния аутентификации)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPIN: <strong>СОСТОЯНИЕ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Аутентификация SIM-карты (ввод PIN1 / PUK1 / <strong>PIN2 / PUK2</strong>):</strong><br>
+		<ul>
+			<li>СОСТОЯНИЕ - текстовая строка указывающая какой код требуется ввести:<br>READY - ввод пароля не требуется.<br>SIM PIN - требуется ввод PIN1 (CHV1).<br>SIM PUK - требуется ввод PUK1 и новый PIN1.<br>SIM PIN2 - требуется ввод PIN2 (CHV2).<br>SIM PUK2 - требуется ввод PUK2 и новый PIN2.<br>+CME ERROR:10 - отсутствует SIM-карта.<br>+CME ERROR:13 - SIM-карта неисправна.</li>
+			<li>Перед вводом пароля требуется узнать, какой именно пароль нужно ввести. Для этого отправляется команда AT+CPIN?<span style="color: #777777;">\r\n</span>.</li>
+			<li>Если PIN1 был некорректно введён 3 раза подряд, то потребуется ввести PUK1 и новый PIN1 через запятую (аналогично для PIN2, PUK2).</li>
+			<li>Если PUK1 был некорректно введён более 10 раз то SIM-карта будет безвозвратно заблокирована и команда AT+CPIN?<span style="color: #777777;">\r\n</span> вернёт ответ +CME ERROR:13<span style="color: #777777;">\r\n</span> - SIM-карта неисправна.</li>
+			<li>Для ввода PIN2 лучше воспользоваться командой AT+CPIN2<span class="redactor-invisible-space" style="background-color: initial; font-size: 1em;">.</span></li>
+			<li>Пример ответа: +CPIN: SIM PIN<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - требуется ввести PIN1.</li>
+			<li>Пример ввода: AT+CPIN="0123"<span style="color: #777777;">\r\n</span> - указываем PIN1=0123.</li>
+			<li>Пример ответа: +CPIN: SIM PUK<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - требуется ввести PUK1 и новый PIN1 через запятую.</li>
+			<li>Пример ввода: AT+CPIN="12345678","1234"<span style="color: #777777;">\r\n</span> - указываем что PUK1=12345678 и устанавливаем новый PIN1=1234.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPIN=</strong>"PIN"<span style="color: #777777;">\r\n</span><br><em>(ввод PIN-кода)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPIN=</strong>"PUK","PIN"<span style="color: #777777;">\r\n</span><br><em>(ввод PUK-кода и нового PIN-кода)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CPIN2
+	</td>
+	<td><strong>AT+CPIN2?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего состояния аутентификации)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPIN2: <strong>СОСТОЯНИЕ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Аутентификация SIM-карты (ввод PIN2 / PUK2):</strong><br>
+		<ul>
+			<li>СОСТОЯНИЕ - текстовая строка указывающая какой код требуется ввести:<br>READY - ввод пароля не требуется.<br>SIM PIN2 - требуется ввод PIN2 (CHV2).<br>SIM PUK2 - требуется ввод PUK2 и новый PIN2.<br>+CME ERROR:10 - отсутствует SIM-карта.<br>+CME ERROR:13 - SIM-карта неисправна.</li>
+			<li>Синтаксис данной AT-команды аналогичен предыдущей, но предназначен для ввода только PIN2 или PUK2.</li>
+			<li>Пример ответа: +CPIN2: SIM PIN2<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - требуется ввести PIN2.</li>
+			<li>Пример ввода: AT+CPIN2="0123"<span style="color: #777777;">\r\n</span> - указываем PIN2=0123.</li>
+			<li>Пример ответа: +CPIN2: SIM PUK2<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - требуется ввести PUK2 и новый PIN2 через запятую</li>
+			<li>Пример ввода: AT+CPIN2="12345678","1234"<span style="color: #777777;">\r\n</span> - указываем что PUK2=12345678 и устанавливаем новый PIN2=1234.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPIN2=</strong>"PIN2"<span style="color: #777777;">\r\n</span><br><em>(ввод кода PIN2)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPIN2=</strong>"PUK2","PIN2"<span style="color: #777777;">\r\n</span><br><em>(ввод кода PUK2 и нового кода PIN2)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>CPINC
+	</td>
+	<td><strong>AT^CPINC</strong><span style="color: #777777;">\r\n</span><br><em>(запрос кол-ва попыток ввода PIN / PUK)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>^CPINC: <strong>PIN1</strong>, <strong>PUK1</strong>, <strong>PIN2</strong>, <strong>PUK2</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Запрос оставшегося количества попыток ввода паролей:</strong><br>
+		<ul>
+			<li>PIN1 / PUK1 / PIN2 / PUK2 - представлены цифрами от 0 до 10 указывающими количество оставшихся попыток (0 - попыток не осталось).</li>
+			<li>Обратите внимание на синтаксис данной AT-команды, после символов AT следует знак ^, а не +.</li>
+			<li>Пример ответа: ^CPINC: 3,10,3,10<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - осталось по 3 попытки для ввода PIN1 и PIN2, и по 10 попыток для ввода PUK1 и PUK2.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CLCK
+	</td>
+	<td><strong>AT+CLCK=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых функций)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CLCK: (<strong>"SC"</strong>, <strong>"FD"</strong>, <strong>"AO"</strong>, <strong>"OX"</strong>, <strong>"OI"</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Блокировка / разблокировка функций устройства:</strong><br>
+		<ul>
+			<li>"ФУНКЦИЯ" - представлена строкой:<br>"CS" - Устройства управления (клавиатура).<br>"FD" - Фиксированный набор номеров из SIM памяти FDN.<br>"AO" - Все исходящие вызовы.<br>"OI" - Исходящие международные вызовы.<br>"OX" - Исходящие международные вызовы, кроме своей страны.</li>
+			<li>РЕЖИМ - представлен цифрой от 0 до 2:<br>0 - разблокировать.<br>1 - заблокировать.<br>2 - узнать статус.</li>
+			<li>ПАРОЛЬ - зависит от функции, может быть PIN1, PIN2 и т.д.</li>
+			<li>КЛАСС - представлен числом:<br>1 - голосовой режим (телефония).<br>2 - режим данных (применяется для однонаправленного канала).<br>4 - факсовый режим (факсимильная служба).<br>8 - услуга коротких сообщений.<br>16 - синхронная передача данных.<br>32 - асинхронная передача данных.<br>64 - выделенный доступ к пакетной передачи данных.<br>128 - выделенный доступ через PAD.</li>
+			<li>Пример блокировки: AT+CLCK="АО",1,1234,2<span style="color: #777777;">\r\n</span> - заблокировать все исходящие вызовы в режиме данных.</li>
+			<li>Пример запроса: AT+CLCK="АО",2<span style="color: #777777;">\r\n</span> - узнать статус работы функции исходящих вызовов.</li>
+			<li>Пример разблокировки: AT+CLCK="SC",0,1234<span style="color: #777777;">\r\n</span> - разблокировать PIN1 (работать не запрашивая PIN1).</li>
+			<li>Пример блокировки: AT+CLCK="SC",1,1234<span style="color: #777777;">\r\n</span> - заблокировать с помощью PIN1 (запрашивать PIN1).</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CLCK=</strong>"ФУНКЦИЯ", РЕЖИМ [,ПАРОЛЬ [,КЛАСС]]<span style="color: #777777;">\r\n</span><br><em>(блокировка / разблокировка указанной функции)</em>
+	</td>
+	<td>Ответ зависит от указанных параметров.
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CPWD
+	</td>
+	<td><strong>AT+CPWD=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос максимального количества символов в пароле)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPWD: (<strong>"SC",8</strong>), (<strong>"P2",8</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br><em>(до 8 знаков для "SC", до 8 знаков для "P2")</em>
+	</td>
+	<td rowspan="2"><strong>Смена пароля SIM-карты (PIN1 / PIN2):</strong><br>
+		<ul>
+			<li>"ФУНКЦИЯ" - представлена строкой (из двух символов), она определяет какой именно PIN-код требуется сменить:<br>"SC" - смена кода PIN1 (от 4 до 8 символов).<br>"P2" - смена кода PIN2 (от 4 до 8 символов).</li>
+			<li>"СТАРЫЙ" - текущий PIN-код.</li>
+			<li>"НОВЫЙ" - новый PIN-код.</li>
+			<li>Пример: AT+CPWD="SC","0123","4567"<span style="color: #777777;">\r\n</span> - изменить PIN1 c 0123 на 4567.</li>
+			<li>Пример: AT+CPWD="P2","0123","4567"<span style="color: #777777;">\r\n</span> - изменить PIN2 c 0123 на 4567.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPWD=</strong>"ФУНКЦИЯ", "СТАРЫЙ","НОВЫЙ"<span style="color: #777777;">\r\n</span><br><em>(смена пароля)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>CRSM
+	</td>
+	<td><strong>AT+CRSM=</strong>КОМАНДА [,ИДЕНТИФИКАТОР [, П1 [,П2 [,П3 [,ДАННЫЕ]]]]]<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CRSM: <strong>Ф1</strong>, <strong>Ф2</strong>, <strong>ОТВЕТ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Отправка команд на SIM-карту в режиме ограниченного доступа:</strong><br>
+		<ul>
+			<li>КОМАНДА - представлена числом (в соответствии с GSM 11.11 / 3GPP TS 51.011), передается как есть на SIM-карту:<br>176 - (READ BINARY) считать двоичный код.<br>178 - (READ RECORD) прочитать запись.<br>192 - (GET RESPONSE) получить ответ.<br>214 - (UPDATE BINARY) обновить двоичный код.<br>220 - (UPDATE RECORD) обновить запись.<br>242 - (STATUS) запросить статус.</li>
+			<li>ИДЕНТИФИКАТОР - (файловый идентификатор) представлен числом от 0 до 65535 в соответствии с GSM 11.11 / 3GPP TS 51.011. Это идентификатор элементарного массива данных на SIM-карте.</li>
+			<li>П1, П2, П3 - параметры команды передаваемые на SIM-карту. Эти параметры описаны в GSM 11.11 / 3GPP TS 51.011.</li>
+			<li>ДАННЫЕ - передаваемые на SIM-карту, представлены в шестнадцатеричном формате в соответствии с командой CSCS.</li>
+			<li>Ф1, Ф2 - флаги выполнения команды.</li>
+			<li>ОТВЕТ - на выполненную команду, представлен в шестнадцатеричном формате в соответствии с командой CSCS.</li>
+			<li>Пример отправки: AT+CRSM=192,28433,0,0,15<span style="color: #777777;">\r\n</span></li>
+			<li>Пример ответа: +CRSM:144,0,621E82054221001C0283026F40A503<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CNUM
+	</td>
+	<td><strong>AT+CNUM</strong><span style="color: #777777;">\r\n</span><br><em>(запрос своего номера)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CNUM: <strong>"НАЗВАНИЕ"</strong>, <strong>"НОМЕР"</strong>, <strong>ТИП</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Получить номер абонента <strong>MSISDN</strong> (свой номер телефона):</strong><br>
+		<ul>
+			<li>"НАЗВАНИЕ" - опциональная алфавитно-цифровая строка, сопоставленная номеру (в кодировке UCS2<span class="redactor-invisible-space" style="background-color: initial; font-size: 1em;">).</span></li>
+			<li>"НОМЕР" - строка с телефонным номером абонента.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>Пример ответа: +CNUM: "XXXXX","79260001122+",145<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - номер телефона +7(926)000-11-22.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CPBS
+	</td>
+	<td><strong>AT+CPBS=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых областей памяти)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBS: (<strong>"SM"<strong>, </strong>"ON"<strong>, </strong>"FD"<strong>, </strong>"LD"</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка области памяти для телефонной книги:</strong><br>
+		<ul>
+			<li>"ПАМЯТЬ" - представлена строкой из двух символов:<br>"SM" - память SIM-карты.<br>"ON" - список собственных номеров UICC.<br>"FD" - фиксированный список номеров.<br>"LD" - список последних набранных номеров.</li>
+			<li>НАЙДЕНО - число указывающее на количество найденных записей.</li>
+			<li>ОБЪЕМ - число указывающее на максимально допустимое количество записей.</li>
+			<li>Пример ответа: +CPBS: "SM",15,250<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - используется память SIM-карты, найдено 15 телефонов, объем памяти до 250 телефонов.</li>
+			<li>Пример установки AT+CPBS="LD"<span style="color: #777777;">\r\n</span> - использовать телефонную книгу со списком последних набранных номеров.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPBS?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос используемой области памяти)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBS: <strong>"ПАМЯТЬ"</strong> [,<strong>НАЙДЕНО</strong>, <strong>ОБЪЕМ</strong>]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPBS=</strong>ПАМЯТЬ<span style="color: #777777;">\r\n</span><br><em>(установка требуемой области памяти)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CPBR
+	</td>
+	<td><strong>AT+CPBR=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос размера телефонной книги)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBR: (<strong>1-250</strong>), <strong>20</strong>, <strong>25</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br><em>(до 250 ячеек, до 20 цифр в телефоне, до 25 символов в названии).</em>
+	</td>
+	<td rowspan="2"><strong>Чтение записей телефонной книги:</strong><br>
+		<ul>
+			<li>ОТ - число указывающее на начальную ячейку чтения.</li>
+			<li>ДО - число указывающее на конечную ячейку чтения.</li>
+			<li>ИНДЕКС - номер ячейки в которой записан телефон.</li>
+			<li>"НОМЕР" - строка с телефонным номером.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>"НАЗВАНИЕ" - сопоставленное номеру телефона.</li>
+			<li>Обратите внимание, что существует несколько телефонных книг, которые предварительно можно выбрать командой CPBS.</li>
+			<li>Пример запроса: AT+CPBR=1,2<span style="color: #777777;">\r\n</span> - получить записи телефонной книги с 1 по 2 ячейку включительно.</li>
+			<li>Пример ответа:<br>+CPBR: 1,"*100#",129,"XXXXXXX"<span style="color: #777777;">\r\n</span> - номер в ячейке 1<br>+CPBR: 2,"*106#",129,"XXXXXXX"<span style="color: #777777;">\r\n</span> - номер в ячейке 2<br>OK<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPBR=</strong>ОТ [,ДО]<span style="color: #777777;">\r\n</span><br><em>(чтение записей)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBR: <strong>ИНДЕКС</strong>, <strong>"НОМЕР"</strong>, <strong>ТИП</strong>, <strong>"НАЗВАНИЕ"</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CPBF
+	</td>
+	<td><strong>AT+CPBF=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос размера записей)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBF: <strong>20</strong>,<strong>25</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br><em>(до 20 цифр в телефоне, до 25 символов в названии).</em>
+	</td>
+	<td rowspan="2"><strong>Поиск записей телефонной книги:</strong><br>
+		<ul>
+			<li>"ТЕКСТ" - начало названия записи сопоставленное номеру телефона.</li>
+			<li>ИНДЕКС - номер ячейки в которой записан телефон.</li>
+			<li>"НОМЕР" - строка с телефонным номером.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>"НАЗВАНИЕ" - сопоставленное номеру телефона.</li>
+			<li>Обратите внимание, что существует несколько телефонных книг, которые предварительно можно выбрать командой CPBS.</li>
+			<li>Пример запроса: AT+CPBF="iard"<span style="color: #777777;">\r\n</span> - получить записи телефонной книги с названиями начинающимися на "iard".</li>
+			<li>Пример ответа:<br>+CPBF: 17,"+74995001456",145,"iarduino office"<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - найден один номер в ячейке 17.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPBF=</strong>"ТЕКСТ"<span style="color: #777777;">\r\n</span><br><em>(поиск записей)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBF: <strong>ИНДЕКС</strong>, <strong>"НОМЕР"</strong>, <strong>ТИП</strong>, <strong>"НАЗВАНИЕ"</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CPBW
+	</td>
+	<td><strong>AT+CPBW=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых параметров)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPBW: (<strong>1-250</strong>), <strong>20</strong>, (<strong>129,145,161</strong>), <strong>25</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br><em>(до 250 номеров, до 20 цифр в телефоне, допустимые типы (129,145,161), до 25 символов в названии).</em>
+	</td>
+	<td rowspan="2"><strong>Добавить / заменить / удалить запись в телефонной книге:</strong><br>
+		<ul>
+			<li>ИНДЕКС - номер ячейки в которую производится запись. Если в данной ячейке уже есть запись, то она заменится на новую. Если указать только индекс, то запись ячейки будет удалена.</li>
+			<li>"НОМЕР" - строка с телефонным номером.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>"НАЗВАНИЕ" - сопоставленное номеру телефона.</li>
+			<li>Обратите внимание, что существует несколько телефонных книг, которые предварительно можно выбрать командой CPBS.</li>
+			<li>Пример записи номера в 18 ячейку:<br>AT+CPBW=18,"+74995001456",145,"iarduino office"<span style="color: #777777;">\r\n</span></li>
+			<li>Пример записи номера в 18 ячейку:<br>AT+CPBW=18,"84995001456",129,"iarduino office"<span style="color: #777777;">\r\n</span></li>
+			<li>Пример удаления номера из 18 ячейки:<br>AT+CPBW=18<span style="color: #777777;">\r\n</span></li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPBW=</strong>[ИНДЕКС][,"НОМЕР" [,ТИП [,НАЗВАНИЕ]]]<span style="color: #777777;">\r\n</span><br><em>(запись,замена,удаление)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_8">AT-команды голосовых вызовов:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>ATA
+	</td>
+	<td><strong>ATA</strong><span style="color: #777777;">\r\n</span><br><em>(ответить на входящий голосовой вызов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>CONNECT<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Ответ на входящий голосовой вызов:</strong><br>
+		<ul>
+			<li>Отвечать на входящий голосовой вызов можно только если этот вызов есть (поступают команды RING), иначе ответом будет ERROR.</li>
+			<li>Пример: ATA<span style="color: #777777;">\r\n</span> - ответить на входящий звонок.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>ATH
+	</td>
+	<td><strong>ATH</strong><span style="color: #777777;">\r\n</span><br><em>(повесить трубку)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Разъединение голосового вызова:</strong><br>
+		<ul>
+			<li>Используется для отсоединения удаленного пользователя во время голосового вызова.</li>
+			<li>Пример: ATH<span style="color: #777777;">\r\n</span> - повесить трубку (в момент разговора, звонка, дозвона).</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CHUP
+	</td>
+	<td><strong>AT+CHUP</strong><span style="color: #777777;">\r\n</span><br><em>(повесить все трубки)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Разъединение всех существующих голосовых вызовов (повесить трубку):</strong><br>
+		<ul>
+			<li>Используется для отсоединения удаленных пользователей во время голосовых вызовов.</li>
+			<li>Пример: AT+CHUP<span style="color: #777777;">\r\n</span> - повесить трубку (входящие, исходящие, ожидающие).</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">ATD
+	</td>
+	<td><strong>ATD</strong>НОМЕР<span style="color: #777777;">\r\n</span><br><em>(набрать указанный номер)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Набор номера (исходящий голосовой вызов):</strong><br>
+		<ul>
+			<li>Команда ATD может использоваться не только для голосовых вызовов, но и для вызовов в режиме данных, или факсовых вызовов.</li>
+			<li>НОМЕР - набираемый телефонный номер абонента (MSISDN).</li>
+			<li>"ПАМЯТЬ" - телефонной книги, представлена строкой из двух символов:<br>"SM" - память SIM-карты.<br>"ON" - список собственных номеров UICC.<br>"FD" - фиксированный список номеров.<br>"LD" - список последних набранных номеров.</li>
+			<li>ИНДЕКС - номер ячейки телефонной книги, по телефону которой требуется позвонить.<span class="redactor-invisible-space"></span></li>
+			<li>Пример: ATD+74995001456<span style="color: #777777;">\r\n</span> - набрать номер +74995001456</li>
+			<li>Пример: ATD&gt;"SM"20<span style="color: #777777;">\r\n</span> - набрать номер из 20 ячейки телефонной книги в памяти SIM.</li>
+			<li>Пример: ATD&gt;SM20<span style="color: #777777;">\r\n</span> - набрать номер из 20 ячейки телефонной книги в памяти SIM.</li>
+			<li>Пример: ATD&gt;5<span style="color: #777777;">\r\n</span> - набрать номер из 5 ячейки используемой телефонной книги.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>ATD&gt;</strong>["ПАМЯТЬ"]ИНДЕКС<span style="color: #777777;">\r\n</span><br><em>(набрать номер из телефонной книги)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>DLST
+	</td>
+	<td><strong>AT+DLST</strong><span style="color: #777777;">\r\n</span><br><em>(повтор исходящего вызова)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Повторный набор последнего исходящего вызова:</strong><br>
+		<ul>
+			<li>Пример: AT+DLST<span style="color: #777777;">\r\n</span> - набрать последний исходящий номер.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CHLD
+	</td>
+	<td><strong>AT+CHLD=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых действий)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CHLD: (<strong>0,1,1X,2,2X,3</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="2"><strong>Групповые вызовы и конференц-связь:</strong><br>
+		<ul>
+			<li>ЗНАЧЕНИЕ - определяет требуемое действие:<br>0 - Разъединить все удерживаемые вызовы или установить UDUB (User Determined User Busy) для ожидающего вызова.<br>1 - Разъединить все активные вызовы (если они есть) и принять другой (удерживаемый или ожидающий) вызов.<br>1X - Разъединить вызов X (активный, удерживаемый или ожидающий).<br>2 - Перевести все активные вызовы (если они есть) в режим удержания и принять другой (удерживаемый или ожидающий) вызов.<br>2X - Перевести в режим удержания все активные вызовы, кроме вызова Х, с которым поддерживается связь.<br>3 - Добавить в конференцию (к разговору) удерживаемый вызов.</li>
+			<li>Пример: AT+CHLD=1<span style="color: #777777;">\r\n</span> - разъединить все активные вызовы и принять удерживаемый.</li>
+			<li>Пример: AT+CHLD=12<span style="color: #777777;">\r\n</span> - разъединить вызов 2.</li>
+			<li>Пример: AT+CHLD=21<span style="color: #777777;">\r\n</span> - удерживать все активные вызовы кроме вызова 1, с которым поддерживается связь.</li>
+			<li>Индекс (номер) вызова можно узнать с помощью следующей команды CLCC.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CHLD=</strong>ЗНАЧЕНИЕ<span style="color: #777777;">\r\n</span><br><em>(выполнение действия)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>CLCC
+	</td>
+	<td><strong>AT+CLCC</strong><span style="color: #777777;">\r\n</span><br><em>(получение списка текущих вызовов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CLCC: <strong>ИНДЕКС</strong>, <strong>НАПРАВЛЕНИЕ</strong>, <strong>СОСТОЯНИЕ</strong>, <strong>РЕЖИМ</strong>, <strong>ФЛАГ </strong>[,<strong>НОМЕР</strong>, <strong>ТИП </strong>[,"<strong>НАЗВАНИЕ</strong>"]]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Получить список текущих вызовов:</strong><br>
+		<ul>
+			<li>ИНДЕКС - представлен числом, это номер (или ID) вызова.</li>
+			<li>НАПРАВЛЕНИЕ - представлено цифрой 0 или 1:<br>0 - Исходящий вызов.<br>1 - Входящий вызов.</li>
+			<li>СОСТОЯНИЕ - представлено цифрой от 0 до 7:<br>0 - Активный вызов.<br>1 - Удерживаемый вызов.<br>2 - Исходящий вызов в режиме набора.<br>3 - Исходящий вызов в режиме дозвона.<br>4 - Входящий вызов в режиме дозвона.<br>5 - Входящий ожидающий вызов.<br>7 - Сброс вызова (разъединение).</li>
+			<li>РЕЖИМ - представлен цифрой от 0 до 9:<br>0 - голосовой режим.<br>1 - режим данных.<br>2 - факсовый режим.<br>3 - голосовой режим данные/голос.<br>4 - голосовой режим с чередованием голос/данные.<br>5 - голосовой режим с чередованием голос/факс.<br>6 - режим данных данные/голос.<br>7 - режим данных с чередованием голос/данные.<br>8 - факсовый режим с чередованием голос/факс.<br>9 - неизвестный режим.</li>
+			<li>ФЛАГ - конференц-связи, представлен цифрой 0 или 1:<br>0 - вызов не является одним из вызовов конференц-связи.<br>1 - вызов является одним из вызовов конференц-связи.</li>
+			<li>НОМЕР - телефонный номер абонента (MSISDN).</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>"НАЗВАНИЕ" - сопоставленное номеру телефона из адресной книги.</li>
+			<li>Пример ответа: +CLCC: 1,0,2,0,0,"74995001456",145<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - первый вызов, исходящий, в режиме набора номера, голосовой, не конференц.</li>
+			<li>Пример ответа:+CLCC: 2,1,4,0,0,"74995001456",145<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - второй вызов, входящий, поступающий, голосовой, не конференц. Этот пример демонстрирует, как можно узнать номер звонящего абонента во время поступления +RING.</li>
+			<li>Пример ответа:+CLCC: 1,1,0,0,0,"74995001456",145<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - второй вызов, входящий, активный, голосовой, не конференц.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">VTD
+	</td>
+	<td><strong>AT+VTD=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VTD: (<strong>1-10</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка длительности тональных сигналов DTMF:</strong><br>
+		<ul>
+			<li>Тональные сигналы DTMF передаются по сети GSM при наличии активного вызова.</li>
+			<li>ДЛИТЕЛЬНОСТЬ - представлена числом от 1 до 10 и является 1/10 секунды.</li>
+			<li>Пример ответа: +VTD: 1<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - используются тональные сигналы DTMF длительностью 100 мс.</li>
+			<li>Пример установки: AT+VTD=2<span style="color: #777777;">\r\n</span> - использовать тональные сигналы DTMF длительностью 200 мс.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VTD?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос установленной длительности сигнала)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VTD: <strong>ДЛИТЕЛЬНОСТЬ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VTD=</strong>ДЛИТЕЛЬНОСТЬ<span style="color: #777777;">\r\n</span><br><em>(установка длительности)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">VTS
+	</td>
+	<td><strong>AT+VTS=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых символов для воспроизведения)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VTS: (<strong>0-9,*,#,A,B,C,D</strong>),(<strong>1-10</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Отправка тонального сигнала DTMF:</strong><br>
+		<ul>
+			<li>Тональные сигналы DTMF передаются по сети GSM при наличии активного вызова.</li>
+			<li>ЗНАЧЕНИЕ - представлено одним из передаваемых знаков: 0-9,*,#,A,B,C,D<span class="redactor-invisible-space">.</span></li>
+			<li>ДЛИТЕЛЬНОСТЬ - представлена числом от 1 до 10 и является 1/10 секунды.</li>
+			<li>Пример отправки: AT+VTS=5<span style="color: #777777;">\r\n</span> - отправка тонального сигнала соответствующего цифре 5.</li>
+			<li>Пример отправки: AT+VTS=#<span style="color: #777777;">\r\n</span> - отправка тонального сигнала соответствующего знаку #.</li>
+			<li>Пример отправки: AT+VTS=4,2<span style="color: #777777;">\r\n</span> - отправка тонального сигнала соответствующего цифре 4, длительностью 200 мс.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+VTS=</strong>ЗНАЧЕНИЕ [, ДЛИТЕЛЬНОСТЬ]<span style="color: #777777;">\r\n</span><br><em>(воспроизвести тональный сигнал)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>VTSEX
+	</td>
+	<td><strong>AT+VTSEX=1</strong><span style="color: #777777;">\r\n</span><br><em>(воспроизвести специальный тональный сигнал)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Отправка специального тонального сигнала DTMF:</strong><br>
+		<ul>
+			<li>Тональные сигналы DTMF передаются по сети GSM при наличии активного вызова.</li>
+			<li>ЗНАЧЕНИЕ - может быть только цифрой 1.</li>
+			<li>Пример отправки: AT+VTSEX=1<span style="color: #777777;">\r\n</span> - отправка специального тонального сигнала.</li>
+		</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_9">AT-команды сетевых служб:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>COPN
+	</td>
+	<td><strong>AT+COPN</strong><span style="color: #777777;">\r\n</span><br><em>(запрос списка операторов из памяти модуля)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+COPN: "НОМЕР","НАЗВАНИЕ"<span style="color: #777777;">\r\n</span><br>...
+	</td>
+	<td><strong>Получить список всех имен операторов сохраненных в модуле:</strong><br>
+		<ul>
+			<li>Команда возвращает не действующих в данном месте операторов, а список операторов хранящийся в памяти модуля. А еще эта команда может возвращать свой список в бесконечном цикле.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">COPS
+	</td>
+	<td><strong>AT+COPS=?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос списка доступных операторов PLMN)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+COPS: (<strong>СТАТУС, "ОПЕРАТОР", "ОПЕРАТОР", "ОПЕРАТОР"</strong>),(аналогично для след. оператора),(и т.д.)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / выбор оператора связи PLMN:</strong><br>
+		<ul>
+			<li>РЕЖИМ - представлен цифрой от 0 до 4:<br>0 - Автоматический (по умолчанию).<br>1 - Ручной.<br>2 - Снятие с регистрации.<br>3 - Указать только формат.<br>4 - Ручной/автоматический.</li>
+			<li>ФОРМАТ - представлен цифрой от 0 до 2:<br>0 - формат поля ОПЕРАТОР - длинный алфавитно-цифровой (до 16 симв.).<br>1 - формат поля ОПЕРАТОР - короткий алфавитно-цифровой (до 8 симв.).<br>2 - формат поля ОПЕРАТОР - цифровой (состоит из кодов MCC и MNC).</li>
+			<li>"ОПЕРАТОР" - представлен в соответствии с указанным форматом.</li>
+			<li>СТАТУС - представлен цифрой от 0 до 3:<br>0 - Оператор неизвестен.<br>1 - Оператор доступен для выбора.<br>2 - Оператор является выбранным (текущим).<br>3 - Оператор запрещен для выбора.</li>
+			<li>ИМЯ1 - представлено строкой</li>
+			<li>ИМЯ2 - представлено строкой</li>
+			<li>Пример ответа на запрос списка доступных операторов:<br>+COPS: (2,"MegaFon","MegaFon","25002"),(1,"MTS","MTS","25001"),(1,"Beeline","Beeline","25099")<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - доступны 3 оператора (3 скобки): "MegaFon" является уже выбранным (2), а "MTS" и "Beeline" имеют статус 1 (доступен для выбора). В каждой скобке имя оператора представлено в трёх форматах (длинном, коротком и цифровом).</li>
+			<li>Пример ответа на запрос выбранного оператора:<br>+COPS: 0,2,"25002"<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - выбран оператор "25002" ("MegaFon"), выбран в автоматическом режиме (0), имя оператора представлено в цифровом формате (2).</li>
+			<li>Пример выбора оператора:<br>AT+COPS=1,0,"MegaFon"<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - выбран оператор "MegaFon", выбран в ручном режиме (1), имя оператора представлено в длинном алфавитно-цифровом формате (0).</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+COPS?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос выбранного оператора PLMN)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+COPS: <strong>РЕЖИМ </strong>[,<strong>ФОРМАТ</strong>, <strong>"ОПЕРАТОР"</strong>]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+COPS=</strong>РЕЖИМ [,ФОРМАТ [, "ОПЕРАТОР"]]<span style="color: #777777;">\r\n</span><br><em>(Выбор оператора PLMN)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CREG
+	</td>
+	<td><strong>AT+CREG=?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос допустимых режимов вывода сообщений о статусе регистрации)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CREG: (<strong>0-2</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка режима и статуса регистрации в сети оператора:</strong><br>
+		<ul>
+			<li>РЕЖИМ - представлен цифрой от 0 до 2:<br>0 - Отключить незапрашиваемые сообщения о статусе регистрации в сети.<br>1 - Включить незапрашиваемые сообщения о статусе регистрации в сети.<br>Сообщения будут приходить в формате +CREG: СТАТУС.<br>2 - Включить незапрашиваемые сообщения о статусе регистрации в сети и о местоположении.<br>Сообщения будут приходить в формате +CREG: СТАТУС, "КОД", "ID".</li>
+			<li>СТАТУС - представлен цифрой от 0 до 5:<br>0 - Не зарегистрирован, не проводится поиск нового оператора.<br>1 - Зарегистрирован, домашний оператор.<br>2 - Не зарегистрирован, проводится поиск нового оператора.<br>3 - Регистрация отклонена.<br>4 - Статус неизвестен<br>5 - Зарегистрирован, роуминг.</li>
+			<li>"КОД" - области местоположения, представлен двухбайтным числом в шестнадцатеричном формате.</li>
+			<li>"ID" - идентификатор ячейки, представлен двухбайтным числом в шестнадцатеричном формате.</li>
+			<li>Пример ответа на запрос текущего режима и статуса:<br>+CREG: 1,1<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - включены незапрашиваемые сообщения о статусе регистрации, модем зарегистрирован в сети домашнего оператора связи.</li>
+			<li>Пример ответа на запрос текущего режима и статуса:<br>+CREG: 2,1,"262A","346A"<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - включены незапрашиваемые сообщения о статусе регистрации и местоположении, модем зарегистрирован в сети домашнего оператора связи, код местоположения "262A", ID ячейки "346A".</li>
+			<li>Пример выбора режима:<br>AT+CREG=2<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - включить незапрашиваемые сообщения о статусе регистрации в сети и о местоположении.</li>
+			<li>Пример незапрашиваемого сообщения о статусе:<br>+CREG: 1<span style="color: #777777;">\r\n</span> - модем зарегистрирован в сети домашнего оператора связи.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CREG?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос текущего режима и статуса)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CREG: <strong>РЕЖИМ</strong>, <strong>СТАТУС </strong>[,<strong>"КОД"</strong>, <strong>"ID"</strong>]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CREG=</strong>РЕЖИМ<span style="color: #777777;">\r\n</span><br><em>(Установка режима вывода сообщений о статусе регистрации)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CSQ
+	</td>
+	<td><strong>AT+CSQ=?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSQ: (<strong>0-31,99</strong>),(<strong>0-7,99</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Запрос уровня сигнала:</strong><br>
+		<ul>
+			<li>УРОВЕНЬ - сигнала представлен числом от 0 до 31 или 99:<br>0 - Уровень сигнала менее -113 дБм.<br>1 - Уровень сигнала -111 дБм.<br>2 ... 30 - Уровень сигнала в диапазоне от -109 дБм до -53 дБм (шаг 2 дБм).<br>31 - Уровень сигнала -51 дБм и выше.<br>Чем выше число, тем выше уровень принимаемого сигнала.<br>99 - Уровень сигнала неизвестен или его нельзя определить.</li>
+			<li>ОШИБКИ - частота появления ошибок представлена числом от 0 до 7 или 99:<br>0 ... 7 - Как значения RXQUAL в таблице GSM 05.08.<br>99 - Частота появления ошибок неизвестна или её нельзя определить.</li>
+			<li>Пример ответа: +CSQ: 22,99<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - уровень сигнала -69 дБм, количество ошибок неизвестно или их нельзя определить.</li>
+			<li>Пример ответа: +CSQ: 31,99<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - уровень сигнала -51 дБм или выше, количество ошибок неизвестно или их нельзя определить.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSQ</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос уровня сигнала и количества ошибок)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSQ: <strong>УРОВЕНЬ</strong>, <strong>ОШИБКИ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CPOL
+	</td>
+	<td><strong>AT+CPOL=?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос максимального размера списка и допустимых форматов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPOL: (<strong>1-50</strong>),(<strong>0,2</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка списка предпочтительных операторов:</strong><br>
+		<ul>
+			<li>Список хранится и редактируется на SIM-карте.</li>
+			<li>ИНДЕКС - представлен числом, это номер записи в списке.</li>
+			<li>ФОРМАТ - представлен цифрой от 0 до 2:<br>0 - формат поля ОПЕРАТОР - длинный алфавитно-цифровой (до 16 симв.).<br>1 - формат поля ОПЕРАТОР - короткий алфавитно-цифровой (до 8 симв.).<br>2 - формат поля ОПЕРАТОР - цифровой (состоит из кодов MCC и MNC).</li>
+			<li>"ОПЕРАТОР" - представлен в соответствии с указанным форматом.</li>
+			<li>GSM - представлен цифрой 0 или 1, это флаг указывающий что оператор поддерживает технологию доступа GSM (по умолчанию флаг = 1).</li>
+			<li>GSMcomp - представлен цифрой 0 или 1, это флаг указывающий что оператор поддерживает технологию доступа GSM compact.</li>
+			<li>UTRAN - представлен цифрой 0 или 1, это флаг указывающий что оператор поддерживает технологию доступа UTRAN.</li>
+			<li>Пример запроса списка операторов:<br>AT+CPOL?<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - запрос списка в установленном ранее формате.<br>AT+CPOL=,0<span style="color: #777777;">\r\n</span> - смена формата на длинный алфавитно-цифровой.<br>AT+CPOL?<span style="color: #777777;">\r\n</span> - запрос списка в только что установленном формате.</li>
+			<li>Пример добавления (замены) оператора:<br>AT+CPOL=7,2,25002<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - в 7 строку, в цифровом формате (2), добавлен оператор 25002, поддерживающий доступ GSM (по умолчанию).<br>AT+CPOL=7,0,"MegaFon"<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - в 7 строку, в алфавитно-цифровом формате (0), добавлен оператор "MegaFon", поддерживающий технологию доступа GSM (по умолчанию).<br>AT+CPOL=7,2,77777,0,0,1<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - в 7 строку, в цифровом формате (2), добавлен оператор 77777, поддерживающий технологию доступа UTRAN.</li>
+			<li>Пример удаления оператора:<br>AT+CPOL=7<span style="color: #777777;">\r\</span><span style="color: #777777;">n</span> - строка 7 списка операторов очищена.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPOL?</strong><span style="color: #777777;">\r\n</span><br><em>(Запрос списка предпочтительных операторов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPOL: <strong>ИНДЕКС</strong>, <strong>ФОРМАТ</strong>, <strong>"ОПЕРАТОР"</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPOL=</strong>[ИНДЕКС] [,ФОРМАТ [,"ОПЕРАТОР" [,GSM,GSMcomp,UTRAN]]]<span style="color: #777777;">\r\n</span><br><em>(Добавление, замена, удаление оператора из списка)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_10">AT-команды STK / SS:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>CACM
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.</td>
+	<td></td>
+	<td>Запрос / сброс счётчика вызовов.
+	</td>
+</tr>
+<tr>
+	<td>CAMM
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Установка максимального значения для счётчика вызовов.
+	</td>
+</tr>
+<tr>
+	<td>CAOC
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Оповещение о стоимости вызова (в настоящее время модули A6 не поддерживают данную команду).
+	</td>
+</tr>
+<tr>
+	<td>CPUC
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Запрос / установка стоимости у.е. вызова и таблицы валют.
+	</td>
+</tr>
+<tr>
+	<td>CCFC
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление переадресацией вызовов.
+	</td>
+</tr>
+<tr>
+	<td>CCWA
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление услугой "ожидание вызова".
+	</td>
+</tr>
+<tr>
+	<td>CLIP
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление идентификацией вызывающей линии (АОН).
+	</td>
+</tr>
+<tr>
+	<td>CLIR
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление запретом идентификации вызывающей линии (анти АОН).
+	</td>
+</tr>
+<tr>
+	<td>COLP
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление идентификацией подключенной линии.
+	</td>
+</tr>
+<tr>
+	<td>CSSN
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление уведомлениями о дополнительных услугах.
+	</td>
+</tr>
+<tr>
+	<td>CUSD
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Управление и выполнение USSD запросов (Unstructured Supplementary Service data)
+	</td>
+</tr>
+<tr>
+	<td>STA
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Активация интерфейса SAT (SIM Application Toolkit)
+	</td>
+</tr>
+<tr>
+	<td>STN
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Уведомление STK (SIM ToolKit)
+	</td>
+</tr>
+<tr>
+	<td>STGI
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Запрос информации с STK (SIM ToolKit)
+	</td>
+</tr>
+<tr>
+	<td>STR
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Удалённый ответ SAT (SIM Application Toolkit)
+	</td>
+</tr>
+<tr>
+	<td>STF
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Установка формата ответов SAT (SIM Application Toolkit)
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_11">AT-команды SMS:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td rowspan="3">CSDH
+	</td>
+	<td><strong>AT+CSDH=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSDH: (<strong>0,1</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="3"><strong>Разрешить / запретить отображение заголовков текстовых сообщений в незапрашиваемых результирующих кодах:</strong><br>
+		<ul>
+			<li>ФЛАГ - представлен цифрой 0 или 1:<br>0 - Не отображать.<br>1 - Отображать.</li>
+			<li>
+			При получении SMS сообщения, если командой AT+CNMI разрешена индикация входящих SMS, то модуль отправит незапрашиваемый результирующий код +CMTI или +CMT, с указанием, или без указания заголовка SMS сообщения.
+			</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSDH?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущей установки)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSDH: <strong>ФЛАГ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSDH=</strong>ФЛАГ<span style="color: #777777;">\r\n</span><br><em>(разрешить / запретить отображение заголовков)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CSMP
+	</td>
+	<td><strong>AT+CSMP?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущих параметров)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSMP: <strong>БАЙТ</strong>, <strong>ВРЕМЯ</strong>, <strong>ПРОТОКОЛ</strong>, <strong>КОДИРОВКА</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="2"><strong>Запрос / установка параметров текстового режима:</strong><br>
+		<ul>
+			<li>БАЙТ- представлен флаговыми битами:<br>(синтаксис данного байта аналогичен байту "PDU TYPE" в режиме PDU)<br>бит 7 - флаг "RP" (Reply Path). Если установлен, значит в сообщении указан обратный адрес, но в текстовом режиме данный флаг должен быть сброшен.<br>бит 6 - флаг "UDHI" (User Data Header Included). Если установлен, значит сообщение содержит заголовок.<br>бит 5 - флаг "SRR" (Status Report Request). Если установлен, значит сообщение требует получение отчета о статусе (доставке).<br>биты 4,3 - значение "VPF" (Validity Period Format). Срок жизни сообщений: 00-нет, 01-зарезервировано (не используется), 10-срок жизни указан в параметре ВРЕМЯ в относительном формате, 11-срок жизни указан в параметре ВРЕМЯ в абсолютом формате (не поддерживается).<br>бит 2 - флаг "RD" (Reject Duplicates). Если установлен значит требуется игнорировать копии данного сообщения.<br>биты 1,0 - значение "MTI" (Message Type Indicator). Индикатор типа сообщения: 00-входящее, 01-исходящее.</li>
+			<li>ВРЕМЯ - срок жизни сообщений, представлен числом:<br>при значении от 0 до 143, срок жизни = (ВРЕМЯ+1) × 5 минут.<br>при значении от 144 до 167, срок жизни = (ВРЕМЯ-143) × 30 минут + 12 часов.<br>при значении от 168 до 196, срок жизни = (ВРЕМЯ-166) × 1 день.<br>при значении от 197 до 255, срок жизни = (ВРЕМЯ-192) × 1 неделя.</li>
+			<li>ПРОТОКОЛ - идентификатор протокола, представлен числом (по умолчанию 0).</li>
+			<li>КОДИРОВКА - представлена числом: 0, 4 или 8, (по умолчанию 0):<br>0 - 7-битный алфавит GSM.<br>4 - 8-битная кодировка.<br>8 - 16-битная кодировка.</li>
+			<li>Пример ответа: +CSMP: 17,167,0,0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - исходящее сообщение, без заголовка и запроса статуса, срок жизни 24 часа, копии игнорировать, протокол и кодировка по умолчанию.</li>
+			<li>Пример установки: AT+CSMP=81,167,0,8<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - исходящее сообщение с заголовком, без запроса на получение статуса, срок жизни 24 часа, копии игнорировать, протокол по умолчанию, 16-битная кодировка.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSMP=</strong>БАЙТ, ВРЕМЯ, ПРОТОКОЛ, КОДИРОВКА,<span style="color: #777777;">\r\n</span><br><em>(установка параметров текстового режима)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>CMSS
+	</td>
+	<td><strong>AT+CMSS=</strong>ИНДЕКС [,НОМЕР [,ТИП]]<span style="color: #777777;">\r\n</span><br><em>(отправка SMS)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMSS: <strong>ИНДЕКСотпр</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td><strong>Отправка SMS сообщения из памяти:</strong><br>
+		<ul>
+			<li>Команда отправляет сообщения из области памяти указанной командой CPMS.</li>
+			<li>ИНДЕКС - представлен числом, это номер записи сохранённой SMS</li>
+			<li>НОМЕР - представлен строкой в виде номера телефона. Если данный параметр указан то он будет использован вместо номера, сохраненного вместе с сообщением.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...)<em></em><span class="redactor-invisible-space"></span>.</li>
+			<li>ИНДЕКСотпр - число являющееся номером отправленного сообщения.</li>
+			<li>Пример отправки: AT+CMSS=10<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - отправить SMS сохранённую под номером 10 на номер телефона указанный в сохранённой SMS.</li>
+			<li>Пример отправки: AT+CMSS=10,+74995001456<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - отправить SMS сохранённую под номером 10 на номер телефона +74995001456.</li>
+			<li>Пример ответа: +CMSS: 15<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - SMS отправлена, она является 15 по счёту отправленной SMS.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CMGD
+	</td>
+	<td><strong>AT+CMGD=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMGD: (<strong>ИНДЕКС</strong>),(<strong>СТАТУС</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br><em>(значения зависят от выбранной предпочтительной области памяти)</em>
+	</td>
+	<td rowspan="2"><strong>Удаление SMS сообщения из памяти:</strong><br>
+		<ul>
+			<li>Команда удаляет сообщения из области памяти указанной командой CPMS.</li>
+			<li>ИНДЕКС - представлен числом указывающим на номер (ячейку) удаляемого SMS сообщения из предпочтительной области памяти.</li>
+			<li>СТАТУС - сообщений представлен цифрой от 0 до 4:<br>0 - Одно сообщение находящееся в ячейке ИНДЕКС.<br>1 - Все прочитанные сообщения.<br>2 - Все прочитанные и отправленные сообщения.<br>3 - Все прочитанные, отправленные и неотправленные сообщения.<br>4 - Все сообщения.</li>
+			<li>Если СТАТУС представлен цифрой 1,2,3,4, то параметр ИНДЕКС игнорируется.</li>
+			<li>Если СТАТУС не указан, значит он представлен цифрой 0.</li>
+			<li>Пример ответа на запрос допустимых значений:<br>+CMGD: (1-15),(0,1,2,3,4)<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - в выбранной предпочтительной области памяти имеются 15 ячеек (возможно указание индекса от 1 до 15), доступны статусы 0,1,2,3,4.</li>
+			<li>Пример удаления: AT+CMGD=3<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - удалить сообщение из 3 ячейки.</li>
+			<li>Пример удаления: AT+CMGD=2,0<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - удалить сообщение из 2 ячейки.</li>
+			<li>Пример удаления: AT+CMGD=2,1<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - удалить все прочитанные сообщения.</li>
+			<li>Пример удаления: AT+CMGD=2,4<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - удалить все сообщения.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMGD=</strong>ИНДЕКС,[СТАТУС]<span style="color: #777777;">\r\n</span><br><em>(удаление сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CMGF
+	</td>
+	<td><strong>AT+CMGF=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMGF: (<strong>0,1</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка формата SMS сообщений (текстовый / PDU):</strong><br>
+		<ul>
+			<li>ФОРМАТ - представлен цифрой 0 или 1:<br>0 - SMS сообщения принимаются и отправляются в формате PDU.<br>1 - SMS сообщения принимаются и отправляются в текстовом формате.</li>
+			<li>SMS сообщение в режиме PDU, в отличии от текстового режима, содержит всю информацию о заголовке сообщения, который задается строкой в шестнадцатеричном формате.</li>
+			<li>Пример ответа: +CMGF=0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - установлен формат PDU.</li>
+			<li>Пример установки: AT+CMGF=1<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - установить текстовый режим.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMGF?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего формата)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMGF: <strong>ФОРМАТ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMGF=</strong>ФОРМАТ<span style="color: #777777;">\r\n</span><br><em>(установить формат SMS сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CMGL
+	</td>
+	<td><strong>AT+CMGL=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMGL: (<strong>СТАТУС</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br><em>(значение СТАТУС зависит от выбранного формата)</em>
+	</td>
+	<td rowspan="2"><strong>Чтение списка SMS сообщений из памяти:</strong><br>
+		<ul>
+			<li>Команда выводит список из области памяти указанной командой CPMS.</li>
+			<li>СТАТУС - сообщений представлен либо цифрой (если выбран формат PDU), либо строкой (если выбран текстовый формат):<br>0 - "REC UNREAD" - полученные непрочитанные сообщения.<br>1 - "REC READ" - полученные прочитанные сообщения.<br>2 - "STO UNSENT" - сохранённые неотправленные сообщения.<br>3 - "STO SENT" - сохранённые отправленные сообщения.<br>4 - "ALL" - все сообщения.</li>
+			<li>Если СТАТУС не указан, значит он представлен цифрой 0 или строкой "REC UNREAD".</li>
+			<li>После чтения списка полученных непрочитанных сообщений, статус данных сообщений изменится на "полученные прочитанные сообщения".</li>
+			<li>Параметры: ИНДЕКС, "НОМЕР", "НАЗВАНИЕ", ТИП, "ДАТА", ДЛИНА, ДАННЫЕ и PDU см. в описании команды CMGR.</li>
+			<li>Пример ответа на запрос допустимых значений в формате PDU:<br>+CMGL: (0-4)<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - допускаются значения от 0 до 4.</li>
+			<li>Пример ответа на запрос допустимых значений в текстовом формате:<br>+CMGL: ("REC UNREAD","REC READ","STO UNSENT","STO SENT","ALL")<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - допускается указать одну из перечисленных строк.</li>
+			<li>Пример запроса на чтение списка в формате PDU: AT+CMGL=4<span style="color: #777777;">\r\n</span> - получить список всех сообщений.</li>
+			<li>Пример запроса на чтение списка в текстовом формате: AT+CMGL="ALL"<span style="color: #777777;">\r\n</span> - получить список всех сообщений.</li>
+			<li>Пример ответа, текстовый формат, строка принятого сообщения:<br>+CMGL: 2,"REC<span style="color: #FFFFFF;">_</span>READ","+7926...",,"2018/04/27,13:17:17+03",145,6<span style="color: #777777;">\r\n</span>Privet<span style="color: #777777;">\r\n</span>.</li>
+			<li>Пример ответа, текстовый формат, строка отправленного сообщения:<br>+CMGL: 1,"STO<span style="color: #FFFFFF;">_</span>SENT","+7926XXXXXXX","iarduino",145,6<span style="color: #777777;">\r\n</span>Privet<span style="color: #777777;">\r\n</span>.</li>
+			<li>Пример ответа, формат PDU, строка из списка сообщений:<br>+CMGL: 3,1,,24<span style="color: #777777;">\r\n</span>PDU<span style="color: #777777;">\r\n</span>.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CMGL</strong>[=СТАТУС]<span style="color: #777777;">\r\n</span><br><em>(запрос на чтение списка сообщений)</em>
+	</td>
+	<td>Строки списков зависят установленного формата и статуса сообщений:
+		<p><br><br><em>Текстовый формат, принятое сообщение:</em><br><span style="color: #777777;">\r\n</span><br>+CMGL: <strong>ИНДЕКС</strong>, <strong>"СТАТУС"</strong>, <strong>"НОМЕР"</strong> [,<strong>"НАЗВАНИЕ"</strong>][,<strong>"ДАТА"</strong>] [,<strong>ТИП</strong>, <strong>ДЛИНА</strong>]<span style="color: #777777;">\r\n</span><br><strong>ДАННЫЕ</strong><span style="color: #777777;">\r\n</span>
+		</p>
+		<p><br><br><em>Текстовый формат, отправл. сообщение:</em><br><span style="color: #777777;">\r\n</span><br>+CMGL: <strong>ИНДЕКС</strong>, <strong>"СТАТУС"</strong>, <strong>"НОМЕР"</strong> [,<strong>"НАЗВАНИЕ"</strong>] [,<strong>ТИП</strong>, <strong>ДЛИНА</strong>]<span style="color: #777777;">\r\n</span><br><strong>ДАННЫЕ</strong><span style="color: #777777;">\r\n</span>
+		</p>
+		<p><br><br><em>Формат PDU:</em><br><span style="color: #777777;">\r\n</span><br>+CMGL: <strong>ИНДЕКС</strong>, <strong>СТАТУС</strong> [,<strong>"НАЗВАНИЕ"</strong>], <strong>ДЛИНА</strong><span style="color: #777777;">\r\n</span><br><strong>PDU</strong><span style="color: #777777;">\r\n</span>
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>CMGR
+	</td>
+	<td><strong>AT+CMGR=</strong>ИНДЕКС<span style="color: #777777;">\r\n</span><br><em>(чтение одного SMS сообщения)</em>
+	</td>
+	<td>Строка ответа зависит от установленного формата и статуса сообщения:
+		<p><br><br><em>Текстовый формат, принятое сообщение:</em><br><span style="color: #777777;">\r\n</span><br>+CMGR: <strong>"СТАТУС"</strong>, <strong>"НОМЕР"</strong> [,<strong>"НАЗВАНИЕ"</strong>], <strong>"ДАТА"</strong> [,<strong>ТИП</strong>, <strong>ВИД</strong>, <strong>ПРОТОКОЛ</strong>, <strong>КОДИРОВКА</strong>, <strong>"НОМЕРс"</strong>, <strong>ТИПс</strong>, <strong>ДЛИНА</strong>]<span style="color: #777777;">\r\n<br></span><strong>ДАННЫЕ</strong><span style="color: #777777;">\r\n<br></span><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+		</p>
+		<p><br><br><em>Текстовый формат, отправл. сообщение:</em><br><span style="color: #777777;">\r\n</span><br>+CMGR: <strong>"СТАТУС"</strong>, <strong>"НОМЕР"</strong> [,<strong>"НАЗВАНИЕ"</strong>] [,<strong>ТИП</strong>, <strong>ВИД</strong>, <strong>ПРОТОКОЛ</strong>, <strong>КОДИРОВКА</strong>, [<strong>ВРЕМЯ</strong>], <strong>"НОМЕРс"</strong>, <strong>ТИПс</strong>, <strong>ДЛИНА</strong>]<span style="color: #777777;">\r\n</span><br><strong>ДАННЫЕ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+		</p>
+		<p><br><br><em>Текстовый формат, сообщение запроса статуса:</em><br><span style="color: #777777;">\r\n</span><br>+CMGR: <strong>"СТАТУС"</strong>, <strong>ВИД</strong>, <strong>ССЫЛКА</strong>, [<strong>"НОМЕР"</strong>] [,<strong>ТИП</strong>], <strong>"ДАТА"</strong>, &lt;dt&gt;, &lt;st&gt;<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+		</p>
+		<p><br><br><em>Формат PDU:</em><br><span style="color: #777777;">\r\n</span><br>+CMGR: <strong>"СТАТУС"</strong> [,<strong>"НАЗВАНИЕ"</strong>], <strong>ДЛИНА</strong><span style="color: #777777;">\r\n<br></span><strong>PDU</strong><span style="color: #777777;">\r\n<br></span><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+		</p>
+	</td>
+	<td><strong>Чтение одного SMS сообщения из памяти:</strong><br>
+		<ul>
+			<li>Команда читает одно сообщение из области памяти указанной командой CPMS.</li>
+			<li>ИНДЕКС - представлен числом указывающим номер сообщения в памяти.</li>
+			<li>СТАТУС - сообщений представлен либо цифрой (если выбран формат PDU), либо строкой (если выбран текстовый формат):<br>0 - "REC UNREAD" - полученные непрочитанные сообщения.<br>1 - "REC READ" - полученные прочитанные сообщения.<br>2 - "STO UNSENT" - сохранённые неотправленные сообщения.<br>3 - "STO SENT" - сохранённые отправленные сообщения.<br>4 - "ALL" - все сообщения.</li>
+			<li>"НОМЕР" - номер телефона отправителя или получателя.</li>
+			<li>"НОМЕРс" - номер телефона сервисного центра службы коротких сообщений.</li>
+			<li>ТИП, ТИПс - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>"НАЗВАНИЕ" - строковое алфавитно-цифровое представление сопоставленное номеру телефона из адресной книги.</li>
+			<li>"ДАТА" - строка с датой и временем отправки сообщения (присваивается сервисным центром коротких сообщений).</li>
+			<li>ВРЕМЯ - представлено числом определяющим срок жизни сообщения (сервисный центр будет пытаться доставить данное сообщение адресату, пока не истечёт время жизни сообщения).</li>
+			<li>ВИД - число определяющее вид сообщений:<br>17 - входящее/исходящее сообщение.<br>2 - сообщение отчета о статусе или сообщение команды.</li>
+			<li>ПРОТОКОЛ - идентификатор протокола представлен числом, по умолчанию 0.</li>
+			<li>КОДИРОВКА - представлена числом: 0, 4, 8:<br>0 - 7-битный алфавит GSM.<br>4 - 8-битная кодировка.<br>8 - 16-битная кодировка.</li>
+			<li>ДЛИНА - число указывающее размер тела сообщения (в текстовом режиме +CMGF=1) или размер фактического блока данных (в режиме PDU +CMGF=0).</li>
+			<li>ДАННЫЕ - тело сообщения (текст сообщения).</li>
+			<li>После чтения списка полученных непрочитанных сообщений, статус данных сообщений изменится на "полученные прочитанные сообщения".</li>
+			<li>Пример запроса:<br>AT+CMGR=4<span style="color: #777777;">\r\n</span> -прочитать сообщение под номером 4.</li>
+			<li>Пример ответа, текстовый формат, строка принятого сообщения: +CMGR: "REC<span style="color: #FFFFFF;">_</span>READ","+7926...","2018/04/27,13:17:17+03"<span style="color: #777777;">\r\n</span>Privet<span style="color: #777777;">\r\n</span>.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CMGS
+	</td>
+	<td><em>Отправка SMS в текстовом формате:</em><br><strong>AT+CMGS=</strong>"НОМЕР"[,ТИП]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">&gt;\r\n</span><br>ТЕКСТ<span style="color: #777777;">(&lt;0x1A&gt;/&lt;0x1B&gt;)</span>
+		<p><br><br><em>Отправка SMS в формате PDU:</em><br><strong>AT+CMGS=</strong>ДЛИНА<span style="color: #777777;">\r\n<br></span><span style="color: #777777;">&gt;\r\n</span><br>PDU<span style="color: #777777;">(&lt;0x1A&gt;/&lt;0x1B&gt;)</span><br><em><br>(см. примеры)</em>
+		</p>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMGS: <strong>ИНДЕКС</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td><strong>Отправка SMS сообщения без сохранения в память:</strong><br>
+		<ul>
+			<li>"НОМЕР" - номер телефона получателя сообщения.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>ИНДЕКС - представлен числом от 0 до 255, возвращается модулем при успешной отправке SMS. Это не номер записи отправленной SMS в памяти (т.к. SMS не сохраняется), а порядковый номер отправленной SMS. Если индекс достигнет значения 255, то следующая отправка SMS приведёт к сбросу индекса в 0.</li>
+			<li>ДЛИНА - число указывающее размер фактического блока данных (в режиме PDU +CMGF=0).</li>
+			<li>ТЕКСТ - текст SMS сообщения, последним символом которого должен быть символ с кодом 0x1A или 0x1B. Эти символы не должны встречаться в другом месте текста.</li>
+			<li>PDU - блок данных записанный в шестнадцатеричном представлении, последним символом которого должен быть символ с кодом 0x1A или 0x1B. Эти символы не должны встречаться в другом месте блока PDU.</li>
+			<li>&lt;0x1A&gt; - символ с кодом 0x1A (ctrl-z), подтверждает отправку SMS.</li>
+			<li>&lt;0x1B&gt; - символ с кодом 0x1B (Esc), запрещает отправку SMS.</li>
+			<li>Пример отправки SMS в текстовом режиме:<br>AT+CMGF=1<span style="color: #777777;">\r\n</span> - установка текстового режима.<br>AT+CSMP=17,167,0,0<span style="color: #777777;">\r\n</span> - установка параметров текстового режима.<br>AT+CMGS="+7XXXXXXXXXX"<span style="color: #777777;">\r\n</span> - номер получателя SMS.<br>
+			<span style="color: #777777;">&gt;\r\n - ответ модуля (модуль готов принять текст SMS)</span>.<br>TEXT - ввод и отправка текста в модуль. Как только в тексте встретится символ &lt;0x1A&gt;, сообщение будет отправлено. Если в тексте встретится символ &lt;0x1B&gt;, сообщение не будет отправлено.</li>
+			<li>Примечание:<br>- В текстовом режиме можно добавлять в текст SMS сообщения символы переноса строки <span style="color: #777777;">\r\n</span>., в т.ч. перед символом подтверждающим/запрещающим отправку SMS.<br>- В режиме PDU весь блок PDU состоит из чисел в шестнадцатеричной системе счисления, вставка символов <span style="color: #777777;">\r\n</span> в открытом виде не допускается, в т.ч. и перед символом подтверждающим/запрещающим отправку SMS.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CMGW
+	</td>
+	<td><em>Отправка SMS в текстовом формате:</em><br><strong>AT+CMGW=</strong>"НОМЕР"[,ТИП] [,СТАТУС]<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">&gt;\r\n</span><br>ТЕКСТ<span style="color: #777777;">(&lt;0x1A&gt;/&lt;0x1B&gt;)</span>
+		<p><br><br><em>Отправка SMS в формате PDU:</em><br><strong>AT+CMGW=</strong>ДЛИНА [,СТАТУС]<span style="color: #777777;">\r\n<br></span><span style="color: #777777;">&gt;\r\n</span><br>PDU<span style="color: #777777;">(&lt;0x1A&gt;/&lt;0x1B&gt;)</span><br><em><br>(см. примеры)</em>
+		</p>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CMGW: <strong>ИНДЕКС</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td><strong>Запись SMS сообщения в память:</strong><br>
+		<ul>
+			<li>Команда сохраняет сообщение в область памяти указанной командой CPMS, в дальнейшем это сообщение можно отправить командой CMSS.</li>
+			<li>"НОМЕР" - номер телефона получателя / отправителя сообщения (зависит от указанного статуса сообщения).</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:<br>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>СТАТУС - сообщения представлен либо цифрой (если выбран формат PDU), либо строкой (если выбран текстовый формат):<br>0 - "REC UNREAD" - полученное непрочитанное сообщение.<br>1 - "REC READ" - полученное прочитанное сообщение.<br>2 - "STO UNSENT" - сохранённое неотправленное сообщение.<br>3 - "STO SENT" - сохранённое отправленное сообщение.<br>Если СТАТУС не указан, то сообщению присваивается статус 2 - "STO UNSENT" (сохранённое неотправленное).</li>
+			<li>ИНДЕКС - представлен числом указывающим на номер (ячейку) сохраняемого SMS сообщения в предпочтительной области памяти.</li>
+			<li>ДЛИНА - число указывающее размер фактического блока данных (в режиме PDU +CMGF=0).</li>
+			<li>ТЕКСТ - текст SMS сообщения, последним символом которого должен быть символ с кодом 0x1A или 0x1B. Эти символы не должны встречаться в другом месте текста.</li>
+			<li>PDU - блок данных записанный в шестнадцатеричном представлении, последним символом которого должен быть символ с кодом 0x1A или 0x1B. Эти символы не должны встречаться в другом месте блока PDU.</li>
+			<li>&lt;0x1A&gt; - символ с кодом 0x1A (ctrl-z), подтверждает отправку SMS.</li>
+			<li>&lt;0x1B&gt; - символ с кодом 0x1B (Esc), запрещает отправку SMS.</li>
+			<li>Пример сохранения SMS в текстовом режиме:<br>AT+CMGF=1<span style="color: #777777;">\r\n</span> - установка текстового режима.<br>AT+CSMP=17,167,0,0<span style="color: #777777;">\r\n</span> - установка параметров текстового режима.<br>AT+CMGW="+7XXXXXXXXXX"<span style="color: #777777;">\r\n</span> - номер получателя SMS.<br>
+			<span style="color: #777777;">&gt;\r\n - ответ модуля (модуль готов принять текст SMS)</span>.<br>TEXT - ввод и отправка текста в модуль. Как только в тексте встретится символ &lt;0x1A&gt;, сообщение будет сохранено. Если в тексте встретится символ &lt;0x1B&gt;, сообщение не будет сохранено.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CNMA
+	</td>
+	<td><strong>AT+CNMA=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>NOT SUPPORT<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="2"><strong>Запрос отчёта о доставке SMS сообщений:</strong><br>
+		<ul>
+			<li>В настоящее время модули A6 не поддерживают данную команду.</li>
+			<li>ТИП - представлен цифрой от 0 до 2 указывающей тип запрашиваемого отчёта:<br>0 - запрос отчёта о доставке без опционального сообщения PDU (как в текстовом формате.<br>1 - запрос отчёта о доставке с опциональным сообщением PDU.<br>2 - запрос отчёта о ошибке доставки с опциональным сообщением PDU.</li>
+			<li>ДЛИНА - число указывающее размер фактического блока данных PDU.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><em>Запрос отчёта в текстовом формате:</em><br><strong>AT+CNMA</strong><span style="color: #777777;">\r\n</span>
+		<p><br><br><em>Запрос отчёта в формате PDU:</em><br><strong>AT+CNMA=</strong>ТИП, ДЛИНА<span style="color: #777777;">\r\n</span><em><br></em>
+		</p>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CNMI
+	</td>
+	<td><strong>AT+CNMI=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CNMI: (<strong>РЕЖИМ</strong>),(<strong>СООБЩЕНИЯ</strong>),(<strong>РАССЫЛКА</strong>),(<strong>ОТЧЁТЫ</strong>),(<strong>БУФЕР</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="3"><strong>Индикация новых сообщений:</strong><br>
+		<ul>
+			<li>РЕЖИМ - представлен цифрой от 0 до 3:<br>0 - Все незапрашиваемые результирующие коды буферизируются, но не отображаются.<br>1 - Незапрашиваемые результирующие коды отображаются только в режиме offline (командный режим), без буферизации.<br>2 - Незапрашиваемые результирующие коды буферизируются и отображаются. При работе в режиме online (передача данных), коды не отображаются, но будут отображены после выхода из режима online в режим offline (командный режим).<br>3 - Незапрашиваемые результирующие коды не буферизируются и отображаются вне зависимости от режима работы (online/offline).</li>
+			<li>СООБЩЕНИЯ - параметр представлен цифрой от 0 до 3, он управляет индикацией входящих SMS сообщений:<br>0 - Незапрашиваемые результирующие коды индикации получения новых входящих SMS сообщений не возвращаются.<br>1 - Если входящее SMS сообщение сохранено в память, то возвращается незапрашиваемый результирующий код +CMTI с указанием индекса (номера ячейки памяти в которую сохранено сообщение).<br>2 - Входящие SMS сообщения выводятся как незапрашиваемый результирующий код +CMT с указанием номера отправителя, текста сообщения или блока PDU.<br>3 - В настоящее время модули A6 не поддерживают данное значение.<br>Значение по умолчанию 0.</li>
+			<li>РАССЫЛКА - параметр представлен цифрой от 0 до 2, он управляет индикацией входящих Cell Broadcast сообщений (рассылка):<br>0 - Незапрашиваемые результирующие коды индикации получения новых входящих Cell Broadcast сообщений не возвращаются.<br>1 - Если входящее Cell Broadcast сообщения сохранено в память, то возвращается незапрашиваемый результирующий код +CBMI с указанием индекса (номера ячейки памяти в которую сохранено сообщение).<br>2 - Входящие Cell Broadcast сообщения выводятся как незапрашиваемый результирующий код +CBM с указанием текста сообщения или блока PDU.<br>Значение по умолчанию 0.</li>
+			<li>ОТЧЁТЫ - параметр представлен цифрой 0 или 1, он управляет индикацией сообщений отчетов о доставке (SMS-STATUS-REPORT):<br>0 - Отчёты о доставке сообщений не возвращаются.<br>1 - Отчёты о доставке сообщений возвращаются в виде незапрашиваемого результирующего кода +CDS.<br>2 - В настоящее время модули A6 не поддерживают данное значение. Отчёты о доставке сообщений возвращаются в виде незапрашиваемого результирующего кода +CDSI.<br>Значение по умолчанию 0.</li>
+			<li>БУФЕР - параметр представлен цифрой 0 или 1, он управляет буфером незапрашиваемых результирующих кодов:<br>В настоящее время модули A6 не поддерживают управление буфером.<br>0 - Если параметр РЕЖИМ данной команды установлен в значение отличное от 0, то получив эту команду, модуль выведет все данные из буфера.<br>1 - Если параметр РЕЖИМ данной команды установлен в значение отличное от 0, то получив эту команду, модуль очистит буфер.<br>Значение по умолчанию 0.</li>
+			<li>Пример ответа на запрос допустимых значений:<br>+CNMI: (0-3),(0-3),(0,2),(0-1),(0,1)<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span>. - в скобках указаны допустимые значения, а номер скобки это номер параметра.</li>
+			<li>Пример ответа на запрос текущих настроек:<br>+CNMI: 0,0,0,0,0<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span>. - все параметры установлены в значения по умолчанию (индикация всех входящих сообщений отключена).</li>
+			<li>Пример установки настроек индикации входящих сообщений:<br>AT+CNMI: 1,2,2,1,0<span style="color: #777777;">\r\n</span>. - все коды отображаются в командном режиме, все входящие сообщения выводятся как незапрашиваемые результирующие коды.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CNMI?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущих настроек индикации входящих сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CNMI: <strong>РЕЖИМ</strong>, <strong>СООБЩЕНИЯ</strong>, <strong>РАССЫЛКА</strong>, <strong>ОТЧЁТЫ</strong>, <strong>БУФЕР</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CNMI=</strong>РЕЖИМ [,СООБЩЕНИЯ [,РАССЫЛКА [,ОТЧЁТЫ [,БУФЕР]]]]<span style="color: #777777;">\r\n</span><br><em>(установить настройки индикации входящих сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CPMS
+	</td>
+	<td><strong>AT+CPMS=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPMS: (<strong>ПАМЯТЬ1</strong>),(<strong>ПАМЯТЬ2</strong>),(<strong>ПАМЯТЬ3</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="3"><strong>Предпочтительная область памяти для хранения сообщений:</strong><br>
+		<ul>
+			<li>"ПАМЯТЬ1" - представлена строкой указывающей на область памяти используемую для просмотра, чтения и удаления сообщений:<br>"ME" - память модуля.<br>"SM" - память SIM-карты.</li>
+			<li>"ПАМЯТЬ2" - представлена строкой указывающей на область памяти используемую для написания и отправки сообщений:<br>"ME" - память модуля.<br>"SM" - память SIM-карты.</li>
+			<li>"ПАМЯТЬ3" - представлена строкой указывающей на область памяти предпочтительную для получения и сохранения сообщений:<br>"ME" - память модуля.<br>"SM" - память SIM-карты.</li>
+			<li>ИСП - параметр представлен числом указывающим на количество использованных ячеек памяти (количество сохранённых сообщений).</li>
+			<li>Пример ответа на запрос допустимых значений:<br>+CPMS: ("ME","SM"),("ME","SM"),("ME","SM")<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span>. - в скобках указаны допустимые значения, а номер скобки это номер параметра.</li>
+			<li>Пример ответа на запрос текущих настроек:<br>+CPMS: "SM",0,15,"SM",0,15,"",0,25<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span>. - .</li>
+			<li>Пример установки предпочтительной области памяти:<br>AT+CPMS: 1,2,2,1,0<span style="color: #777777;">\r\n</span>. - все коды отображаются в командном режиме, все входящие сообщения выводятся как незапрашиваемые результирующие коды.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPMS?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущих настроек)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPMS: <strong>"ПАМЯТЬ1"</strong>,<strong>ИСП</strong>,<strong>ОБЪЕМ</strong>, <strong>"ПАМЯТЬ2"</strong>,<strong>ИСП</strong>,<strong>ОБЪЕМ</strong>, <strong>"ПАМЯТЬ3"</strong>,<strong>ИСП</strong>,<strong>ОБЪЕМ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CPMS=</strong>"ПАМЯТЬ1" [,"ПАМЯТЬ2" [,"ПАМЯТЬ3"]]<span style="color: #777777;">\r\n</span><br><em>(установить предпочтительную область памяти)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CPMS: <strong>"ПАМЯТЬ1"</strong>,<strong>ИСП</strong>,<strong>ОБЪЕМ</strong>, <strong>"ПАМЯТЬ2"</strong>,<strong>ИСП</strong>,<strong>ОБЪЕМ</strong>, <strong>"ПАМЯТЬ3"</strong>,<strong>ИСП</strong>,<strong>ОБЪЕМ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CSCA
+	</td>
+	<td><strong>AT+CSCA?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос текущего номера сервис-центра SMS сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSCA: <strong>"НОМЕР"</strong>,<strong>ТИП</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="2"><strong>Запрос / установка номера сервис-центра SMS сообщений:</strong><br>
+		<ul>
+			<li>НОМЕР - номер сервис-центра SMS сообщений.</li>
+			<li>ТИП - число определяющее формат написания номера, допустимые значения: 129,145,161:</li>
+			<li>161 - национальный номер абонента сети ISDN.<br>145 - международный номер (+7, +3 ...).<br>129 - остальные номера (8XXX..., *100#, ...).</li>
+			<li>Пример ответа: +CSCA: "+79262909090",145<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - используемый номер сервис-центра SMS сообщений в международном формате.</li>
+			<li>Пример установки: AT+CSCA="+792620003311"<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - установить новый номер сервис центра SMS сообщений.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSCA=</strong>"НОМЕР" [,ТИП]<span style="color: #777777;">\r\n</span><br><em>(установить номер сервис центра SMS сообщений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CSCB
+	</td>
+	<td><strong>AT+CSCB=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSCB: (<strong>ТИПЫ</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка типа принимаемых Cell Broadcast сообщений:</strong><br>
+		<ul>
+			<li>В настоящее время модули A6 не поддерживают данную команду.</li>
+			<li>Сообщения Cell Broadcast это сообщения рассылки.</li>
+			<li>ТИП - значение 0 или 1.</li>
+			<li>"ID" - список идентификаторов сообщений.</li>
+			<li>"ЯЗЫКИ" - список поддерживаемых языков сообщений.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSCB?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос установленных типов)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CSCB: <strong>ТИП</strong>,<strong>"ID"</strong>,<strong>"ЯЗЫКИ"</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CSCB=</strong>ТИП [,"ID" [,"ЯЗЫКИ"]]<span style="color: #777777;">\r\n</span><br><em>(установить тип принимаемых сообщений рассылки)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>CSAS
+	</td>
+	<td><strong>AT+CSAS</strong><span style="color: #777777;">\r\n</span><br><em>(сохранение настроек)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Сохранение настроек:</strong><br>
+		<ul>
+			<li>В настоящее время модули A6 не поддерживают данную команду.</li>
+			<li>Все настройки, заданные командами AT+CSCA и AT+CSMP, сохраняются в EEPROM или на SIM-карту, если это карта фазы 2.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td>CRES
+	</td>
+	<td><strong>AT+CRES</strong><span style="color: #777777;">\r\n</span><br><em>(сохранение настроек)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Восстановление настроек:</strong><br>
+		<ul>
+			<li>В настоящее время модули A6 не поддерживают данную команду.</li>
+			<li>Все настройки, задаваемые командами AT+CSCA и AT+CSMP, восстанавливаются из EEPROM или с SIM-карты, если это карта фазы 2.</li>
+		</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_12">AT-команды аудиоинтерфейса:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td rowspan="2">CAUDIO
+	</td>
+	<td><strong>AT+CAUDIO=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CAUDIO: (<strong>0-1</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="2"><strong>Открыть / закрыть аудиопоток голосового вызова:</strong><br>
+		<ul>
+			<li>ФЛАГ - представлен цифрой 0 или 1:<br>0 - Закрыть аудиопоток (приём и передача).<br>1 - Открыть аудиопоток (приём и передача).</li>
+			<li>Команда не поддерживается во время выполнения тестового аудиоцикла.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CAUDIO=</strong>ФЛАГ<span style="color: #777777;">\r\n</span><br><em>(открыть/закрыть аудиопоток)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">CRSL
+	</td>
+	<td><strong>AT+CRSL=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CRSL: (<strong>0-15</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span><br>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка уровня громкости звонка:</strong><br>
+		<ul>
+			<li>ГРОМКОСТЬ - представлена числом от 0 до 15:<br>0 - без звука.<br>15 - максимальная громкость.</li>
+			<li>Установка громкости меняет значение громкости по умолчанию, установленное командой CRMP.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CRSL?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос установленной громкости)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CRSL: <strong>ГРОМКОСТЬ</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CRSL=</strong>ГРОМКОСТЬ<span style="color: #777777;">\r\n</span><br><em>(установить громкость звонка)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2">CDTMF
+	</td>
+	<td><strong>AT+CDTMF=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+VTS: (<strong>0-9,*,#,A,B,C,D</strong>),(<strong>1-10</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="2"><strong>Воспроизведение тонального сигнала DTMF:</strong><br>
+		<ul>
+			<li>В отличии от команды AT+VTS, воспроизводимые тональные сигналы DTMF не передаются по сети GSM при наличии активного вызова.</li>
+			<li>ЗНАЧЕНИЕ - представлено одним из передаваемых знаков: 0-9,*,#,A,B,C,D.</li>
+			<li>ДЛИТЕЛЬНОСТЬ - представлена числом от 1 до 10 и является 1/10 секунды.</li>
+			<li>Пример воспроизведения: AT+CDTMF=5<span style="color: #777777;">\r\n</span> - воспроизведение тонального сигнала соответствующего цифре 5.</li>
+			<li>Пример воспроизведения: AT+CDTMF=#<span style="color: #777777;">\r\n</span> - воспроизведение тонального сигнала соответствующего знаку #.</li>
+			<li>Пример воспроизведения: AT+CDTMF=4,2<span style="color: #777777;">\r\n</span> - воспроизведение тонального сигнала соответствующего цифре 4, длительностью 200 мс.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+CDTMF=</strong>ЗНАЧЕНИЕ [, ДЛИТЕЛЬНОСТЬ]<span style="color: #777777;">\r\n</span><br><em>(открыть/закрыть аудиопоток)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">AUST
+	</td>
+	<td><strong>AT+AUST=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td>\r\n<br>+AUST: (<strong>0-2</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запуск тестового аудиоцикла:</strong><br>
+		<ul>
+			<li>РЕЖИМ - представлен цифрой от 0 до 2:<br>0 - использовать гарнитуру для ввода/вывода звука.<br>1 - использовать громкую связь для ввода/вывода звука.<br>2 - использовать только микрофон громкой связи для ввода звука.</li>
+			<li>Для запуска тестового аудиоцикла нужно сначала выбрать режим, а потом запустить цикл, во время которого модуль будет себя вести как усилитель звука.</li>
+			<li>При запуске тестового аудиоцикла:<br>- усиление динамика устанавливается в значение 6 (см. AT+VGR).<br>- усиление микрофона устанавливается в значение 15 (см AT+VGT).<br>Но во время выполнения цикла эти параметры можно менять.</li>
+			<li>Во время выполнения тестового аудиоцикла запрещается устанавливать режим или повторно запускать аудиоцикл. Сначала его нужно остановить командой AT+AUEND.</li>
+			<li>Пример запуска и остановки аудиоциклов:<br>AT+AUST=0<span style="color: #777777;">\r\n</span> - выбираем режим использования гарнитуры.<br>AT+AUST<span style="color: #777777;">\r\n</span> - запускаем тестовый аудиоцикл.<br>AT+AUEND<span style="color: #777777;">\r\n</span> - останавливаем тестовый аудиоцикл.<br>AT+AUST=1<span style="color: #777777;">\r\n</span> - выбираем режим использования громкой связи.<br>AT+AUST<span style="color: #777777;">\r\n</span> - запускаем тестовый аудиоцикл.<br>AT+AUEND<span style="color: #777777;">\r\n</span> - останавливаем тестовый аудиоцикл.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+AUST=</strong>РЕЖИМ<span style="color: #777777;">\r\n</span><br><em>(выбрать режим тестового аудиоцикла)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+AUST</strong><span style="color: #777777;">\r\n</span><br><em>(запустить тестовый аудиоцикл)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td>AUEND
+	</td>
+	<td><strong>AT+AUEND</strong><span style="color: #777777;">\r\n</span><br><em>(остановка тестового аудиоцикла)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td><strong>Остановка тестового аудиоцикла:</strong><br>
+		<ul>
+			<li>Если тестовый аудиоцикл запущен, то для выбора другого режима или повторного запуска аудиоцикла, его нужно сначала остановить.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td rowspan="3">SNFS
+	</td>
+	<td><strong>AT+SNFS=?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос допустимых значений)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+SNFS: (<strong>0-2</strong>)<span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+	<td rowspan="3"><strong>Запрос / установка устройства ввода / вывода звука:</strong><br>
+		<ul>
+			<li>УСТРОЙСТВО - представлено цифрой от 0 до 2:<br>0 - использовать гарнитуру.<br>1 - использовать громкую связь.<br>2 - использовать только микрофон громкой связи.</li>
+			<li>Выбранное устройство используется в т.ч. и при голосовых вызовах</li>
+			<li>Пример ответа: +SNFS: 1<span style="color: #777777;">\r\n</span>OK<span style="color: #777777;">\r\n</span> - используется громкая связь.</li>
+			<li>Пример установки: AT+SNFS=0<span style="color: #777777;">\r</span><span style="color: #777777;">\n</span> - использовать гарнитуру.</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+SNFS?</strong><span style="color: #777777;">\r\n</span><br><em>(запрос используемого устройства)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>+CRSL: <strong>УСТРОЙСТВО</strong><span style="color: #777777;">\r\n</span><br><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+<tr>
+	<td><strong>AT+SNFS=</strong>УСТРОЙСТВО<span style="color: #777777;">\r\n</span><br><em>(выбор устройства)</em>
+	</td>
+	<td><span style="color: #777777;">\r\n</span><br>OK<span style="color: #777777;">\r\n</span>
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_13">AT-команды GPRS:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>CGATT
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Установка / разрыв GPRS соединения.
+	</td>
+</tr>
+<tr>
+	<td>CGDCONT
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Задание параметров PDP контекста.
+	</td>
+</tr>
+<tr>
+	<td>CGACT
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Активация / деактивация PDP контекста.
+	</td>
+</tr>
+<tr>
+	<td>CRC
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Включение / отключение результирующих кодов входящих соединений.
+	</td>
+</tr>
+<tr>
+	<td>CGQMIN
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Задание минимально допустимого профиля QoS (Quality of Service).
+	</td>
+</tr>
+<tr>
+	<td>CGPADDR
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Получение списка PDP адресов.
+	</td>
+</tr>
+<tr>
+	<td>CGAUTO
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Включение / отключение автоответа активации PDP контекста.<br>
+	</td>
+</tr>
+<tr>
+	<td>CGQREQ
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Задание запрашиваемого профиля QoS (Quality of Service).
+	</td>
+</tr>
+<tr>
+	<td>CGREG
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Статус регистрации в сети GPRS.
+	</td>
+</tr>
+<tr>
+	<td>ATD*99***1#
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Запрос услуги GPRS (установка связи с PDN).<br>
+	</td>
+</tr>
+<tr>
+	<td>CGSMS
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Выбор сервиса (GSM или GPRS) для отправки SMS сообщений.
+	</td>
+</tr>
+<tr>
+	<td>CGANS
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Ручной ответ активации PDP контекста на запрос сети (см CGAUTO).
+	</td>
+</tr>
+<tr>
+	<td>CGEREP
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Включение / отключение результирующих кодов о событиях GPRS.
+	</td>
+</tr>
+<tr>
+	<td>CGDATA
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Установка связи с сетью (аналогично команде ATD*99***1#)
+	</td>
+</tr>
+<tr>
+	<td>CGCLASS
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Запрос / установка GPRS класса мобильного устройства.
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_14">AT-команды TCP/IP:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>CIPSTART
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Открытие соединения TCP или UDP.
+	</td>
+</tr>
+<tr>
+	<td>CIPSEND
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Отправка данных через TCP или UDP соединение.
+	</td>
+</tr>
+<tr>
+	<td>CIPCLOSE
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Закрытие соединения TCP или UDP.
+	</td>
+</tr>
+<tr>
+	<td>CIPSHUT
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Отключение беспроводного соединения.
+	</td>
+</tr>
+<tr>
+	<td>CSTT
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Ввод имени точки доступа, логина и пароля.
+	</td>
+</tr>
+<tr>
+	<td>CIICR
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Установка беспроводного соединения.
+	</td>
+</tr>
+<tr>
+	<td>CIFSR
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Получение локального IP-адреса.
+	</td>
+</tr>
+<tr>
+	<td>CIPSTATUS
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Запрос состояния текущего соединения.
+	</td>
+</tr>
+<tr>
+	<td>CIPATS
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Установка таймера автоматической отправки
+	</td>
+</tr>
+<tr>
+	<td>CIPSCONT
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Cохранение параметров контекста TCP/IP.
+	</td>
+</tr>
+<tr>
+	<td>CDNSGIP
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Запрос IP-адреса указанного доменного имени.
+	</td>
+</tr>
+</tbody>
+</table>
+<h2 id="h3_15">AT-команды дополнительные:</h2>
+<table>
+<thead>
+<tr>
+	<th>
+	</th>
+	<th>AT-команда:
+	</th>
+	<th>Ответ:
+	</th>
+	<th>Назначение:
+	</th>
+</tr>
+</thead><colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+	<td>CLDSTART
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Автоматическое подключение к облачной платформе Anxin Keyun.
+	</td>
+</tr>
+<tr>
+	<td>CLDSTOP
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Отключение от облачной платформы Anxin Keyun.
+	</td>
+</tr>
+<tr>
+	<td>CLDSEND
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Отправка данных на облачный сервис Anxin Keyun.
+	</td>
+</tr>
+<tr>
+	<td>CLDUNBIND
+	</td>
+	<td><a href="https://wiki.iarduino.ru/file/AT_A6V101.pdf">см. оригинал</a>.
+	</td>
+	<td>
+	</td>
+	<td>Освобождение облачного сервиса Anxin Keyun.
+	</td>
+</tr>
+</tbody>
+</table>            </div>
+        </div>
+        <div>
+            <div class="" style="background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); background-blend-mode: normal; border: 0px none rgb(0, 0, 0); border-radius: 0px; border-collapse: separate; box-shadow: none; outline: rgb(0, 0, 0) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: normal; overflow: visible; padding: 0px; box-sizing: border-box; width: 260px;">
+            <nav class="nav_right">
+                <h3>Оглавление</h3>
+                <ul>
+                <li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_0">Подключение</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_1">Настройка</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_2">Проверка</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_3">Синтаксис AT-команд</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_4">Используемые сокращения</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_5">Примеры</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_6">Основные AT-команды</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_7">AT-команды SIM / PBK</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_8">AT-команды голосовых вызовов</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_9">AT-команды сетевых служб</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_10">AT-команды STK / SS</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_11">AT-команды SMS</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_12">AT-команды аудиоинтерфейса</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_13">AT-команды GPRS</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_14">AT-команды TCP/IP</a></li><li><a href="https://wiki.iarduino.ru/page/a6_gprs_at/#h3_15">AT-команды дополнительные</a></li>                </ul>
+            </nav>
+            <div class="video">
+            <br><br><br>
+                        
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="width100">
+    <div class="width1366 pageWiki">
+        <div class="commentarii">
+            <h2>Обсуждение</h2>
+                
+            <div id="hypercomments_widget"></div>
+            <script type="text/javascript">
+            _hcwp = window._hcwp || [];
+            _hcwp.push({widget:"Stream", widget_id: 63201});
+            (function() {
+            if("HC_LOAD_INIT" in window)return;
+            HC_LOAD_INIT = true;
+            var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+            var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+            hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/63201/"+lang+"/widget.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hcc, s.nextSibling);
+            })();
+            </script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+  var i_max=$('.img_prev_grup').length+1;
+  if(i_max>1){
+    baner_index(1);
+    $('.img_prev_grup:not(#img_prev1)').hide();
+    var timerId = setTimeout (baner_index, 2000); 
+  }
+  function baner_index(id){
+    if(id>0){i_t=id;}
+    for (i = 0; i < i_max; i++) {
+      if(i==i_t){
+        $('#img_prev'+i).show(0);
+        }else{
+        $('#img_prev'+i).hide(0);
+        }
+    }
+
+  i_t++;
+  if(i_t==i_max){i_t=1;}
+    clearTimeout(timerId);
+      timerId = setTimeout (baner_index, 4000);
+  }
+     
+});
+</script>
+
+
+
+
+<div class="MobileMenu" id="MobileMenu">
+    <div class="close" id="ButtonMobMenuClose"></div>
+    <ul class="Level1">
+        <li><a href="https://wiki.iarduino.ru/">КАТАЛОГ</a></li>
+    </ul>
+    <ul class="Level2">
+         <li><a href="https://wiki.iarduino.ru/shop/ng/">Готовые подарки!</a></li> <li><a href="https://wiki.iarduino.ru/shop/boards/">Контроллеры</a></li> <li><a href="https://wiki.iarduino.ru/shop/Nabor/">Роботы и наборы</a></li> <li><a href="https://wiki.iarduino.ru/shop/Expansion-payments/">Модули / Shield</a></li> <li><a href="https://wiki.iarduino.ru/shop/Sensory-Datchiki/">Сенсоры / Датчики</a></li> <li><a href="https://wiki.iarduino.ru/shop/Displei/">Дисплеи </a></li> <li><a href="https://wiki.iarduino.ru/shop/Mehanika/">Механика</a></li> <li><a href="https://wiki.iarduino.ru/shop/Makety/">Макетирование</a></li> <li><a href="https://wiki.iarduino.ru/shop/Provoda-kabeli/">Провода и кабели</a></li> <li><a href="https://wiki.iarduino.ru/shop/programmers/">Программаторы</a></li> <li><a href="https://wiki.iarduino.ru/shop/radioparts/">Радиодетали</a></li> <li><a href="https://wiki.iarduino.ru/shop/Istochniki-pitanija/">Источники питания</a></li> <li><a href="https://wiki.iarduino.ru/shop/Instrumenty/">Инструменты</a></li> <li><a href="https://wiki.iarduino.ru/shop/case-fastener/">Корпуса и крепежи</a></li> <li><a href="https://wiki.iarduino.ru/shop/Raznoe/">Разное</a></li>    </ul>
+    <ul class="Level1">
+            <li><a href="https://wiki.iarduino.ru/user/">ЛИЧНЫЙ КАБИНЕТ</a></li>
+            <li><a href="https://lesson.iarduino.ru/">УРОКИ</a></li>
+            <li><a href="https://wiki.iarduino.ru/">ВИКИ</a></li>
+            <li><a href="https://wiki.iarduino.ru/file/">ФАЙЛЫ</a></li>
+            <li><a href="https://wiki.iarduino.ru/delivery">ДОСТАВКА</a></li>
+            <li><a href="https://wiki.iarduino.ru/contacts">КОНТАКТЫ</a></li>
+            <li><a href="https://wiki.iarduino.ru/payment">ОПЛАТА</a></li>
+            <li><a href="https://wiki.iarduino.ru/discount">СКИДКИ</a></li>
+
+    </ul>
+
+
+</div><div class="width100 backgroundGrey  marginT20px marginB20px">
+    <div class="width1366  foter padding20px">
+        <center><a href="https://wiki.iarduino.ru/delivery">Гарантии и возврат</a> <a href="https://wiki.iarduino.ru/payment">Используя сайт Вы соглашаетесь с условями</a></center>
+    </div>
+</div>
+<div class="width100">
+    <div class="width1366 foter ">
+        <center><img src="./Описание АТ-команд GSM_GPRS Shield, модуль A6 - Описания, примеры, подключение к Arduino_files/dsfvcxvzx1.png"></center>
+    </div>
+</div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(24135370, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true
+   });
+</script>
+<!-- /Yandex.Metrika counter -->
+
+<!--LiveInternet counter--><script type="text/javascript">new Image().src = "//counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) + ";h"+escape(document.title.substring(0,80)) + ";" +Math.random();</script><!--/LiveInternet--> 
+
+
+
+
+
+
+
+</body></html>

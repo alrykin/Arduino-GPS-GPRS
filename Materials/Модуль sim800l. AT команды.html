@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/ -->
+<html lang="ru-RU" class=" td-md-is-chrome"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Модуль sim800l. AT команды</title>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="pingback" href="https://elschemo.ru/xmlrpc.php">
+    <meta property="og:image" content="https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576.jpg"><meta name="author" content="Aleksey Pykhtin">
+<link rel="icon" type="image/png" href="http://elschemo.ru/wp-content/uploads/2016/10/favic.png">
+<!-- All in One SEO Pack 2.10.1 by Michael Torbert of Semper Fi Web Design[208,284] -->
+<meta name="description" content="В этой статье я хотел бы рассказать об управлении модулем SIM800L. Как было сказано ранее - модуль управляется через UART интерфейс посредством AT команд.">
+
+<link rel="canonical" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Елсхемо - Все для радиолюбителя » Лента" href="https://elschemo.ru/feed/">
+<link rel="alternate" type="application/rss+xml" title="Елсхемо - Все для радиолюбителя » Лента комментариев" href="https://elschemo.ru/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Елсхемо - Все для радиолюбителя » Лента комментариев к «GSM GPRS модуль SIM800L. AT команды»" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/feed/">
+		<script type="text/javascript" src="https://an.yandex.ru/system/context.js" async=""></script><script id="twitter-wjs" src="./Модуль sim800l. AT команды_files/widgets.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/elschemo.ru\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.14"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Модуль sim800l. AT команды_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="./Модуль sim800l. AT команды_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="toc-screen-css" href="./Модуль sim800l. AT команды_files/screen.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google_font_open_sans-css" href="./Модуль sim800l. AT команды_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="google_font_roboto_cond-css" href="./Модуль sim800l. AT команды_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="td-theme-css" href="./Модуль sim800l. AT команды_files/style.css" type="text/css" media="all">
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/jquery.js"></script>
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/jquery-migrate.min.js"></script>
+<link rel="https://api.w.org/" href="https://elschemo.ru/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://elschemo.ru/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://elschemo.ru/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Модернизация приставки Android TV MXQ PRO" href="https://elschemo.ru/peerdelki/modernizaciya-pristavki-android-tv-mxq-pro/">
+<link rel="next" title="Тестер емкости литиевых аккумуляторов" href="https://elschemo.ru/instrumenty-elektronshhika/tester-emkosti-litievyx-akkumulyatorov/">
+<meta name="generator" content="WordPress 4.8.14">
+<link rel="shortlink" href="https://elschemo.ru/?p=1189">
+<link rel="alternate" type="application/json+oembed" href="https://elschemo.ru/wp-json/oembed/1.0/embed?url=https%3A%2F%2Felschemo.ru%2Fdlya-nachinayushhix%2Fgsm-gprs-modul-sim800l-at-komandy%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://elschemo.ru/wp-json/oembed/1.0/embed?url=https%3A%2F%2Felschemo.ru%2Fdlya-nachinayushhix%2Fgsm-gprs-modul-sim800l-at-komandy%2F&amp;format=xml">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//elschemo.ru/?wordfence_lh=1&hid=C7D0B56E36689D9437EBB87233D6258A');
+</script><!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    
+<!-- JS generated by theme -->
+
+<script>
+    
+
+var td_blocks = []; //here we store all the items for the current page
+
+//td_block class - each ajax block uses a object of this class for requests
+function td_block() {
+    this.id = '';
+    this.block_type = 1; //block type id (1-234 etc)
+    this.atts = '';
+    this.td_column_number = '';
+    this.td_current_page = 1; //
+    this.post_count = 0; //from wp
+    this.found_posts = 0; //from wp
+    this.max_num_pages = 0; //from wp
+    this.td_filter_value = ''; //current live filter value
+    this.td_filter_ui_uid = ''; //used to select a item from the drop down filter
+    this.is_ajax_running = false;
+    this.td_user_action = ''; // load more or infinite loader (used by the animation)
+    this.header_color = '';
+    this.ajax_pagination_infinite_stop = ''; //show load more at page x
+}
+
+    
+    
+        // td_js_generator - mini detector
+        (function(){
+            var html_tag = document.getElementsByTagName("html")[0];
+
+            if(navigator.userAgent.indexOf("MSIE 10.0") > -1) {
+                html_tag.className+=' ie10';
+            }
+
+            if(!!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                html_tag.className+=' ie11';
+            }
+
+            if (/(iPad|iPhone|iPod)/g.test( navigator.userAgent )) {
+                html_tag.className+=' td-md-is-ios';
+            }
+
+            var user_agent = navigator.userAgent.toLowerCase();
+            if(user_agent.indexOf("android") > -1) {
+                html_tag.className+=' td-md-is-android';
+            }
+
+            if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+                html_tag.className+=' td-md-is-os-x';
+            }
+
+            if(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())) {
+               html_tag.className+=' td-md-is-chrome';
+            }
+
+            if (navigator.userAgent.indexOf('Firefox') != -1) {
+                html_tag.className+=' td-md-is-firefox';
+            }
+
+            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                html_tag.className+=' td-md-is-safari';
+            }
+
+        })();
+    
+    
+var td_viewport_interval_list=[{"limit_bottom":767,"sidebar_width":251},{"limit_bottom":1023,"sidebar_width":339}];
+var td_ajax_url="https:\/\/elschemo.ru\/wp-admin\/admin-ajax.php?td_theme_name=Newsmag&v=2.0";
+var td_get_template_directory_uri="https:\/\/elschemo.ru\/wp-content\/themes\/Newsmag";
+var tds_snap_menu="smart_snap_always";
+var tds_logo_on_sticky="show";
+var tds_header_style="";
+var td_please_wait="\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043e\u0436\u0434\u0438\u0442\u0435...";
+var td_email_user_pass_incorrect="\u041d\u0435\u0432\u0435\u0440\u043d\u043e\u0435 \u0438\u043c\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u0438\u043b\u0438 \u043f\u0430\u0440\u043e\u043b\u044c!";
+var td_email_user_incorrect="\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0430\u0434\u0440\u0435\u0441 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u044b \u0438\u043b\u0438 \u043f\u0430\u0440\u043e\u043b\u044c!";
+var td_email_incorrect="\u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0439 \u0430\u0434\u0440\u0435\u0441 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u044b!";
+var tds_more_articles_on_post_enable="";
+var tds_more_articles_on_post_time_to_wait="";
+var tds_more_articles_on_post_pages_distance_from_top=0;
+var tds_theme_color_site_wide="#4db2ec";
+var tds_smart_sidebar="enabled";
+var td_theme_v="Mi4w";
+var td_theme_n="TmV3c21hZw==";
+var td_magnific_popup_translation_tPrev="\u041f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0439 (\u041a\u043d\u043e\u043f\u043a\u0430 \u0432\u043b\u0435\u0432\u043e)";
+var td_magnific_popup_translation_tNext="\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 (\u041a\u043d\u043e\u043f\u043a\u0430 \u0432\u043f\u0440\u0430\u0432\u043e)";
+var td_magnific_popup_translation_tCounter="%curr% \u0438\u0437 %total%";
+var td_magnific_popup_translation_ajax_tError="\u0421\u043e\u0434\u0435\u0440\u0436\u0438\u043c\u043e\u0435 %url% \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043d\u043e.";
+var td_magnific_popup_translation_image_tError="\u0418\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435 #%curr% \u043d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c.";
+var td_ad_background_click_link="";
+var td_ad_background_click_target="";
+</script>
+
+
+<!-- Header style compiled by theme -->
+
+<style>
+    
+.td-pb-row [class*="td-pb-span"],
+    .td-pb-border-top,
+    .page-template-page-title-sidebar-php .td-page-content > .wpb_row:first-child,
+    .td-post-sharing,
+    .td-post-content,
+    .td-post-next-prev,
+    .author-box-wrap,
+    .td-comments-title-wrap,
+    .comment-list,
+    .comment-respond,
+    .td-post-template-5 header,
+    .td-container,
+    .wpb_content_element,
+    .wpb_column,
+    .wpb_row,
+    .white-menu .td-header-style-1 .td-header-main-menu,
+    .white-menu .td-header-style-2 .td-header-main-menu,
+    .white-menu .td-header-style-3 .td-header-main-menu,
+    .white-menu .td-header-style-4 .td-header-main-menu,
+    .white-menu .td-header-style-5 .td-header-main-menu,
+    .white-menu .td-header-style-6 .td-header-main-menu,
+    .white-menu .td-header-style-7 .td-header-main-menu,
+    .white-menu .td-header-style-8 .td-header-main-menu,
+    .white-menu .td-header-style-9 .td-header-main-menu,
+    .td-header-style-6 .td-header-container,
+    .td-post-template-1 .td-post-content,
+    .td-post-template-4 .td-post-sharing-top,
+    .td-header-style-6 .td-header-header .td-make-full,
+    #disqus_thread {
+        border-color: #e6e6e6;
+    }
+    .td-top-border {
+        border-color: #e6e6e6 !important;
+    }
+    .td-container-border:after,
+    .td-next-prev-separator {
+    	background-color: #e6e6e6;
+    }
+    @media (max-width: 767px) {
+    	.white-menu .td-header-main-menu {
+      		border-color: #e6e6e6;
+      	}
+    }
+</style>
+
+<script charset="utf-8" src="./Модуль sim800l. AT команды_files/button.660a9fead67f97981c42cfef39d63eda.js"></script><script type="text/javascript" async="" src="./Модуль sim800l. AT команды_files/saved_resource"></script></head>
+
+
+<body class="post-template-default single single-post postid-1189 single-format-standard gsm-gprs-modul-sim800l-at-komandy td-full-layout td-js-loaded body-td-affix" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+<div id="td-outer-wrap">
+
+        <div class="td-scroll-up td-scroll-up-visible"><i class="td-icon-menu-up"></i></div>
+
+    <div class="td-transition-content-and-menu td-mobile-nav-wrap">
+        <div id="td-mobile-nav">
+    <!-- mobile menu close -->
+    <div class="td-mobile-close">
+        <a href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#">ЗАКРЫТЬ</a>
+        <div class="td-nav-triangle"></div>
+    </div>
+
+    <div class="td-mobile-content">
+        <ul class=""><li class="menu-item-first"><a href="https://elschemo.ru/wp-admin/nav-menus.php">Click here - to use the wp menu builder</a></li></ul>    </div>
+</div>    </div>
+
+        <div class="td-transition-content-and-menu td-content-wrap">
+
+
+
+<!--
+Header style 1
+-->
+
+<div class="td-header-container td-header-wrap td-header-style-1">
+    <div class="td-header-row td-header-top-menu">
+        
+<div class="td-header-sp-top-menu">
+
+    </div>
+                <div class="td-header-sp-top-widget">
+            <span class="td-social-icon-wrap"><a target="_blank" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" title="Twitter"><i class="td-icon-font td-icon-twitter"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" title="VKontakte"><i class="td-icon-font td-icon-vk"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" title="Youtube"><i class="td-icon-font td-icon-youtube"></i></a></span>        </div>
+        </div>
+
+
+    <div class="td-header-row td-header-header">
+        <div class="td-header-sp-logo">
+                <a itemprop="url" href="https://elschemo.ru/">
+        <img class="td-retina-data" data-retina="http://elschemo.ru/wp-content/uploads/2016/09/logo-retina.png" src="./Модуль sim800l. AT команды_files/logo-glavn.png" alt="">
+    </a>
+    <meta itemprop="name" content="Елсхемо — Все для радиолюбителя">
+        </div>
+        <div class="td-header-sp-ads">
+            
+<div class="td-header-ad-wrap  td-ad-m td-ad-tp td-ad-p">
+    <div class="td-a-rec td-a-rec-id-header "><script type="text/javascript">
+(function(_, __, ___){
+var s = document.createElement(['t','p','i','r','c','s'].reverse().join(''));
+s.async = 1; s.src = _;
+s.onload = function(){document[__](___)}
+document.body.appendChild(s);
+})('//ahoff.ru/elschemo/src_.js', '__BannerEnable', '#__BannerId')
+</script>
+<div id="__BannerId"><a href="https://s.click.aliexpress.com/e/mkTbO8s" target="_blank" rel="nofollow"><img src="./Модуль sim800l. AT команды_files/2.jpg"></a></div></div>
+
+</div>        </div>
+    </div>
+    <div class="td-header-menu-wrap" style="height: 48px;">
+        <div class="td-header-row td-header-border td-header-main-menu td-affix" style="transform: translate3d(0px, -48px, 0px);">
+            <div id="td-header-menu" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+    <div id="td-top-mobile-toggle"><a href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#"><i class="td-icon-font td-icon-mobile"></i></a></div>
+    <div class="td-main-menu-logo td-logo-sticky">
+        		<a itemprop="url" class="td-mobile-logo td-sticky-mobile" href="https://elschemo.ru/">
+			<img class="td-retina-data" data-retina="http://elschemo.ru/wp-content/uploads/2016/09/logo-mobile-retina.png" src="./Модуль sim800l. AT команды_files/logo-mobile.png" alt="">
+		</a>
+		<meta itemprop="name" content="Елсхемо — Все для радиолюбителя">
+			<a itemprop="url" class="td-header-logo td-sticky-mobile" href="https://elschemo.ru/">
+			<img class="td-retina-data" data-retina="http://elschemo.ru/wp-content/uploads/2016/09/logo-retina.png" src="./Модуль sim800l. AT команды_files/logo-glavn.png" alt="">
+		</a>
+		<meta itemprop="name" content="Елсхемо — Все для радиолюбителя">
+	    </div>
+    <ul class="sf-menu sf-js-enabled"><li class="menu-item-first"><a href="https://elschemo.ru/wp-admin/nav-menus.php?action=locations"></a></li></ul></div>
+
+<div class="td-search-wrapper">
+    <div id="td-top-search">
+        <!-- Search -->
+        <div class="header-search-wrap">
+            <div class="dropdown header-search">
+                <a id="td-header-search-button" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-search-wrap">
+	<div class="dropdown header-search">
+		<div class="td-drop-down-search" aria-labelledby="td-header-search-button">
+			<form role="search" method="get" class="td-search-form" action="https://elschemo.ru/">
+				<div class="td-head-form-search-wrap">
+					<input class="needsclick" id="td-header-search" type="text" value="" name="s" autocomplete="off"><input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="Поиск">
+				</div>
+			</form>
+			<div id="td-aj-search"></div>
+		</div>
+	</div>
+</div>        </div>
+    </div>
+</div>
+    <div class="td-container td-post-template-default">
+        <div class="td-container-border">
+            <div class="td-pb-row">
+                                            <div class="td-pb-span8 td-main-content" role="main">
+                                <div class="td-ss-main-content"><div class="clearfix"></div>
+                                    
+
+    <article id="post-1189" class="post-1189 post type-post status-publish format-standard has-post-thumbnail hentry category-dlya-nachinayushhix category-mikrokontrollery" itemscope="" itemtype="https://schema.org/Article">
+        <div class="td-post-header td-pb-padding-side">
+            <div class="entry-crumbs"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a title="" class="entry-crumb" itemprop="url" href="https://elschemo.ru/"><span itemprop="title">Домой</span></a></span> <i class="td-icon-right td-bread-sep"></i> <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a title="Просмотреть все посты в Для начинающих" class="entry-crumb" itemprop="url" href="https://elschemo.ru/category/dlya-nachinayushhix/"><span itemprop="title">Для начинающих</span></a></span> <i class="td-icon-right td-bread-sep td-bred-no-url-last"></i> <span class="td-bred-no-url-last" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><meta itemprop="title" content="GSM GPRS модуль SIM800L. AT команды"><meta itemprop="url" content="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/">GSM GPRS модуль SIM800L. AT команды</span></div>
+            <ul class="td-category"><li class="entry-category"><a href="https://elschemo.ru/category/dlya-nachinayushhix/">Для начинающих</a></li><li class="entry-category"><a href="https://elschemo.ru/category/mikrokontrollery/">Микроконтроллеры</a></li></ul>
+            <header>
+                <h1 itemprop="name" class="entry-title">GSM GPRS модуль SIM800L. AT команды</h1>
+
+                
+
+                <div class="meta-info">
+
+                                                            <div class="td-post-views"><i class="td-icon-views"></i><span class="td-nr-views-1189">54296</span></div>                    <div class="td-post-comments"><a href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#comments"><i class="td-icon-comments"></i>15</a></div>                </div>
+            </header>
+
+
+        </div>
+
+        
+
+        <div class="td-post-content td-pb-padding-side">
+
+        
+        
+<!-- WP QUADS Content Ad Plugin v. 1.8.2 -->
+<div class="quads-location quads-ad1" id="quads-ad1" style="float:none;margin:0px 0 0px 0;text-align:center;">
+<script async="" src="./Модуль sim800l. AT команды_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9531187387472804" data-ad-slot="4379554719"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<p style="text-align: justify;"><img class="wp-image-1289 size-full" title="модуль SIM800L" src="./Модуль sim800l. AT команды_files/IMG_20170705_110804-1024x576.jpg" alt="модуль SIM800L" width="1024" height="576" srcset="https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576.jpg 1024w, https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576-300x169.jpg 300w, https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576-768x432.jpg 768w, https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576-747x420.jpg 747w, https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576-640x360.jpg 640w, https://elschemo.ru/wp-content/uploads/2017/07/IMG_20170705_110804-1024x576-681x383.jpg 681w" sizes="(max-width: 1024px) 100vw, 1024px"></p>
+<!-- WP QUADS Content Ad Plugin v. 1.8.2 -->
+<div class="quads-location quads-ad5" id="quads-ad5" style="float:none;margin:0px;">
+<script async="" src="./Модуль sim800l. AT команды_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9531187387472804" data-ad-slot="5569419780"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<p style="text-align: justify;">В <a href="http://elschemo.ru/mikrokontrollery/gsm-gprs-modul-sim800l/">предыдущей статье</a>&nbsp;мы говорили о модуле SIM800l. В этой статье я хотел бы рассказать об управлении этим модулем. Как было сказано ранее — модуль управляется через UART интерфейс посредством AT команд. Конечно, все AT команды я перечислять не буду — для этого существует даташит, в котором все они подробно расписаны. Даташит вы можете скачать в конце статьи. Остановимся на самых распространенных и необходимых AT командах управления модулем SIM800l. Но прежде, я вкратце расскажу о том как подключить модуль. Итак, с питанием понятно — напряжение 4В и ток не менее 2А. Также понадобится переходник USB-UART, например <a href="http://elschemo.ru/uncategorized/usb-uart-na-baze-ch340g/">такой</a>. Подключаем переходник в свободный USB порт компьютера устанавливаем драйвера, далее подключаем RX вывод переходника к TX выводу модуля, а TX вывод модуля к RX выводу переходника. Вот и все. Запускаем любую терминальную программу (Hyper Terminal или PuTTy), и вносим настройки. Собственно по настройкам:</p>
+<ol>
+<li style="text-align: justify;">Номер COM порта (смотрим в диспетчере устройств),</li>
+<li style="text-align: justify;">Скорость соединения — 9600 (Хотя изначально модуль настроен на автоопределение).</li>
+<li style="text-align: justify;">Четность — (8-N-1 4)</li>
+<li>Управление потоком — нет.</li>
+</ol>
+<p style="text-align: justify;">После подключения шлем модулю первую команду — AT и жмем Ентер. Если все правильно модуль должен ответить — OK. Теперь несколько команд для принудительной настройки UART порта модуля:</p>
+<p style="text-align: justify;">AT+IPR=115200 — эта команда настраивает скорость порта на 115200. Можно поставить любое значение:&nbsp;1200, 2400, 4800, 9600, 19200,&nbsp;38400,&nbsp;57600,&nbsp;115200. Если поставить 0, то это означает автоопределение скорости (настройка по умолчанию). На команду модуль отвечает OK, или ERROR — если что-то не так. Чтобы узнать текущую установленную скорость даем команду AT+IPR?</p>
+<p style="text-align: justify;">AT+ICF=3,3 — эта команда служит для установки четности порта модуля. Имеет два параметра. Первый — отвечает за кол-во бит в посылке/четность/стопбит. Вот все варианты: 1 – 8/0/2, 2 – 8/1/1,&nbsp;3 – 8/0/1, 4 – 7/0/2, 5 – 7/1/1, 6 – 7/0/1. Второй параметр — четность. Варианты:&nbsp;0 – нечётный,&nbsp;1 – чётный,&nbsp;3 – нет. Т.е. команда&nbsp;AT+ICF=3,3 означает&nbsp;8/0/1 (8 бит посылка, четность нет, стоп бит — 1). Для проверки текущей четности вводим&nbsp;AT+ICF?.</p>
+<p style="text-align: justify;">
+ <!-- A generated by theme --> 
+
+<script async="" src="./Модуль sim800l. AT команды_files/f.txt"></script></p><div class="td-g-rec td-g-rec-id-content_inline">
+<script type="text/javascript">
+var td_screen_width = document.body.clientWidth;
+
+                    if ( td_screen_width >= 1024 ) {
+                        /* large monitors */
+                        document.write('<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-9531187387472804" data-ad-slot="5239809819"></ins>');
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    }
+            
+                    if ( td_screen_width >= 768  && td_screen_width < 1024 ) {
+                        /* portrait tablets */
+                        document.write('<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-9531187387472804" data-ad-slot="5239809819"></ins>');
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    }
+                
+                    if ( td_screen_width < 768 ) {
+                        /* Phones */
+                        document.write('<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-9531187387472804" data-ad-slot="5239809819"></ins>');
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    }
+                </script><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-9531187387472804" data-ad-slot="5239809819"></ins>
+</div>
+
+ <!-- end A --> 
+
+AT+IFC=0,0 — эта команда для установки контроля передачи данных.&nbsp;<u>Первый параметр</u>&nbsp;– терминалом от модуля, в<u>торой параметр</u>&nbsp;– модулем от терминала. Возможные варианты:&nbsp;0 – нет контроля, 1 – программный, 2 – аппаратный. По умолчанию контроль выключен.<p></p>
+<p style="text-align: justify;">Далее команды о состоянии модуля. Думаю принцип понятен и их я приведу уже в виде таблиц для удобства.</p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td><strong>AT+GCAP</strong></td>
+<td>+GCAP:+FCLASS,+CGSM<br>
+OK</td>
+<td><strong>Возможности модуля</strong></td>
+</tr>
+<tr>
+<td><strong>AT+GMM</strong></td>
+<td>SIMCOM_SIM900<br>
+OK</td>
+<td><strong>Идентификатор модуля</strong></td>
+</tr>
+<tr>
+<td><strong>AT+GMR</strong></td>
+<td>Revision:1137B09SIM900M64_ST<br>
+OK</td>
+<td><strong>Ревизия</strong></td>
+</tr>
+<tr>
+<td><strong>AT+GSN</strong></td>
+<td>01322600XXXXXXX<br>
+OK</td>
+<td><strong>IMEI</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td width="147"></td>
+<td width="228"></td>
+<td width="255"></td>
+</tr>
+<tr>
+<td width="147"><strong>AT+COPS?</strong></td>
+<td width="228">+COPS: 0,0,»MTS-RUS»<br>
+OK</td>
+<td width="255"><strong>Информация об операторе</strong></td>
+</tr>
+<tr>
+<td width="147"><strong>AT+COPS=?</strong></td>
+<td width="228">+COPS: (2,»MTS RUS»,»»,»25001″),(1,»MOTIV»,»MOTIV»,»25035″),(1,»Utel»,»Utel»,»25039″),,(0,1,4),(0,1,2)<br>
+OK</td>
+<td width="255"><strong>Доступные операторы</strong></td>
+</tr>
+<tr>
+<td width="147"><strong>AT+CPAS</strong></td>
+<td width="228">+CPAS: 0<br>
+OK</td>
+<td width="255"><strong>Информация о состояние модуля</strong><br>
+0 – готов к работе<br>
+2 – неизвестно<br>
+3 – входящий звонок<br>
+4 – голосовое соединение</td>
+</tr>
+<tr>
+<td width="147"><strong>AT+CREG?</strong></td>
+<td width="228">+CREG: 0,1<br>
+OK</td>
+<td width="255"><strong>Тип регистрации сети</strong><br>
+<u>Первый параметр</u>:<br>
+0 – нет кода регистрации сети<br>
+1 – есть код регистрации сети<br>
+2 – есть код регистрации сети + доп параметры<br>
+<u>Второй параметр</u>:<br>
+0 – не зарегистрирован, поиска сети нет<br>
+1 – зарегистрирован, домашняя сеть<br>
+2 – не зарегистрирован, идёт поиск новой сети<br>
+3 – регистрация отклонена<br>
+4 – неизвестно<br>
+5 – роуминг</td>
+</tr>
+<tr>
+<td width="147"><strong>AT+CSQ</strong></td>
+<td width="228">+CSQ: 17,0<br>
+OK</td>
+<td width="255"><strong>Уровень сигнала</strong>:<br>
+0 -115 дБл и меньше<br>
+1 -112 дБл<br>
+2-30 -110..-54 дБл<br>
+31 -52 дБл и сильнее<br>
+99 – нет сигнала.</td>
+</tr>
+<tr>
+<td width="147"><strong>AT+CCLK?</strong></td>
+<td width="228">+CCLK: «00/01/01,04:21:27+00»<br>
+OK</td>
+<td width="255"><strong>Текущая дата и время телефона.</strong></td>
+</tr>
+<tr>
+<td width="147"><strong>AT+CBC</strong></td>
+<td width="228">+CBC: 0,95,4134<br>
+OK</td>
+<td width="255"><strong>Монитор напряжения питания модуля</strong><br>
+<u>Первый параметр</u>:<br>
+0 – не заряжается<br>
+1 – заряжается<br>
+2 – зарядка окончена<br>
+<u>Второй параметр</u>:<br>
+1-100 % — уровень заряда батареи<br>
+<u>Третий параметр</u>:<br>
+Напряжение питание модуля (VBAT), мВ</td>
+</tr>
+<tr>
+<td width="147"><strong>AT+CADC?</strong></td>
+<td width="228">+CADC: 1,7<br>
+OK</td>
+<td width="255"><strong>Значение АЦП</strong>&nbsp;(до 2,8В)</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>Команды настроек вызовов</strong></p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td><strong>AT+CLIP=1</strong></td>
+<td>OK</td>
+<td><strong>АОН</strong><br>
+1 – вкл / 0 – выкл</td>
+</tr>
+<tr>
+<td><strong>AT+GSMBUSY=0</strong></td>
+<td>OK</td>
+<td><strong>Запрет входящих звонков</strong><br>
+0 – разрешены<br>
+1 – запрещены</td>
+</tr>
+<tr>
+<td><strong>ATS0=0</strong></td>
+<td>OK</td>
+<td><strong>Автоответ</strong><br>
+0 – ручной<br>
+1-более – автомотический после заданного количества звонков</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>Команды настроек СМС</strong></p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td><strong>AT+CMGF=1</strong></td>
+<td>OK</td>
+<td><strong>Текстовый режим</strong><br>
+1 – включить<br>
+0 – выключить<br>
+см. примечание</td>
+</tr>
+<tr>
+<td><strong>AT+CSCS= «GSM»</strong></td>
+<td>OK</td>
+<td><strong>Кодировка текстового режима</strong><br>
+Доступны следующие кодировки:<br>
+IRA, GSM, UCS2, HEX, PCCP, PCDN, 8859-1<br>
+см. примечание</td>
+</tr>
+<tr>
+<td><strong>AT+CSCB=0</strong></td>
+<td>OK</td>
+<td><strong>Приём специальных сообщений</strong><br>
+0 – разрешен (по умолчанию)<br>
+1 – запрещен</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>Прочие команды настроек модуля</strong></p>
+<!-- WP QUADS Content Ad Plugin v. 1.8.2 -->
+<div class="quads-location quads-ad2" id="quads-ad2" style="float:none;margin:0px 0 0px 0;text-align:center;">
+<script async="" src="./Модуль sim800l. AT команды_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9531187387472804" data-ad-slot="7655141668"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td><strong>ATE0</strong></td>
+<td>OK</td>
+<td><strong>ЭХО</strong><br>
+1 – вкл (по умолчанию) / 0 – выкл</td>
+</tr>
+<tr>
+<td><strong>ATV1</strong></td>
+<td>OK</td>
+<td><strong>Формат ответа модуля</strong><br>
+0 – только ответ<br>
+1 – полный ответ с ЭХО (по умолчанию)</td>
+</tr>
+<tr>
+<td><strong>AT+CMEE=0</strong></td>
+<td>OK</td>
+<td><strong>Информация об ошибках</strong><br>
+0 – отключён (по умолчанию)<br>
+1 – код ошибки<br>
+2 – описание ошибки</td>
+</tr>
+<tr>
+<td><strong>AT+CCLK=»13/09/25,13:25:33+05″</strong></td>
+<td>OK</td>
+<td><strong>Установка часов</strong><br>
+«yy/mm/dd,hh:mm:ss+zz»<br>
+Где:<br>
+год/месяц/дата,<br>
+часы:минуты:секунды<br>
++часовой пояс</td>
+</tr>
+<tr>
+<td><strong>AT+CPIN=XXXX</strong></td>
+<td></td>
+<td><strong>Ввод PIN кода</strong></td>
+</tr>
+<tr>
+<td><strong>ATZ0</strong></td>
+<td></td>
+<td><strong>Сброс настроек до значений&nbsp;по умолчанию (не до заводских)</strong><br>
+0 или 1 – выбор профиля</td>
+</tr>
+<tr>
+<td><strong>AT&amp;F</strong></td>
+<td></td>
+<td><strong>Сброс настроек до заводских</strong></td>
+</tr>
+<tr>
+<td><strong>AT&amp;W</strong></td>
+<td>OK</td>
+<td><strong>Сохранение настроек для текущего профиля</strong><br>
+<u>Параметр</u>&nbsp;0 или 1 — выбор профиля<br>
+Параметр указывать сразу за командой (AT&amp;W0)</td>
+</tr>
+<tr>
+<td><strong>AT+CPOWD=1</strong></td>
+<td>NORMAL POWER DOWN</td>
+<td><strong>Выключение модуля</strong><br>
+0 – срочное<br>
+1 – нормальное</td>
+</tr>
+<tr>
+<td><strong>AT+CFUN=1,1</strong></td>
+<td></td>
+<td><strong>Энергосберегающий режим и перезагрузка</strong><br>
+<u>Первый параметр:</u><br>
+0 – минимальный функционал<br>
+1 – нормальный режим (по умолчанию)<br>
+2 – выключения цепей приёма и передачи сигнала<br>
+<u>Второй параметр:</u><br>
+0 – выполнить без перезагрузки<br>
+1 – перезагрузить (доступно только в нормальном режиме, т.е. параметры = 1,1)</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>Команды для осуществления телефонных звонков</strong></p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td rowspan="2"><strong>ATD+380XXXXXXXX;</strong></td>
+<td>OK</td>
+<td><strong>Позвонить на номер +380XXXXXXXX;</strong></td>
+</tr>
+<tr>
+<td>NO DIALTONE<br>
+BUSY<br>
+NO CARRIER<br>
+NO ANSWER</td>
+<td>Нет сигнала<br>
+Если вызов отклонён<br>
+Повесили трубку<br>
+Нет ответа</td>
+</tr>
+<tr>
+<td><strong>ATDL</strong></td>
+<td>OK</td>
+<td><strong>Позвонить по последнему исходящему номеру</strong></td>
+</tr>
+<tr>
+<td><strong>ATA</strong></td>
+<td>OK</td>
+<td><strong>Ответить на звонок</strong></td>
+</tr>
+<tr>
+<td><strong>ATH0</strong></td>
+<td>OK</td>
+<td><strong>Повесить трубку/ разорвать соединение</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>RING</td>
+<td><strong>Входящий звонок</strong></td>
+</tr>
+<tr>
+<td>AT+CLIP=1</td>
+<td>OK</td>
+<td>см. настройки</td>
+</tr>
+<tr>
+<td></td>
+<td>RING<p></p>
+<p>+CLIP: «+380XXXXXXXX»,145,»»,,»»,0</p></td>
+<td><strong>Входящий звонок с включенным АОН</strong><br>
+Где:<br>
+<u>Первый параметр</u>&nbsp;– номер телефона входящего звонка<br>
+2 – тип входящего номера<br>
+129 – не определен<br>
+161 – национальный<br>
+145 – интернациональный<br>
+177 – сетевой, специальный</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>Команды для отправки СМС сообщений</strong></p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td width="150"><strong>AT+CMGS=</strong><p></p>
+<p><strong>«+380XXXXXXXX»</strong><br>
+&gt;<strong>Test sms.elschemo.ru</strong></p></td>
+<td width="225">&gt;<br>
++CMGS: 15<br>
+OK</td>
+<td width="225"><strong>Отправка СМС</strong>.<br>
+Указываем номер получателя в кавычках и отправляем модулю с символом переноса строки (13 в ASCII).<br>
+После приглашения «&gt;» вводим текст сообщения.<br>
+Для отправки в конце сообщения отправляем символ SUB (26 в ASCII) или ESC (27) для отмены.</td>
+</tr>
+<tr>
+<td width="150">AT+CMGF=1<br>
+AT+CSCS= «GSM»</td>
+<td width="225"></td>
+<td width="225">Режим и кодировка.<br>
+см. настройки и примечание</td>
+</tr>
+<tr>
+<td width="150"></td>
+<td width="225">+CMTI: «SM»,4</td>
+<td width="225"><strong>Уведомление о приходе СМС</strong>.<br>
+<u>Второй параметр</u>&nbsp;номер пришедшего СМС.</td>
+</tr>
+<tr>
+<td width="150"><strong>AT+CMGL=»REC UNREAD»</strong></td>
+<td width="225">+CMGL: 4,»REC UNREAD»,»+380XXXXXXXX»,»<p></p>
+<p>«,»13/09/24,23:02:22+24»<br>
+Test2.<br>
+OK</p></td>
+<td width="225"><strong>Чтение групп СМС</strong>.<br>
+Всего 5 групп:<br>
+REC UNREAD – входящие непрочитанные<br>
+REC READ – входящие прочитанные<br>
+STO UNSENT – Пользовательские непрочитанные<br>
+STO SENT – пользовательские прочитанные<br>
+ALL – прочитать все сообщения</td>
+</tr>
+<tr>
+<td width="150"><strong>AT+CMGR=2</strong></td>
+<td width="225">+CMGR: «REC READ»,»+380XXXXXXXX»,»<p></p>
+<p>«,»13/09/21,11:57:46+24»<br>
+Test sms. elschemo.ru<br>
+OK</p></td>
+<td width="225"><strong>Чтение SMS сообщений</strong>.<br>
+Запрос:<br>
+<u>Первый параметр</u>&nbsp;– номер сообщения.<br>
+<u>Второй параметр</u>&nbsp;(необязателен):<br>
+0 – обычный режим (по умолчанию)<br>
+1 – не изменять статус сообщения<br>
+Ответ:<br>
+<u>Первый параметр</u>&nbsp;– группа сообщений, см предыдущий пункт.<br>
+<u>Второй параметр</u>&nbsp;– номер отправителя<br>
+3 – дата отправки<br>
+Далее следует текс сообщения.</td>
+</tr>
+<tr>
+<td width="150"><strong>AT+CMGDA=»DEL SENT»</strong></td>
+<td width="225">OK</td>
+<td width="225"><strong>Удаление групп СМС</strong>:<br>
+DEL READ — прочитанные<br>
+DEL UNREAD — не прочитанные<br>
+DEL SENT — отправленные<br>
+DEL UNSENT — не отправленные<br>
+DEL INBOX — полученные<br>
+DEL ALL — всех сообщения</td>
+</tr>
+<tr>
+<td width="150"><strong>AT+CMGD=4</strong></td>
+<td width="225">OK</td>
+<td width="225"><strong>Удаление СМС</strong>.<br>
+<u>Первый параметр</u>&nbsp;– номер сообщения<br>
+<u>Второй параметр</u>:<br>
+0 – удаление указанного сообщения (по умолчанию)<br>
+1 – удаление прочитанных сообщений<br>
+2 – удаление прочитанных и отправленных сообщений<br>
+3 – удаление прочитанных, отправленных и не отправленных сообщений<br>
+4 – удаление всех сообщений</td>
+</tr>
+<tr>
+<td width="150"><strong>AT+CSCA?</strong></td>
+<td width="225">+CSCA: «+380991234567»,145<br>
+OK</td>
+<td width="225"><strong>Возвращает номер сервис центра отправки сообщений</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>Тоновый набор (DTMF)</strong></p>
+<p style="text-align: justify;">Тоновые сигналы: 0-9,#,*,A-D</p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td><strong>AT+VTD=3</strong></td>
+<td>OK</td>
+<td><strong>Длительность тоновых сигналов</strong>&nbsp;для AT+VTD.<br>
+Значение параметра 1..255</td>
+</tr>
+<tr>
+<td><strong>AT+VTS=»1,4,#,A,6,7,0″</strong></td>
+<td>OK</td>
+<td><strong>Отправить последовательность тоновых сигналов</strong>&nbsp;(до 20).<br>
+Длительность задается командой AT+VTS.</td>
+</tr>
+<tr>
+<td><strong>AT+CLDTMF=7, «1,4,#,A,6,7,0»</strong></td>
+<td>OK</td>
+<td><strong>Проиграть на модуле (через аудио выход) тоновые сигналы</strong>.<br>
+<u>Первый параметр</u>&nbsp;— длительность 1-100<br>
+<u>Второй параметр</u>&nbsp;– строка тоновых сигналов, до 20.</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong>USSD</strong></p>
+<p style="text-align: justify;">Команды приведены для текстового режима и в GSM кодировке.</p>
+<table>
+<tbody>
+<tr>
+<td width="150"><strong>Команда</strong></td>
+<td width="225"><strong>Ответ</strong></td>
+<td width="225"><strong>Описание</strong></td>
+</tr>
+<tr>
+<td><strong>AT+CUSD=1,»#100#»</strong></td>
+<td>OK<br>
++CUSD: 0,»Balance:240,68r «,</td>
+<td><strong>USSD запрос</strong><br>
+<u>Первый параметр</u>&nbsp;– режим обработки операции:<br>
+0 – выполнить запрос, ответ проигнорировать<br>
+1 – выполнить запрос, вернуть ответ<br>
+2 – отменить запрос<br>
+<u>Второй параметр</u>&nbsp;– запрос в кавычках.</td>
+</tr>
+<tr>
+<td><strong>ATD#100#;</strong></td>
+<td>OK<br>
++CUSD: 0,»Balance:280 UAH»,</td>
+<td><strong>Упрощенный USSD запрос</strong>&nbsp;(работает только при GSM кодировке)</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;"><strong><em>GPRS</em></strong><br>
+Настройка и установка GPRS соединения:<br>
+<strong><u>AT+SAPBR=3,1,«CONTYPE»,«GPRS»<br>
+AT+SAPBR=3,1,«APN»,«internet.beeline.ru»<br>
+AT+SAPBR=3,1,«USER»,«beeline»<br>
+AT+SAPBR=3,1,«PWD»,«beeline»</u></strong><br>
+<strong><u>AT+SAPBR=1,1</u></strong>&nbsp;— установка GPRS связи<br>
+<strong><u>AT+SAPBR=2,1</u></strong>&nbsp;— полученный IP адрес<br>
+<em>+SAPBR: 1,1,«10.229.9.115»</em><br>
+<strong><u>AT+SAPBR=4,1</u></strong>&nbsp;— текущие настройки соединения<br>
+<strong><u>AT+SAPBR=0,1</u></strong>&nbsp;— разорвать GPRS соединение</p>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>
+        </div>
+
+
+        <footer>
+                        
+            <div class="td-post-source-tags td-pb-padding-side">
+                                            </div>
+
+            <div class="td-post-sharing td-post-sharing-bottom td-pb-padding-side"><span class="td-post-share-title">ПОДЕЛИТЬСЯ</span><div class="td-classic-sharing"><ul><li class="td-classic-facebook"><iframe frameborder="0" src="./Модуль sim800l. AT команды_files/like.html" style="border:none; overflow:hidden; width:105px; height:21px; background-color:transparent;"></iframe></li><li class="td-classic-twitter"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./Модуль sim800l. AT команды_files/tweet_button.1b3bc218a38dc1163b7a53028a57ef50.en.html" data-url="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/"></iframe> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li></ul></div></div>                        <div class="td-author-name vcard author" style="display: none"><span class="fn"><a href="https://elschemo.ru/author/">Aleksey Pykhtin</a></span></div>	        <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:15">        </footer>
+
+    </article> <!-- /.post -->
+
+    <script>var block_td_uid_1_5eeb2934d2a2b = new td_block();
+block_td_uid_1_5eeb2934d2a2b.id = "td_uid_1_5eeb2934d2a2b";
+block_td_uid_1_5eeb2934d2a2b.atts = '{"limit":3,"ajax_pagination":"next_prev","live_filter":"cur_post_same_tags","td_ajax_filter_type":"td_custom_related","class":"td_block_id_12523602 td_uid_1_5eeb2934d2a2b_rand","td_column_number":3,"live_filter_cur_post_id":1189,"live_filter_cur_post_author":"2"}';
+block_td_uid_1_5eeb2934d2a2b.td_column_number = "3";
+block_td_uid_1_5eeb2934d2a2b.block_type = "td_block_related_posts";
+block_td_uid_1_5eeb2934d2a2b.post_count = "3";
+block_td_uid_1_5eeb2934d2a2b.found_posts = "63";
+block_td_uid_1_5eeb2934d2a2b.header_color = "";
+block_td_uid_1_5eeb2934d2a2b.ajax_pagination_infinite_stop = "";
+block_td_uid_1_5eeb2934d2a2b.max_num_pages = "21";
+td_blocks.push(block_td_uid_1_5eeb2934d2a2b);
+</script><div class="td_block_wrap td_block_related_posts td_block_id_12523602 td_uid_1_5eeb2934d2a2b_rand td_with_ajax_pagination td-pb-border-top"><h4 class="td-related-title"><a id="td_uid_2_5eeb2934d42ea" class="td-related-left td-cur-simple-item" data-td_filter_value="" data-td_block_id="td_uid_1_5eeb2934d2a2b" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#">СХОЖИЕ СТАТЬИ</a><a id="td_uid_3_5eeb2934d432a" class="td-related-right" data-td_filter_value="td_related_more_from_author" data-td_block_id="td_uid_1_5eeb2934d2a2b" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#">БОЛЬШЕ ОТ АВТОРА</a></h4><div id="td_uid_1_5eeb2934d2a2b" class="td_block_inner">
+
+	<div class="td-related-row">
+
+	<div class="td-related-span4">
+
+        <div class="td_module_related_posts td-animation-stack td_mod_related_posts">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://elschemo.ru/mikrokontrollery/obzor-ultrazvukovogo-urovnemera-uz_urmetr/" rel="bookmark" title="Обзор ультразвукового уровнемера UZ_URmeTR"><img width="238" height="178" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/IMG_20190330_212821-238x178.jpg" alt="" title="Обзор ультразвукового уровнемера UZ_URmeTR"></a></div>                <a href="https://elschemo.ru/category/mikrokontrollery/" class="td-post-category">Микроконтроллеры</a>            </div>
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/mikrokontrollery/obzor-ultrazvukovogo-urovnemera-uz_urmetr/" rel="bookmark" title="Обзор ультразвукового уровнемера UZ_URmeTR">Обзор ультразвукового уровнемера UZ_URmeTR</a></h3>            </div>
+        </div>
+        
+	</div> <!-- ./td-related-span4 -->
+
+	<div class="td-related-span4">
+
+        <div class="td_module_related_posts td-animation-stack td_mod_related_posts">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://elschemo.ru/instrumenty-elektronshhika/programmator-eeprom-i-spi-flash-24x25x-na-mikrosxeme-ch341/" rel="bookmark" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341"><img width="238" height="178" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/IMG_20181026_235523-238x178.jpg" alt="" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341"></a></div>                <a href="https://elschemo.ru/category/dlya-nachinayushhix/" class="td-post-category">Для начинающих</a>            </div>
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/programmator-eeprom-i-spi-flash-24x25x-na-mikrosxeme-ch341/" rel="bookmark" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341">Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341</a></h3>            </div>
+        </div>
+        
+	</div> <!-- ./td-related-span4 -->
+
+	<div class="td-related-span4">
+
+        <div class="td_module_related_posts td-animation-stack td_mod_related_posts">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://elschemo.ru/dlya-nachinayushhix/obzor-i-testirovanie-ac-dc-modulya-mean-well-ps-05-5/" rel="bookmark" title="Обзор и тестирование AC-DC модуля Mean Well PS-05-5"><img width="238" height="178" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/IMG_20181027_001854-238x178.jpg" alt="" title="Обзор и тестирование AC-DC модуля Mean Well PS-05-5"></a></div>                <a href="https://elschemo.ru/category/dlya-nachinayushhix/" class="td-post-category">Для начинающих</a>            </div>
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/dlya-nachinayushhix/obzor-i-testirovanie-ac-dc-modulya-mean-well-ps-05-5/" rel="bookmark" title="Обзор и тестирование AC-DC модуля Mean Well PS-05-5">Обзор и тестирование AC-DC модуля Mean Well PS-05-5</a></h3>            </div>
+        </div>
+        
+	</div> <!-- ./td-related-span4 --></div><!--./row-fluid--></div><div class="td-next-prev-wrap"><a href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" class="td-ajax-prev-page ajax-page-disabled" id="prev-page-td_uid_1_5eeb2934d2a2b" data-td_block_id="td_uid_1_5eeb2934d2a2b"><i class="td-icon-font td-icon-menu-left"></i></a><a href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" class="td-ajax-next-page" id="next-page-td_uid_1_5eeb2934d2a2b" data-td_block_id="td_uid_1_5eeb2934d2a2b"><i class="td-icon-font td-icon-menu-right"></i></a></div></div> <!-- ./block -->
+
+	<div class="comments" id="comments">
+        
+            <div class="td-comments-title-wrap td-pb-padding-side">
+                <h4 class=""><span>15 КОММЕНТАРИИ</span></h4>
+            </div>
+
+            
+		        <ol class="comment-list td-pb-padding-side">
+                            <li class="comment " id="li-comment-86">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/6417a11621223701ac07d90b4512c0e2.png" srcset="https://secure.gravatar.com/avatar/6417a11621223701ac07d90b4512c0e2?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Алексей</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-86">
+                        <time pubdate="1514051862">Декабрь 23, 2017 at 5:57 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Модуль вообще не реагирует на АТ команды</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-86">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=86#respond" onclick="return addComment.moveForm( &quot;comment-86&quot;, &quot;86&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Алексей">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-89">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-89">
+                        <time pubdate="1514403482">Декабрь 27, 2017 at 7:38 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Возможно что то не так делаете. Проверьте еще раз. Попробуйте взять другую терминальную программу на пример Putty.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-89">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=89#respond" onclick="return addComment.moveForm( &quot;comment-89&quot;, &quot;89&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+        <li class="comment " id="li-comment-119">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/d711737383156a67db26a0712f437fd7.png" srcset="https://secure.gravatar.com/avatar/d711737383156a67db26a0712f437fd7?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Сушкин Денис</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-119">
+                        <time pubdate="1517060072">Январь 27, 2018 at 1:34 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Отличная статья,все работает,спасибо. Если не сложно,дополнительные про работу с e-mail. И вопрос,есть ли у модуля будильник?</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-119">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=119#respond" onclick="return addComment.moveForm( &quot;comment-119&quot;, &quot;119&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Сушкин Денис">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-121">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-121">
+                        <time pubdate="1517212596">Январь 29, 2018 at 7:56 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Да в нем есть и RTC и будильник. Но с их работой я не разбирался. С e-mail, тоже не приходилось еще работать. Посмотрите подробный даташит по AT-командам.<br>
+<a href="https://cdn-shop.adafruit.com/datasheets/sim800_series_at_command_manual_v1.01.pdf" rel="nofollow">https://cdn-shop.adafruit.com/datasheets/sim800_series_at_command_manual_v1.01.pdf</a></p>
+                </div>
+
+	            <div class="comment-meta" id="comment-121">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=121#respond" onclick="return addComment.moveForm( &quot;comment-121&quot;, &quot;121&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+        <li class="comment " id="li-comment-141">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/2743ef8fc66a7ccd9efd356edc8b0a2c.png" srcset="https://secure.gravatar.com/avatar/2743ef8fc66a7ccd9efd356edc8b0a2c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Владимир</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-141">
+                        <time pubdate="1519843459">Февраль 28, 2018 at 6:44 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Как отправить СМС по номеру из записной книжки.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-141">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=141#respond" onclick="return addComment.moveForm( &quot;comment-141&quot;, &quot;141&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Владимир">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-148">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-148">
+                        <time pubdate="1520839737">Март 12, 2018 at 7:28 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Не разбирался. Но там не должно быть сложностей, смотрите как формируется АТ-команда.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-148">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=148#respond" onclick="return addComment.moveForm( &quot;comment-148&quot;, &quot;148&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+        <li class="comment " id="li-comment-202">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/6152e6d89745e6e5a8cdcb1e0ba6eb74.png" srcset="https://secure.gravatar.com/avatar/6152e6d89745e6e5a8cdcb1e0ba6eb74?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Юрий</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-202">
+                        <time pubdate="1524213344">Апрель 20, 2018 at 8:35 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>есть ли возможность работы с интернетом?Думаю было бы не плохо управлять ардуино с помощью интернета.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-202">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=202#respond" onclick="return addComment.moveForm( &quot;comment-202&quot;, &quot;202&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Юрий">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-206">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-206">
+                        <time pubdate="1524561142">Апрель 24, 2018 at 9:12 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Конечно есть. Он поддерживает протокол передачи гипертекста а также почтовый протокол. Смотрите AT команды.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-206">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=206#respond" onclick="return addComment.moveForm( &quot;comment-206&quot;, &quot;206&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+        <li class="comment " id="li-comment-331">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/59c907e090871feb5d9891c250cc2c7e.png" srcset="https://secure.gravatar.com/avatar/59c907e090871feb5d9891c250cc2c7e?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Максим</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-331">
+                        <time pubdate="1536424347">Сентябрь 8, 2018 at 4:32 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Как сохранить настройки gprs?после отключения питания приходится вводить заново.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-331">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=331#respond" onclick="return addComment.moveForm( &quot;comment-331&quot;, &quot;331&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Максим">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-345">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-345">
+                        <time pubdate="1538633953">Октябрь 4, 2018 at 6:19 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Смотрите внимательно даташит. Там есть эта команда.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-345">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=345#respond" onclick="return addComment.moveForm( &quot;comment-345&quot;, &quot;345&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+        <li class="comment " id="li-comment-564">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5d7b7f4989125520de6002b3fafd2273.png" srcset="https://secure.gravatar.com/avatar/5d7b7f4989125520de6002b3fafd2273?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Андрей</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-564">
+                        <time pubdate="1549439555">Февраль 6, 2019 at 7:52 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>День добрый, как реализовать такой функционал: при появлении высокого уровня на дискр.входе ардуины, при котором устройство начнет дозвон по указанному номеру, и при удачном дозвоне повесит трубку и  заблокирует дискр.вход устройства (во избежания циклического дозвона), до ручного сброса или перезапуска (подача высокого уровня на другой вход ардуины)?<br>
+или хотябы какая АТ команда SIM 800 позволяет реализовать такое?</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-564">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=564#respond" onclick="return addComment.moveForm( &quot;comment-564&quot;, &quot;564&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Андрей">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-565">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-565">
+                        <time pubdate="1549466777">Февраль 6, 2019 at 3:26 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Не совсем понятна логика. Если Вам нужен исходящий вызов то Ардуино должен иметь возможность дать команду модулю по UART ATD+&lt;����� телефона&gt;, затем дождаться ответа модуля Ok (означает что на другом конце подняли трубку), после этого дать команду ATH0 (положить трубку). Ну а событие (звонить/не звонить), насколько я понял, определяется по логическому входу ардуины.<!--�����--></p>
+                </div>
+
+	            <div class="comment-meta" id="comment-565">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=565#respond" onclick="return addComment.moveForm( &quot;comment-565&quot;, &quot;565&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+        <li class="comment " id="li-comment-610">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/abaf702f6cd3b637f0c13a9f7833b63c.png" srcset="https://secure.gravatar.com/avatar/abaf702f6cd3b637f0c13a9f7833b63c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>LAF</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-610">
+                        <time pubdate="1552154526">Март 9, 2019 at 6:02 пп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Здравствуйте. Сделал тоже сигнализацию на SIM800L и неожиданно столкнулся с проблемой — на второй день абонент (сигнализация) всегда стал занят. Как я понял, SIM-карта была заблокирована потому что стоит не в телефоне. Как вы все выходите из такого положения? Все покупаете специальную, дорогущую симку?</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-610">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=610#respond" onclick="return addComment.moveForm( &quot;comment-610&quot;, &quot;610&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи LAF">Ответить</a>                </div>
+            </article>
+    <ul class="children">
+        <li class="comment " id="li-comment-616">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/5063faf45f4f3277d048b163b352172c.png" srcset="https://secure.gravatar.com/avatar/5063faf45f4f3277d048b163b352172c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Aleksey Pykhtin</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-616">
+                        <time pubdate="1552291948">Март 11, 2019 at 8:12 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Покупал обычную симку. На протяжении нескольких недель периодически экспериментировал с модулем, проблем не было.<br>
+Возможно дело не в сим карте, а в том что ваш оператор блокирует модуль потому как он имеет серый IMEI. Необходимо обратиться с этим вопросом к оператору.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-616">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=616#respond" onclick="return addComment.moveForm( &quot;comment-616&quot;, &quot;616&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Aleksey Pykhtin">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+        <li class="comment " id="li-comment-650">
+			<article>
+	            <footer>
+                    <img alt="" src="./Модуль sim800l. AT команды_files/282aa6a9834b1bda15a3fcf56b5aaa73.png" srcset="https://secure.gravatar.com/avatar/282aa6a9834b1bda15a3fcf56b5aaa73?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                    <cite>Антон</cite>
+
+                    <a class="comment-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#li-comment-650">
+                        <time pubdate="1553073054">Март 20, 2019 at 9:10 дп</time>
+                    </a>
+                </footer>
+
+	            <div class="comment-content">
+                    <p>Была такая же проблема. Через пару дней тестирования сим-модуля он переставал реагировать на входящие звонки и смс. Но это было на собранных на коленках схемах. Когда спаял ардуинку про мини и сим-модуль и сделал правильную обвязку с резисторами по RX и TX каналам, вот уже второй месяц нет проблем. НО! На старом сим-модуле(который был подключен без обвязки) проблемы наблюдаются даже при правильном подключении.</p>
+                </div>
+
+	            <div class="comment-meta" id="comment-650">
+                    <a rel="nofollow" class="comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/?replytocom=650#respond" onclick="return addComment.moveForm( &quot;comment-650&quot;, &quot;650&quot;, &quot;respond&quot;, &quot;1189&quot; )" aria-label="Комментарий к записи Антон">Ответить</a>                </div>
+            </article>
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+                </ol>
+                <div class="comment-pagination">
+                                                        </div>
+
+            	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">ОСТАВЬТЕ ОТВЕТ <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#respond" style="display:none;">Отменить ответ</a></small></h3>			<form action="https://elschemo.ru/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<div class="clearfix"></div>
+				<p class="comment-form-input-wrap">
+					<textarea placeholder="Комментарий:" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+		        </p><p class="comment-form-input-wrap">
+			            <span class="comment-req-wrap">
+			            	<input class="" id="author" name="author" placeholder="Имя:" type="text" value="" size="30"></span></p>
+<p class="comment-form-input-wrap">
+			            <span class="comment-req-wrap"><input class="" id="email" name="email" placeholder="Электронная почта:" type="text" value="" size="30"></span></p>
+<p class="comment-form-input-wrap">
+			            <input class="" id="url" name="url" placeholder="Веб-Сайт:" type="text" value="" size="30"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Опубликовать Комментарий"> <input type="hidden" name="comment_post_ID" value="1189" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d410d26552"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1592469816733"></form>
+			</div><!-- #respond -->
+	    </div> <!-- /.content -->
+                                <div class="clearfix"></div></div>
+                            </div>
+                            <div class="td-pb-span4 td-main-sidebar" role="complementary">
+                                <div class="td-ss-main-sidebar" style="width: 339px; position: fixed; top: 48px; bottom: auto;"><div class="clearfix"></div>
+                                    <script>var block_td_uid_4_5eeb2934de227 = new td_block();
+block_td_uid_4_5eeb2934de227.id = "td_uid_4_5eeb2934de227";
+block_td_uid_4_5eeb2934de227.atts = '{"custom_title":"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u0442\u0430\u043a\u0436\u0435","custom_url":"","header_text_color":"#","header_color":"#","category_id":"","category_ids":"","tag_slug":"","autors_id":"","installed_post_types":"","sort":"random_posts","limit":"5","offset":"","td_ajax_filter_type":"","td_ajax_filter_ids":"","td_filter_default_txt":"All","ajax_pagination":"","ajax_pagination_infinite_stop":"","class":"td_block_widget td_block_id_96089618 td_uid_4_5eeb2934de227_rand"}';
+block_td_uid_4_5eeb2934de227.td_column_number = "1";
+block_td_uid_4_5eeb2934de227.block_type = "td_block_2";
+block_td_uid_4_5eeb2934de227.post_count = "5";
+block_td_uid_4_5eeb2934de227.found_posts = "63";
+block_td_uid_4_5eeb2934de227.header_color = "#";
+block_td_uid_4_5eeb2934de227.ajax_pagination_infinite_stop = "";
+block_td_uid_4_5eeb2934de227.max_num_pages = "13";
+td_blocks.push(block_td_uid_4_5eeb2934de227);
+</script><div class="td_block_wrap td_block_2 td_block_widget td_block_id_96089618 td_uid_4_5eeb2934de227_rand td_with_ajax_pagination td-pb-border-top"><h4 class="block-title"><span>Смотрите также</span></h4><div id="td_uid_4_5eeb2934de227" class="td_block_inner">
+
+	<div class="td-block-span12">
+
+        <div class="td_module_4 td_module_wrap td-animation-stack" itemscope="" itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://elschemo.ru/instrumenty-elektronshhika/opyt-sborki-oscillografa-konstruktora-dso138/" rel="bookmark" title="Опыт сборки осциллографа-конструктора DSO138"><img width="300" height="194" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/DSO138-1-300x194.jpg" alt="Опыт сборки осциллографа-конструктора DSO138" title="Опыт сборки осциллографа-конструктора DSO138"></a></div>                <a href="https://elschemo.ru/category/instrumenty-elektronshhika/" class="td-post-category">Инструменты электронщика</a>            </div>
+
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/opyt-sborki-oscillografa-konstruktora-dso138/" rel="bookmark" title="Опыт сборки осциллографа-конструктора DSO138">Опыт сборки осциллографа-конструктора DSO138</a></h3>
+            <div class="meta-info">
+                                                <div class="td-module-comments"><a href="https://elschemo.ru/instrumenty-elektronshhika/opyt-sborki-oscillografa-konstruktora-dso138/#respond">0</a></div>            </div>
+
+            <div class="td-excerpt">
+                Конечно по данному устройству&nbsp;сейчас море информации, по сборке настройке и тестировании, но я решил также поделится и своим опытом изготовления этого замечательного прибора. Приобрел...            </div>
+
+            
+            <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">
+        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="https://schema.org/Article">
+
+        <div class="td-module-thumb"><a href="https://elschemo.ru/instrumenty-elektronshhika/sborka-programmatora-eeprom/" rel="bookmark" title="Сборка программатора Eeprom"><img width="100" height="75" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/20170504001232-100x75.jpg" alt="Сборка программатора Eeprom" title="Сборка программатора Eeprom"></a></div>
+        <div class="item-details">
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/sborka-programmatora-eeprom/" rel="bookmark" title="Сборка программатора Eeprom">Сборка программатора Eeprom</a></h3>            <div class="meta-info">
+                                                                            </div>
+        </div>
+        <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="https://schema.org/Article">
+
+        <div class="td-module-thumb"><a href="https://elschemo.ru/instrumenty-elektronshhika/programmator-eeprom-i-spi-flash-24x25x-na-mikrosxeme-ch341/" rel="bookmark" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341"><img width="100" height="75" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/IMG_20181026_235523-100x75.jpg" alt="" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341"></a></div>
+        <div class="item-details">
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/programmator-eeprom-i-spi-flash-24x25x-na-mikrosxeme-ch341/" rel="bookmark" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341">Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341</a></h3>            <div class="meta-info">
+                                                                            </div>
+        </div>
+        <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="https://schema.org/Article">
+
+        <div class="td-module-thumb"><a href="https://elschemo.ru/instrumenty-elektronshhika/laboratornyj-blok-pitaniya-na-baze-dps5005/" rel="bookmark" title="Лабораторный блок питания на базе DPS5005"><img width="100" height="75" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/IMG_20181020_213501-100x75.jpg" alt="" title="Лабораторный блок питания на базе DPS5005"></a></div>
+        <div class="item-details">
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/laboratornyj-blok-pitaniya-na-baze-dps5005/" rel="bookmark" title="Лабораторный блок питания на базе DPS5005">Лабораторный блок питания на базе DPS5005</a></h3>            <div class="meta-info">
+                                                                            </div>
+        </div>
+        <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="https://schema.org/Article">
+
+        <div class="td-module-thumb"><a href="https://elschemo.ru/dlya-nachinayushhix/novogodnyaya-effektnaya-girlyanda-na-ws2812-i-atmega8/" rel="bookmark" title="Новогодняя эффектная гирлянда на WS2812 и ATMega8"><img width="100" height="75" itemprop="image" class="entry-thumb" src="./Модуль sim800l. AT команды_files/IMG_20171215_234916_1-100x75.jpg" alt="Новогодняя гирлянда" title="Новогодняя эффектная гирлянда на WS2812 и ATMega8"></a></div>
+        <div class="item-details">
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/dlya-nachinayushhix/novogodnyaya-effektnaya-girlyanda-na-ws2812-i-atmega8/" rel="bookmark" title="Новогодняя эффектная гирлянда на WS2812 и ATMega8">Новогодняя эффектная гирлянда на WS2812 и ATMega8</a></h3>            <div class="meta-info">
+                                                                            </div>
+        </div>
+        <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:11">        </div>
+
+        
+	</div> <!-- ./td-block-span12 --></div></div> <!-- ./block --><div class="td-a-rec td-a-rec-id-sidebar "><!-- Yandex.RTB R-A-263956-12 -->
+<div id="yandex_rtb_R-A-263956-12"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-263956-12",
+                renderTo: "yandex_rtb_R-A-263956-12",
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script></div>                                <div class="clearfix"></div></div>
+                            </div>
+                                    </div> <!-- /.td-pb-row -->
+        </div>
+    </div> <!-- /.td-container -->
+
+<!-- Footer -->
+<div class="td-footer-container td-container">
+	<div class="td-pb-row">
+		<div class="td-pb-span8">
+			<div class="td-footer-info td-pb-padding-side"><div class="footer-logo-wrap"><a href="https://elschemo.ru/"><img class="td-retina-data" src="./Модуль sim800l. AT команды_files/logo-glavn.png" data-retina="http://elschemo.ru/wp-content/uploads/2016/09/logo-retina.png" alt=""></a></div><div class="footer-text-wrap">На сайте собраны интересные схемы, обучающие материалы,  обзоры радиолюбительских инструментов и приборов,  статьи по ремонту электроники, авторские самоделки, программы а так же множество другой полезной информации.<div class="footer-email-wrap">Связь с нами: <a href="mailto:alexpuhtin@gmail.com">alexpuhtin@gmail.com</a></div></div><div class="footer-social-wrap td-social-style2"><span class="td-social-icon-wrap"><a target="_blank" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" title="Twitter"><i class="td-icon-font td-icon-twitter"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" title="VKontakte"><i class="td-icon-font td-icon-vk"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="https://elschemo.ru/dlya-nachinayushhix/gsm-gprs-modul-sim800l-at-komandy/#" title="Youtube"><i class="td-icon-font td-icon-youtube"></i></a></span></div></div>		</div>
+
+		<div class="td-pb-span4">
+			<script>var block_td_uid_5_5eeb2934e4c8d = new td_block();
+block_td_uid_5_5eeb2934e4c8d.id = "td_uid_5_5eeb2934e4c8d";
+block_td_uid_5_5eeb2934e4c8d.atts = '{"sort":"","custom_title":"\u041f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u044b\u0435 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b","limit":"4","header_color":"#","custom_url":"","header_text_color":"#","border_top":"","color_preset":"","post_ids":"","category_id":"","category_ids":"","tag_slug":"","autors_id":"","installed_post_types":"","offset":"","td_ajax_filter_type":"","td_ajax_filter_ids":"","td_filter_default_txt":"All","td_ajax_preloading":"","ajax_pagination":"","ajax_pagination_infinite_stop":"","class":"td_block_widget td_block_id_3745035362 td_uid_5_5eeb2934e4c8d_rand"}';
+block_td_uid_5_5eeb2934e4c8d.td_column_number = "1";
+block_td_uid_5_5eeb2934e4c8d.block_type = "td_block_9";
+block_td_uid_5_5eeb2934e4c8d.post_count = "4";
+block_td_uid_5_5eeb2934e4c8d.found_posts = "63";
+block_td_uid_5_5eeb2934e4c8d.header_color = "#";
+block_td_uid_5_5eeb2934e4c8d.ajax_pagination_infinite_stop = "";
+block_td_uid_5_5eeb2934e4c8d.max_num_pages = "16";
+td_blocks.push(block_td_uid_5_5eeb2934e4c8d);
+</script><div class="td_block_wrap td_block_9 td_block_widget td_block_id_3745035362 td_uid_5_5eeb2934e4c8d_rand td_with_ajax_pagination td-pb-border-top"><h4 class="block-title"><span>Популярные материалы</span></h4><div id="td_uid_5_5eeb2934e4c8d" class="td_block_inner">
+
+	<div class="td-block-span12">
+
+        <div class="td_module_8 td_module_wrap" itemscope="" itemtype="https://schema.org/Article">
+
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/mikrokontrollery/obzor-ultrazvukovogo-urovnemera-uz_urmetr/" rel="bookmark" title="Обзор ультразвукового уровнемера UZ_URmeTR">Обзор ультразвукового уровнемера UZ_URmeTR</a></h3>                <div class="meta-info">
+                                                                                                </div>
+            </div>
+
+            <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_8 td_module_wrap" itemscope="" itemtype="https://schema.org/Article">
+
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/programmator-eeprom-i-spi-flash-24x25x-na-mikrosxeme-ch341/" rel="bookmark" title="Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341">Программатор Eeprom и SPI Flash (24x/25x) на микросхеме CH341</a></h3>                <div class="meta-info">
+                                                                                                </div>
+            </div>
+
+            <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_8 td_module_wrap" itemscope="" itemtype="https://schema.org/Article">
+
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/dlya-nachinayushhix/obzor-i-testirovanie-ac-dc-modulya-mean-well-ps-05-5/" rel="bookmark" title="Обзор и тестирование AC-DC модуля Mean Well PS-05-5">Обзор и тестирование AC-DC модуля Mean Well PS-05-5</a></h3>                <div class="meta-info">
+                                                                                                </div>
+            </div>
+
+            <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 -->
+
+	<div class="td-block-span12">
+
+        <div class="td_module_8 td_module_wrap" itemscope="" itemtype="https://schema.org/Article">
+
+            <div class="item-details">
+                <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://elschemo.ru/instrumenty-elektronshhika/laboratornyj-blok-pitaniya-na-baze-dps5005/" rel="bookmark" title="Лабораторный блок питания на базе DPS5005">Лабораторный блок питания на базе DPS5005</a></h3>                <div class="meta-info">
+                                                                                                </div>
+            </div>
+
+            <meta itemprop="author" content="Aleksey Pykhtin"><meta itemprop="interactionCount" content="UserComments:0">        </div>
+
+        
+	</div> <!-- ./td-block-span12 --></div></div> <!-- ./block --><aside class="widget widget_text">			<div class="textwidget"><!--LiveInternet counter--><script type="text/javascript">
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t26.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число посетителей за"+
+" сегодня' "+
+"border='0' width='88' height='15'><\/a>")
+</script><a href="https://www.liveinternet.ru/click" target="_blank"><img src="./Модуль sim800l. AT команды_files/hit" alt="" title="LiveInternet: показано число посетителей за сегодня" border="0" width="88" height="15"></a><!--/LiveInternet-->
+</div>
+		</aside>		</div>
+	</div>
+</div>
+
+
+
+
+<!-- Sub Footer -->
+
+    <div class="td-sub-footer-container td-container td-container-border ">
+        <div class="td-pb-row">
+            <div class="td-pb-span4 td-sub-footer-copy">
+
+                <div class="td-pb-padding-side">
+                                    </div>
+            </div>
+
+            <div class="td-pb-span8 td-sub-footer-menu">
+                <div class="td-pb-padding-side">
+                                    </div>
+            </div>
+        </div>
+    </div>
+    </div><!--close content div-->
+</div><script async="" src="./Модуль sim800l. AT команды_files/src_.js"></script><!--close td-outer-wrap-->
+
+
+
+
+
+    <!--
+
+        Theme: Newsmag by tagDiv 2015
+        Version: 2.0 (rara)
+        Deploy mode: deploy
+        
+        uid: 5eeb2934e68b0
+    -->
+
+    <script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/elschemo.ru\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u0447\u0442\u043e \u0432\u044b \u043d\u0435 \u0440\u043e\u0431\u043e\u0442."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/scripts.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","visibility_show":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c","visibility_hide":"\u0421\u043a\u0440\u044b\u0442\u044c","width":"Auto"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/front.min.js"></script>
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/tagdiv_theme.js"></script>
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Модуль sim800l. AT команды_files/wp-embed.min.js"></script>
+<script async="async" type="text/javascript" src="./Модуль sim800l. AT команды_files/form.js"></script>
+
+<!-- JS generated by theme -->
+
+<script>
+    
+
+	
+
+		(function(){
+			var html_jquery_obj = jQuery('html');
+
+			if (html_jquery_obj.length && (html_jquery_obj.is('.ie8') || html_jquery_obj.is('.ie9'))) {
+
+				var path = 'https://elschemo.ru/wp-content/themes/Newsmag/style.css';
+
+				jQuery.get(path, function(data) {
+
+					var str_split_separator = '#td_css_split_separator';
+					var arr_splits = data.split(str_split_separator);
+					var arr_length = arr_splits.length;
+
+					if (arr_length > 1) {
+
+						var dir_path = 'https://elschemo.ru/wp-content/themes/Newsmag';
+						var splited_css = '';
+
+						for (var i = 0; i < arr_length; i++) {
+							if (i > 0) {
+								arr_splits[i] = str_split_separator + ' ' + arr_splits[i];
+							}
+							//jQuery('head').append('<style>' + arr_splits[i] + '</style>');
+
+							var formated_str = arr_splits[i].replace(/\surl\(\'(?!data\:)/gi, function regex_function(str) {
+								return ' url(\'' + dir_path + '/' + str.replace(/url\(\'/gi, '').replace(/^\s+|\s+$/gm,'');
+							});
+
+							splited_css += "<style>" + formated_str + "</style>";
+						}
+
+						var td_theme_css = jQuery('link#td-theme-css');
+
+						if (td_theme_css.length) {
+							td_theme_css.after(splited_css);
+						}
+					}
+				});
+			}
+		})();
+
+	
+	
+</script>
+
+
+
+
+
+<!-- Dynamic page generated in 0.720 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2020-06-18 08:43:32 -->
+
+<!-- super cache --><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Модуль sim800l. AT команды_files/widget_iframe.1b3bc218a38dc1163b7a53028a57ef50.html" title="Twitter settings iframe" style="display: none;"></iframe><span style="border-radius: 3px !important; text-indent: 20px !important; width: auto !important; padding: 0px 4px 0px 0px !important; text-align: center !important; font: bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjZTYwMDIzIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(230, 0, 35) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; -webkit-font-smoothing: antialiased !important; top: 3648.92px; left: 1131.5px;">Save</span><span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; top: 3648.92px; left: 1389.5px;"></span></body></html>
