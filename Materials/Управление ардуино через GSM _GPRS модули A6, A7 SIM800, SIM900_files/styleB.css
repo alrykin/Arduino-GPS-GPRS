@@ -1,0 +1,44 @@
+.td-header-style-12 .td-header-menu-wrap-full .td-header-gradient:after {
+	background:none !important;
+}
+.arduino_ide_block{
+	display:block;
+}
+.arduino_ide_block:before{
+	content:'';
+	display:block;
+	background-color: #005c5f;
+	height:24px;
+}
+.arduino_ide_block:after{
+	content:'';
+	display:block;
+	background-color: #00979d;
+	height:24px;
+}
+.arduino_ide_block .head_arduino_ide_block{
+	display:block;
+	position:relative;
+	height:24px;
+	background-color: #00979d;
+}
+.arduino_ide_block .head_arduino_ide_block:before{
+	content:'Arduino_master';
+	display:block;
+	position:absolute;
+	left:10px;
+	bottom:-1px;
+	height:20px;
+	width:110px;
+	border-radius:4px 4px 0 0;
+	background: #eeeeee;
+	z-index:10;
+	font-size:13px;
+	color:#005c5f;
+	font-weight:300;
+	line-height:21px;
+	text-align:center;
+}
+.arduino_ide_block > .crayon-syntax{
+	margin:0 !important;
+}
